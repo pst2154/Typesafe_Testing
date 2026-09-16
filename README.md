@@ -23,7 +23,10 @@ python3 compare_jev_small_router.py
 Set `COMPACT_RESULTS=1` to print aggregate and adversarial summaries without the
 full per-case rows.
 
-The routing comparison is summarized in [ROUTING_REPORT.md](ROUTING_REPORT.md).
+Routing comparisons:
+
+- [Jev vs. Llama 3.2 1B](ROUTING_REPORT.md)
+- [Jev vs. Qwen3.8-27B](QWEN_ROUTING_REPORT.md)
 
 The repository contains no credentials, endpoint values, internal paths, or raw
 production data.
