@@ -27,6 +27,7 @@ Routing comparisons:
 
 - [Jev vs. Llama 3.2 1B](ROUTING_REPORT.md)
 - [Jev vs. Qwen3.8-27B](QWEN_ROUTING_REPORT.md)
+- [Detailed Jev vs. SOL and Qwen benchmark report](DETAILED_BENCHMARK_REPORT.md)
 
 The repository contains no credentials, endpoint values, internal paths, or raw
 production data.
