@@ -3,7 +3,7 @@ import importlib.util
 import os
 from transformers import AutoTokenizer
 
-spec=importlib.util.spec_from_file_location('structured','/opt/vllm/examples/features/diffusion_reads/structured_server.py')
+spec=importlib.util.spec_from_file_location('structured',os.environ.get('STRUCTURED_SERVER_PATH','/opt/vllm/examples/features/diffusion_reads/structured_server.py'))
 m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 m.CANVAS_LEN=32
 m.init_tokenizer(AutoTokenizer.from_pretrained(os.environ.get('MODEL_ID','nvidia/diffusiongemma-26B-A4B-it-NVFP4'),local_files_only=True))
