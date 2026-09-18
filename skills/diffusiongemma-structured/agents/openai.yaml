@@ -1,0 +1,4 @@
+interface:
+  display_name: "DiffusionGemma Structured Decisions"
+  short_description: "Call DiffusionGemma for typed AI judgments"
+  default_prompt: "Use $diffusiongemma-structured to turn this state into typed Choice, Noul, or Score judgments."

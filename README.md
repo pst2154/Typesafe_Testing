@@ -32,6 +32,19 @@ full per-case rows.
 Set `RESULT_PATH` when running the DiffusionGemma comparison to checkpoint each
 completed case and resume an interrupted run.
 
+## Shareable DiffusionGemma skill
+
+Install the reusable structured-decision skill with:
+
+```bash
+npx skills add pst2154/Typesafe_Testing --skill diffusiongemma-structured
+```
+
+The skill documents Choice, Noul, and Score design and includes a standard-library
+client that translates keyed TypeSafe-style questions to the DiffusionGemma wire
+format. Set `DIFFUSIONGEMMA_URL` at runtime; no service location or credential is
+embedded in the skill.
+
 Routing comparisons:
 
 - [Jev vs. Llama 3.2 1B](ROUTING_REPORT.md)
