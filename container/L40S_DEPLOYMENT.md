@@ -76,8 +76,3 @@ curl http://YOUR_HOST:8014/v1/systemone \
   -H 'Content-Type: application/json' \
   -d '{"model":"diffusiongemma","state":"Please refund my duplicate invoice.","questions":{"route":{"type":"choice","instructions":"Which team handles this request?","criteria":{"billing":"Payments, invoices, refunds","technical":"Software bugs, infrastructure outages"}}}}'
 ```
-
-## Test report
-
-Measured results and validation scope are documented separately in the
-[L40S test report](../results/l40s/REPORT.md).

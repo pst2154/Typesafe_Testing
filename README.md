@@ -38,8 +38,7 @@ The [DiffusionGemma container guide](container/README.md) includes the GHCR imag
 launch command, API example, and build recipe for the decision service and explorer.
 
 The [L40S FP8 deployment guide](container/L40S_DEPLOYMENT.md) covers pulling the
-container, launching the service, and using the UI/API. Measurements and validation
-findings are in the separate [L40S test report](results/l40s/REPORT.md).
+container, launching the service, and using the UI/API.
 
 Install the reusable structured-decision skill with:
 
