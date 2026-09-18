@@ -1,6 +1,6 @@
 # DiffusionGemma decision container
 
-Image: `ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54`
+Image: `ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1`
 
 This community image packages vLLM PR #57250 at commit
 `d2c2b5422d6e1b62fc9af68e16dc26a975d2aa23`, the structured decision server,
@@ -15,7 +15,7 @@ has been exercised on H100 80 GB and H100 NVL. The newly combined launcher was
 checked without starting a second full model on the occupied test GPU.
 
 ```bash
-docker pull ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54
+docker pull ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1
 docker volume create diffusiongemma-model-cache
 docker run --rm --name diffusiongemma --gpus '"device=0"' \
   --ipc=host \
@@ -23,7 +23,7 @@ docker run --rm --name diffusiongemma --gpus '"device=0"' \
   -e HF_HOME=/model-cache \
   -e MOE_BACKEND=marlin \
   -v diffusiongemma-model-cache:/model-cache \
-  ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54
+  ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1
 ```
 
 The first launch downloads `nvidia/diffusiongemma-26B-A4B-it-NVFP4` from Hugging
@@ -62,7 +62,7 @@ git clone https://github.com/vllm-project/vllm.git vllm
 git -C vllm checkout d2c2b5422d6e1b62fc9af68e16dc26a975d2aa23
 docker build -f Dockerfile.runtime \
   -t vllm-diffusiongemma-structured:pr57250-d2c2b54 .
-docker build -t ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54 .
+docker build -t ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1 .
 ```
 
 These are the source recipe and pinned vLLM revision; dependency resolution uses
@@ -70,7 +70,16 @@ upstream package repositories, so a source rebuild is not guaranteed bitwise
 identical to the published image. Prefer a published image digest for exact
 deployment pinning.
 
-## Terms
+## Template boundary fix
+
+Use the `-fix1` tag for question lists larger than ten with descriptive IDs.
+The upstream compact format concatenated IDs and labels, so names such as
+`reverse shell` could make `yes` and `no` occupy different token spans. This
+release preserves an explicit `: ` separator. Validation on H100 returned all
+306 answers for the reported request, and checks cover both sides of the
+ten-question formatting threshold. The original tag predates this fix.
+
+## Terms and notices
 
 See [NOTICE](NOTICE). The NVIDIA container license is retained inside the image
 at `/NGC-DL-CONTAINER-LICENSE`; vLLM and other components retain their own
