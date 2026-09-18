@@ -34,6 +34,9 @@ completed case and resume an interrupted run.
 
 ## Shareable DiffusionGemma skill
 
+The [DiffusionGemma container guide](container/README.md) includes the GHCR image,
+launch command, API example, and build recipe for the decision service and explorer.
+
 Install the reusable structured-decision skill with:
 
 ```bash

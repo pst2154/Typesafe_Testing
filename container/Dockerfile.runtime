@@ -1,0 +1,27 @@
+FROM dockerhub.nvidia.com/flashinfer/flashinfer-ci-cu130:20260822-9a0e83b
+
+ARG VLLM_PR_SHA=d2c2b5422d6e1b62fc9af68e16dc26a975d2aa23
+LABEL org.opencontainers.image.source="https://github.com/vllm-project/vllm/pull/57250"
+LABEL org.opencontainers.image.revision="${VLLM_PR_SHA}"
+
+RUN python -m pip install --no-cache-dir uv
+COPY vllm /opt/vllm
+WORKDIR /opt/vllm
+ENV VLLM_USE_PRECOMPILED=1 \
+    VLLM_PRECOMPILED_WHEEL_VARIANT=cu130 \
+    SETUPTOOLS_SCM_PRETEND_VERSION=0.29.1rc1.dev339
+# Install the pinned Python/runtime dependencies while reusing the compatible
+# CUDA 13 PyTorch already supplied by the base image.
+RUN uv pip install --system \
+    -r requirements/common.txt \
+    -r requirements/cuda.txt \
+    --torch-backend=auto
+# The FlashInfer CI base already provides the CUDA/PyTorch runtime. Installing
+# the editable package with --no-deps avoids resolving that stack twice.
+RUN uv pip install --system --editable . --torch-backend=auto --no-deps
+
+COPY run-structured-diffusiongemma.sh /usr/local/bin/run-structured-diffusiongemma
+RUN chmod 0755 /usr/local/bin/run-structured-diffusiongemma
+
+EXPOSE 8000 8011
+ENTRYPOINT ["/usr/local/bin/run-structured-diffusiongemma"]

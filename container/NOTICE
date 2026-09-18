@@ -1,0 +1,13 @@
+This software contains source code provided by NVIDIA Corporation.
+
+The container includes NVIDIA components governed by the NVIDIA Deep Learning
+Container License retained at /NGC-DL-CONTAINER-LICENSE and their applicable
+component licenses. Redistribution and use are subject to those terms. This
+application does not replace or relax upstream license grants or restrictions.
+
+vLLM is licensed under Apache-2.0; its license is retained at /opt/vllm/LICENSE.
+Other included components retain their respective licenses and notices.
+Model weights are downloaded separately at runtime and remain subject to the
+model publisher's terms. No model weights or API credentials are supplied.
+
+This is a community application and is not an official NVIDIA release.
