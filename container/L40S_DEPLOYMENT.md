@@ -25,25 +25,30 @@ MoE configuration was available; performance may be suboptimal.
 
 ## Reproduce the service
 
-Use the structured runtime and fixed adapter sources from
-[Typesafe_Testing](https://github.com/pst2154/Typesafe_Testing).
-The measured trial used the local runtime image above with the fixed
-`container/structured_server.py` mounted over its original adapter. It did not
-validate a fresh GHCR pull. Obtain/build that pinned runtime first using the
-repository's runtime-container instructions. Run the following from the checkout:
+Pull the published all-in-one GHCR image. It includes the patched runtime,
+fixed structured adapter, TypeSafe-compatible gateway, and Decision Lab UI.
+**No repository checkout, source build, or separately launched gateway is needed.**
+
+Requires Linux x86-64, Docker with NVIDIA Container Toolkit, a CUDA 13-compatible
+driver, one L40S, and sufficient disk space for the image and model cache.
+The registry manifest was checked. The performance measurements below came from
+the same pinned runtime with the fixed adapter and a separately launched gateway;
+the exact combined-image command below has not yet been end-to-end retested on
+L40S. Do not interpret those measurements as a fresh GHCR deployment test.
 
 ```sh
+docker pull ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1
 docker volume create dgemma-l40s-models
 docker volume create dgemma-l40s-cache
 docker run -d --name dgemma-l40s --gpus 'device=0' \
-  --network host --shm-size 8g \
+  --shm-size 8g -p 8014:8012 \
   -v dgemma-l40s-models:/cache/huggingface \
   -v dgemma-l40s-cache:/tmp/.cache \
-  -v "$PWD/container/structured_server.py:/opt/vllm/examples/features/diffusion_reads/structured_server.py:ro" \
   -e HOME=/tmp -e HF_HOME=/cache/huggingface -e HF_XET_HIGH_PERFORMANCE=1 \
   -e MODEL_ID=RedHatAI/diffusiongemma-26B-A4B-it-FP8-dynamic \
-  -e MOE_BACKEND=auto -e UPSTREAM_PORT=8200 -e STRUCTURED_PORT=8110 \
-  vllm-diffusiongemma-structured:pr57250-d2c2b54 \
+  -e MOE_BACKEND=auto -e DIFFUSION_SAMPLES=1 \
+  -e GATEWAY_MODEL_NAME=diffusiongemma-fp8-l40s \
+  ghcr.io/pst2154/diffusiongemma-structured:pr57250-d2c2b54-fix1 \
   --revision 3b3dae4697494da5a290e9c0461954449e76c4f5 \
   --max-model-len 16384 --max-num-seqs 8 \
   --max-num-batched-tokens 4096 --gpu-memory-utilization 0.9
@@ -53,22 +58,29 @@ Use a GPU assigned to your allocation, not an arbitrary device on a shared host.
 The runtime entrypoint already supplies canvas 32, language-model-only, Triton
 attention, prefix caching and async scheduling. The later sequence-limit argument
 overrides its built-in 32; vLLM logs a duplicate-argument warning but confirms 8.
-Named-volume commands above adapt the trial's bind mounts for portability.
+`MOE_BACKEND=auto` overrides the image's NVFP4-oriented Marlin default.
+The model weights are downloaded at first startup, not embedded in the image.
+Named volumes preserve model downloads and compilation caches between runs.
+If required, supply `HF_TOKEN` through the environment, never in a published file.
 
-After `curl -f http://127.0.0.1:8110/health` succeeds, launch the UI/API gateway:
+Watch startup and verify the service:
 
 ```sh
-DIFFUSION_URLS=http://127.0.0.1:8110/v1/chat/completions \
-RAW_URLS=http://127.0.0.1:8200/v1/chat/completions \
-GATEWAY_PORT=8014 GATEWAY_MODEL_NAME=diffusiongemma-fp8-l40s \
-DIFFUSION_SAMPLES=1 python3 container/gateway.py
+docker logs -f dgemma-l40s
+# In another terminal, after initialization:
+curl -f http://localhost:8014/health
 ```
 
-Keep this process running under your service supervisor. The gateway serves the
-adjacent `explorer.html` at `/` and TypeSafe-compatible requests at `/v1/systemone`.
-Its health endpoint alone does not prove the model is ready. No API credentials
-are required in this isolated trial; set `GATEWAY_API_KEY` and use network access
-controls/TLS before wider exposure. Raw and structured ports also need protection.
+Open **http://localhost:8014/** for the UI. The same port serves
+`POST /v1/systemone` and `POST /v1/chat/completions`. For another computer, replace
+`localhost` with the deployment host. The launcher starts the model, structured
+adapter, and UI/API gateway together. Internal model ports are not published.
+Use the real request below as well as the health check to verify inference.
+
+This command exposes an unauthenticated service on host port 8014. Use network
+access controls and an authenticated TLS reverse proxy for shared deployments.
+For local-only access, use `-p 127.0.0.1:8014:8012`. The optional
+`GATEWAY_API_KEY` protects API calls, but the bundled UI has no token-entry control.
 
 ```sh
 curl http://YOUR_HOST:8014/v1/systemone \
