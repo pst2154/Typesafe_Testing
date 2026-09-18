@@ -37,6 +37,10 @@ completed case and resume an interrupted run.
 The [DiffusionGemma container guide](container/README.md) includes the GHCR image,
 launch command, API example, and build recipe for the decision service and explorer.
 
+The [experimental L40S FP8 deployment guide](container/L40S_DEPLOYMENT.md)
+documents the tested configuration, 1,000-token concurrency results, cold-start
+overhead, and an unresolved multi-question correctness issue.
+
 Install the reusable structured-decision skill with:
 
 ```bash
