@@ -18,6 +18,7 @@ Run:
 ```bash
 python3 compare_typesafe_sol.py
 python3 compare_jev_small_router.py
+python3 compare_typesafe_needle.py
 ```
 
 Set `COMPACT_RESULTS=1` to print aggregate and adversarial summaries without the
@@ -28,6 +29,7 @@ Routing comparisons:
 - [Jev vs. Llama 3.2 1B](ROUTING_REPORT.md)
 - [Jev vs. Qwen3.8-27B](QWEN_ROUTING_REPORT.md)
 - [Detailed Jev vs. SOL and Qwen benchmark report](DETAILED_BENCHMARK_REPORT.md)
+- [TypeSafe vs. Needle 3 classification benchmark](NEEDLE_TYPESAFE_REPORT.md)
 
 The repository contains no credentials, endpoint values, internal paths, or raw
 production data.
