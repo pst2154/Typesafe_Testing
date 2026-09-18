@@ -1,0 +1,1734 @@
+{
+  "timestamp_utc": "2026-09-18T03:55:50Z",
+  "case_count": 46,
+  "scored_case_count": 40,
+  "configuration": {
+    "typesafe_requested_model": "jev-latest",
+    "typesafe_reported_models": [
+      "jev-1.13.0"
+    ],
+    "diffusion_steps": 1,
+    "diffusion_samples": "adaptive, one to four",
+    "diffusion_think_tokens": 0,
+    "seed": 42
+  },
+  "aggregate": {
+    "typesafe": {
+      "correct": 37,
+      "scored": 40,
+      "accuracy": 0.925,
+      "mean_ms": 181.20522439114765,
+      "p50_ms": 168.23049999948125,
+      "p95_ms": 246.53422799747204,
+      "mean_clear_certainty": 0.89525,
+      "mean_ambiguous_certainty": 0.6683333333333333
+    },
+    "diffusiongemma": {
+      "correct": 39,
+      "scored": 40,
+      "accuracy": 0.975,
+      "mean_ms": 71.63951117415664,
+      "p50_ms": 70.454687000165,
+      "p95_ms": 98.02300500450656,
+      "mean_clear_certainty": 0.9458645389680568,
+      "mean_ambiguous_certainty": 0.8566290119622539
+    }
+  },
+  "by_primitive": {
+    "noul": {
+      "typesafe": {
+        "correct": 11,
+        "scored": 12,
+        "accuracy": 0.9166666666666666,
+        "mean_ms": 211.81074300121898,
+        "p50_ms": 180.73480050225044,
+        "p95_ms": 561.6915900027379,
+        "mean_clear_certainty": 0.8516666666666667,
+        "mean_ambiguous_certainty": 0.73
+      },
+      "diffusiongemma": {
+        "correct": 12,
+        "scored": 12,
+        "accuracy": 1.0,
+        "mean_ms": 69.03626521463073,
+        "p50_ms": 69.11036949895788,
+        "p95_ms": 95.90533200389473,
+        "mean_clear_certainty": 0.9405325101741033,
+        "mean_ambiguous_certainty": 0.9986980461465504
+      }
+    },
+    "choice": {
+      "typesafe": {
+        "correct": 13,
+        "scored": 14,
+        "accuracy": 0.9285714285714286,
+        "mean_ms": 171.16630674854605,
+        "p50_ms": 172.70707550051156,
+        "p95_ms": 208.46962899668142,
+        "mean_clear_certainty": 0.9,
+        "mean_ambiguous_certainty": 0.6100000000000001
+      },
+      "diffusiongemma": {
+        "correct": 14,
+        "scored": 14,
+        "accuracy": 1.0,
+        "mean_ms": 73.70449300015025,
+        "p50_ms": 70.40408249667962,
+        "p95_ms": 98.62885899929097,
+        "mean_clear_certainty": 0.9658722279952668,
+        "mean_ambiguous_certainty": 0.9303539882772788
+      }
+    },
+    "score": {
+      "typesafe": {
+        "correct": 13,
+        "scored": 14,
+        "accuracy": 0.9285714285714286,
+        "mean_ms": 164.46431324993682,
+        "p50_ms": 161.69343850197038,
+        "p95_ms": 198.83898599800887,
+        "mean_clear_certainty": 0.9278571428571428,
+        "mean_ambiguous_certainty": 0.665
+      },
+      "diffusiongemma": {
+        "correct": 13,
+        "scored": 14,
+        "accuracy": 0.9285714285714286,
+        "mean_ms": 71.85236956274821,
+        "p50_ms": 71.87120000162395,
+        "p95_ms": 103.15997900033835,
+        "mean_clear_certainty": 0.9304271603356639,
+        "mean_ambiguous_certainty": 0.6408350014629327
+      }
+    }
+  },
+  "adversarial": {
+    "typesafe": {
+      "correct": 10,
+      "scored": 12,
+      "accuracy": 0.8333333333333334,
+      "mean_ms": 188.5541084993747,
+      "p50_ms": 174.2583464983909,
+      "p95_ms": 283.66987600020366,
+      "mean_clear_certainty": 0.7616666666666666,
+      "mean_ambiguous_certainty": null
+    },
+    "diffusiongemma": {
+      "correct": 11,
+      "scored": 12,
+      "accuracy": 0.9166666666666666,
+      "mean_ms": 70.59086433400807,
+      "p50_ms": 70.44448749729781,
+      "p95_ms": 71.96834200294688,
+      "mean_clear_certainty": 0.9005865792769906,
+      "mean_ambiguous_certainty": null
+    }
+  },
+  "agreement": 0.9130434782608695,
+  "rows": [
+    {
+      "kind": "noul",
+      "name": "explicit_duplicate_refund",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "refund_true",
+      "adversarial": false,
+      "char_count": 39,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.99,
+        "certainty": 0.98,
+        "probabilities": null,
+        "latency_ms": 561.6915900027379
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9914294082649542,
+        "certainty": 0.9914294082649542,
+        "probabilities": {
+          "yes": 0.9914294082649542,
+          "no": 0.00857059173504578
+        },
+        "samples": 4,
+        "engine_ms": 66.97773933410645,
+        "latency_ms": 68.82535000477219
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "explicit_money_back",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 36,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.99,
+        "certainty": 0.98,
+        "probabilities": null,
+        "latency_ms": 131.95053200615803
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9853152836553518,
+        "certainty": 0.9853152836553518,
+        "probabilities": {
+          "yes": 0.9853152836553518,
+          "no": 0.014684716344648262
+        },
+        "samples": 4,
+        "engine_ms": 66.86949729919434,
+        "latency_ms": 68.91098499909276
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "explicit_reverse",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 32,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.99,
+        "certainty": 0.98,
+        "probabilities": null,
+        "latency_ms": 145.4394920001505
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9929261725105882,
+        "certainty": 0.9929261725105882,
+        "probabilities": {
+          "yes": 0.9929261725105882,
+          "no": 0.007073827489411891
+        },
+        "samples": 4,
+        "engine_ms": 68.36104393005371,
+        "latency_ms": 70.34301100065932
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "refund_status",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "refund_false",
+      "adversarial": false,
+      "char_count": 52,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.09,
+        "certainty": 0.8200000000000001,
+        "probabilities": null,
+        "latency_ms": 219.1927269959706
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0007577468036992266,
+        "certainty": 0.9992422531963008,
+        "probabilities": {
+          "yes": 0.0007577468036992266,
+          "no": 0.9992422531963008
+        },
+        "samples": 4,
+        "engine_ms": 67.24095344543457,
+        "latency_ms": 69.309753998823
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "duplicate_question",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 24,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.09,
+        "certainty": 0.8200000000000001,
+        "probabilities": null,
+        "latency_ms": 187.9228630059515
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0013670151748577878,
+        "certainty": 0.9986329848251422,
+        "probabilities": {
+          "yes": 0.0013670151748577878,
+          "no": 0.9986329848251422
+        },
+        "samples": 4,
+        "engine_ms": 66.23101234436035,
+        "latency_ms": 68.43052899785107
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "late_item",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 40,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.02,
+        "certainty": 0.96,
+        "probabilities": null,
+        "latency_ms": 176.67228000209434
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0003364363037155757,
+        "certainty": 0.9996635636962845,
+        "probabilities": {
+          "yes": 0.0003364363037155757,
+          "no": 0.9996635636962845
+        },
+        "samples": 4,
+        "engine_ms": 65.89031219482422,
+        "latency_ms": 67.91983099537902
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "implicit_nonpayment",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 54,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.2,
+        "certainty": 0.6,
+        "probabilities": null,
+        "latency_ms": 160.36630099551985
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0020742034967277693,
+        "certainty": 0.9979257965032723,
+        "probabilities": {
+          "yes": 0.0020742034967277693,
+          "no": 0.9979257965032723
+        },
+        "samples": 4,
+        "engine_ms": 68.06826591491699,
+        "latency_ms": 70.05236099939793
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "conditional_future",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 50,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.07,
+        "certainty": 0.86,
+        "probabilities": null,
+        "latency_ms": 162.94298200227786
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0005297042101715574,
+        "certainty": 0.9994702957898285,
+        "probabilities": {
+          "yes": 0.0005297042101715574,
+          "no": 0.9994702957898285
+        },
+        "samples": 4,
+        "engine_ms": 66.41364097595215,
+        "latency_ms": 68.5571899957722
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "explicit_duplicate_refund_long",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "refund_true",
+      "adversarial": false,
+      "char_count": 11744,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.99,
+        "certainty": 0.98,
+        "probabilities": null,
+        "latency_ms": 184.79732100240653
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.8437904202024448,
+        "certainty": 0.8437904202024448,
+        "probabilities": {
+          "yes": 0.8437904202024448,
+          "no": 0.15620957979755526
+        },
+        "samples": 4,
+        "engine_ms": 93.88208389282227,
+        "latency_ms": 95.90533200389473
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "refund_status_long",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "refund_false",
+      "adversarial": false,
+      "char_count": 11757,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.14,
+        "certainty": 0.72,
+        "probabilities": null,
+        "latency_ms": 140.34183700277936
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 7.672848861276329e-05,
+        "certainty": 0.9999232715113873,
+        "probabilities": {
+          "yes": 7.672848861276329e-05,
+          "no": 0.9999232715113873
+        },
+        "samples": 1,
+        "engine_ms": 35.781145095825195,
+        "latency_ms": 37.82326899818145
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "inject_yes_without_request",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 113,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.58,
+        "certainty": 0.15999999999999992,
+        "probabilities": null,
+        "latency_ms": 138.932683999883
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.4260725213155797,
+        "certainty": 0.5739274786844203,
+        "probabilities": {
+          "yes": 0.4260725213155797,
+          "no": 0.5739274786844203
+        },
+        "samples": 4,
+        "engine_ms": 66.67184829711914,
+        "latency_ms": 68.68347500130767
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "inject_false_with_request",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 103,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.97,
+        "certainty": 0.94,
+        "probabilities": null,
+        "latency_ms": 224.89568900346057
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9045180263147771,
+        "certainty": 0.9045180263147771,
+        "probabilities": {
+          "yes": 0.9045180263147771,
+          "no": 0.09548197368522289
+        },
+        "samples": 4,
+        "engine_ms": 69.63062286376953,
+        "latency_ms": 71.83128200267674
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "quoted_refund_phrase",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 94,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.03,
+        "certainty": 0.94,
+        "probabilities": null,
+        "latency_ms": 246.53422799747204
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0007557057306219863,
+        "certainty": 0.999244294269378,
+        "probabilities": {
+          "yes": 0.0007557057306219863,
+          "no": 0.999244294269378
+        },
+        "samples": 4,
+        "engine_ms": 68.27139854431152,
+        "latency_ms": 70.26183000562014
+      }
+    },
+    {
+      "kind": "noul",
+      "name": "negated_refund",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 77,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.03,
+        "certainty": 0.94,
+        "probabilities": null,
+        "latency_ms": 283.66987600020366
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.002223035041788518,
+        "certainty": 0.9977769649582116,
+        "probabilities": {
+          "yes": 0.002223035041788518,
+          "no": 0.9977769649582116
+        },
+        "samples": 4,
+        "engine_ms": 67.60263442993164,
+        "latency_ms": 69.65351400140207
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "duplicate_charge",
+      "expected": "billing",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "choice_billing",
+      "adversarial": false,
+      "char_count": 45,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 1.0,
+        "probabilities": {
+          "technical": 0.0,
+          "other": 0.0,
+          "billing": 1.0,
+          "account_access": 0.0
+        },
+        "latency_ms": 147.03190599539084
+      },
+      "diffusiongemma": {
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.9957401243361069,
+        "probabilities": {
+          "billing": 0.9957401243361069,
+          "technical": 0.0029644030103516857,
+          "account_access": 5.620139242670051e-06,
+          "other": 0.001289852514298739
+        },
+        "samples": 4,
+        "engine_ms": 68.13502311706543,
+        "latency_ms": 70.15182200120762
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "vat_invoice",
+      "expected": "billing",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 50,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 1.0,
+        "probabilities": {
+          "account_access": 0.0,
+          "other": 0.0,
+          "billing": 1.0,
+          "technical": 0.0
+        },
+        "latency_ms": 182.17750699841417
+      },
+      "diffusiongemma": {
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.9945296568377354,
+        "probabilities": {
+          "billing": 0.9945296568377354,
+          "technical": 0.003819294784618406,
+          "account_access": 1.773861863727636e-05,
+          "other": 0.001633309759008871
+        },
+        "samples": 4,
+        "engine_ms": 68.56703758239746,
+        "latency_ms": 70.6896109986701
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "api_500",
+      "expected": "technical",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "choice_technical",
+      "adversarial": false,
+      "char_count": 49,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 1.0,
+        "probabilities": {
+          "billing": 0.0,
+          "technical": 1.0,
+          "other": 0.0,
+          "account_access": 0.0
+        },
+        "latency_ms": 124.5960020023631
+      },
+      "diffusiongemma": {
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.9989065855446462,
+        "probabilities": {
+          "billing": 0.0005425153630612694,
+          "technical": 0.9989065855446462,
+          "account_access": 2.0510521499673443e-05,
+          "other": 0.0005303885707929239
+        },
+        "samples": 4,
+        "engine_ms": 67.79766082763672,
+        "latency_ms": 69.86753700039117
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "webhook_signature",
+      "expected": "technical",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 64,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 1.0,
+        "probabilities": {
+          "billing": 0.0,
+          "technical": 1.0,
+          "other": 0.0,
+          "account_access": 0.0
+        },
+        "latency_ms": 171.65965599997435
+      },
+      "diffusiongemma": {
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.99876989893514,
+        "probabilities": {
+          "billing": 0.0005204465071483792,
+          "technical": 0.99876989893514,
+          "account_access": 1.2088118341492948e-05,
+          "other": 0.0006975664393701191
+        },
+        "samples": 4,
+        "engine_ms": 68.75181198120117,
+        "latency_ms": 70.78410800022539
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "forgot_password",
+      "expected": "account_access",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 40,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 1.0,
+        "probabilities": {
+          "technical": 0.0,
+          "billing": 0.0,
+          "account_access": 1.0,
+          "other": 0.0
+        },
+        "latency_ms": 140.1220089974231
+      },
+      "diffusiongemma": {
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 0.968983704540569,
+        "probabilities": {
+          "billing": 0.0026314096577011448,
+          "technical": 0.004190228982571724,
+          "account_access": 0.968983704540569,
+          "other": 0.024194656819158163
+        },
+        "samples": 4,
+        "engine_ms": 68.17126274108887,
+        "latency_ms": 70.2605050028069
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "lost_mfa",
+      "expected": "account_access",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 47,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 1.0,
+        "probabilities": {
+          "other": 0.0,
+          "technical": 0.0,
+          "account_access": 1.0,
+          "billing": 0.0
+        },
+        "latency_ms": 173.75449500104878
+      },
+      "diffusiongemma": {
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 0.9491033707018051,
+        "probabilities": {
+          "billing": 0.002929242449027399,
+          "technical": 0.014246139607786907,
+          "account_access": 0.9491033707018051,
+          "other": 0.03372124724138056
+        },
+        "samples": 4,
+        "engine_ms": 67.83795356750488,
+        "latency_ms": 69.88548400113359
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "roadmap",
+      "expected": "other",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 46,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "other",
+        "value": "other",
+        "certainty": 0.89,
+        "probabilities": {
+          "account_access": 0.0,
+          "technical": 0.08,
+          "other": 0.92,
+          "billing": 0.0
+        },
+        "latency_ms": 179.7549289985909
+      },
+      "diffusiongemma": {
+        "prediction": "other",
+        "value": "other",
+        "certainty": 0.9986275113129549,
+        "probabilities": {
+          "billing": 0.00037002386471394257,
+          "technical": 0.0009728393588718969,
+          "account_access": 2.9625463459216207e-05,
+          "other": 0.9986275113129549
+        },
+        "samples": 4,
+        "engine_ms": 68.61424446105957,
+        "latency_ms": 70.59190400468651
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "job_application",
+      "expected": "other",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 42,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "other",
+        "value": "other",
+        "certainty": 1.0,
+        "probabilities": {
+          "billing": 0.0,
+          "technical": 0.0,
+          "account_access": 0.0,
+          "other": 1.0
+        },
+        "latency_ms": 135.08701500541065
+      },
+      "diffusiongemma": {
+        "prediction": "other",
+        "value": "other",
+        "certainty": 0.9957696713315052,
+        "probabilities": {
+          "billing": 0.0019847937154450442,
+          "technical": 0.002133497127804232,
+          "account_access": 0.00011203782524558541,
+          "other": 0.9957696713315052
+        },
+        "samples": 4,
+        "engine_ms": 66.9248104095459,
+        "latency_ms": 69.07111300097313
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "charge_and_lockout",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 65,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.66,
+        "probabilities": {
+          "technical": 0.0,
+          "account_access": 0.26,
+          "billing": 0.74,
+          "other": 0.0
+        },
+        "latency_ms": 200.57857000210788
+      },
+      "diffusiongemma": {
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.8760571690903158,
+        "probabilities": {
+          "billing": 0.8760571690903158,
+          "technical": 0.10037716722834289,
+          "account_access": 0.016857980098910538,
+          "other": 0.006707683582430624
+        },
+        "samples": 4,
+        "engine_ms": 68.45760345458984,
+        "latency_ms": 70.43416899978183
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "downgrade_breakage",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 62,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.56,
+        "probabilities": {
+          "account_access": 0.0,
+          "billing": 0.33,
+          "technical": 0.67,
+          "other": 0.0
+        },
+        "latency_ms": 208.35343699582154
+      },
+      "diffusiongemma": {
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.9846508074642417,
+        "probabilities": {
+          "billing": 0.012202045177843252,
+          "technical": 0.9846508074642417,
+          "account_access": 5.471613486100711e-05,
+          "other": 0.0030924312230541234
+        },
+        "samples": 4,
+        "engine_ms": 67.85821914672852,
+        "latency_ms": 69.92131999868434
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "duplicate_charge_long",
+      "expected": "billing",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "choice_billing",
+      "adversarial": false,
+      "char_count": 11750,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 1.0,
+        "probabilities": {
+          "billing": 1.0,
+          "account_access": 0.0,
+          "technical": 0.0,
+          "other": 0.0
+        },
+        "latency_ms": 155.65265499753878
+      },
+      "diffusiongemma": {
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.9558187266756166,
+        "probabilities": {
+          "billing": 0.9558187266756166,
+          "technical": 0.00435025790055139,
+          "account_access": 3.177988473909669e-05,
+          "other": 0.03979923553909282
+        },
+        "samples": 4,
+        "engine_ms": 96.50468826293945,
+        "latency_ms": 98.62885899929097
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "api_500_long",
+      "expected": "technical",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "choice_technical",
+      "adversarial": false,
+      "char_count": 11754,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 1.0,
+        "probabilities": {
+          "technical": 1.0,
+          "billing": 0.0,
+          "other": 0.0,
+          "account_access": 0.0
+        },
+        "latency_ms": 196.10437299706973
+      },
+      "diffusiongemma": {
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.966076921344722,
+        "probabilities": {
+          "billing": 0.0007997625049621048,
+          "technical": 0.966076921344722,
+          "account_access": 1.056226735256843e-05,
+          "other": 0.033112753882963454
+        },
+        "samples": 4,
+        "engine_ms": 95.97396850585938,
+        "latency_ms": 98.02300500450656
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "inject_technical_on_billing",
+      "expected": "billing",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 76,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.97,
+        "probabilities": {
+          "billing": 0.98,
+          "other": 0.0,
+          "account_access": 0.0,
+          "technical": 0.02
+        },
+        "latency_ms": 195.9693429962499
+      },
+      "diffusiongemma": {
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.8366480653802196,
+        "probabilities": {
+          "billing": 0.8366480653802196,
+          "technical": 0.15387097129275912,
+          "account_access": 0.00020543778434096356,
+          "other": 0.009275525542680314
+        },
+        "samples": 4,
+        "engine_ms": 68.2671070098877,
+        "latency_ms": 70.41376999404747
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "fake_json_on_technical",
+      "expected": "technical",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 81,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "billing",
+        "value": "billing",
+        "certainty": 0.35,
+        "probabilities": {
+          "account_access": 0.0,
+          "other": 0.0,
+          "billing": 0.51,
+          "technical": 0.49
+        },
+        "latency_ms": 151.80529999634018
+      },
+      "diffusiongemma": {
+        "prediction": "technical",
+        "value": "technical",
+        "certainty": 0.9958701226967077,
+        "probabilities": {
+          "billing": 0.0029839428267863454,
+          "technical": 0.9958701226967077,
+          "account_access": 1.5147009428268712e-05,
+          "other": 0.0011307874670775865
+        },
+        "samples": 4,
+        "engine_ms": 68.5734748840332,
+        "latency_ms": 70.73749900155235
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "billing_keywords_on_access",
+      "expected": "account_access",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 142,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 1.0,
+        "probabilities": {
+          "billing": 0.0,
+          "other": 0.0,
+          "account_access": 1.0,
+          "technical": 0.0
+        },
+        "latency_ms": 208.46962899668142
+      },
+      "diffusiongemma": {
+        "prediction": "account_access",
+        "value": "account_access",
+        "certainty": 0.8728163997466465,
+        "probabilities": {
+          "billing": 0.022384653268982185,
+          "technical": 0.036141813112406294,
+          "account_access": 0.8728163997466465,
+          "other": 0.06865713387196501
+        },
+        "samples": 4,
+        "engine_ms": 68.32671165466309,
+        "latency_ms": 70.39439499931177
+      }
+    },
+    {
+      "kind": "choice",
+      "name": "inject_access_on_other",
+      "expected": "other",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 75,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "other",
+        "value": "other",
+        "certainty": 0.39,
+        "probabilities": {
+          "account_access": 0.44,
+          "technical": 0.02,
+          "other": 0.54,
+          "billing": 0.0
+        },
+        "latency_ms": 167.54408199631143
+      },
+      "diffusiongemma": {
+        "prediction": "other",
+        "value": "other",
+        "certainty": 0.9945504325493603,
+        "probabilities": {
+          "billing": 0.0019020981222422784,
+          "technical": 0.0034405697175281737,
+          "account_access": 0.00010689961086919664,
+          "other": 0.9945504325493603
+        },
+        "samples": 4,
+        "engine_ms": 67.38424301147461,
+        "latency_ms": 69.41678699513432
+      }
+    },
+    {
+      "kind": "score",
+      "name": "heading_typo",
+      "expected": 0,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "score_cosmetic",
+      "adversarial": false,
+      "char_count": 47,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 0,
+        "value": 0.03,
+        "certainty": 0.97,
+        "probabilities": {
+          "0": 0.97,
+          "1": 0.03,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "latency_ms": 152.20609899552073
+      },
+      "diffusiongemma": {
+        "prediction": 0,
+        "value": 0.027883595281231965,
+        "certainty": 0.9890441714530542,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.9890441714530542,
+          "Minor degradation with a practical workaround.": 0.0013623506600676238,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.002259189039470214,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.007334288847407983
+        },
+        "samples": 4,
+        "engine_ms": 68.91417503356934,
+        "latency_ms": 71.05226899875561
+      }
+    },
+    {
+      "kind": "score",
+      "name": "button_alignment",
+      "expected": 0,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 49,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 0,
+        "value": 0.02,
+        "certainty": 0.98,
+        "probabilities": {
+          "0": 0.98,
+          "1": 0.02,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "latency_ms": 143.78127300005872
+      },
+      "diffusiongemma": {
+        "prediction": 0,
+        "value": 0.03553614541902639,
+        "certainty": 0.9857972458555042,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.9857972458555042,
+          "Minor degradation with a practical workaround.": 0.0021351190765112795,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.002801878861438824,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.009265756206545808
+        },
+        "samples": 4,
+        "engine_ms": 69.8237419128418,
+        "latency_ms": 71.7666350028594
+      }
+    },
+    {
+      "kind": "score",
+      "name": "browser_workaround",
+      "expected": 1,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 45,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 2,
+        "value": 1.69,
+        "certainty": 0.68,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.31,
+          "2": 0.69,
+          "3": 0.0
+        },
+        "latency_ms": 166.2748350063339
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 1.4007746865937247,
+        "certainty": 0.5931274564712056,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.0052540038914693395,
+          "Minor degradation with a practical workaround.": 0.5931274564712056,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.397208388789456,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.004410150847869003
+        },
+        "samples": 4,
+        "engine_ms": 69.36478614807129,
+        "latency_ms": 71.3201089965878
+      }
+    },
+    {
+      "kind": "score",
+      "name": "notification_delay",
+      "expected": 1,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 71,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.0,
+        "certainty": 0.99,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.99,
+          "2": 0.01,
+          "3": 0.0
+        },
+        "latency_ms": 191.70146500255214
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 1.0746348109010557,
+        "certainty": 0.9202606672265287,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.004436504437549896,
+          "Minor degradation with a practical workaround.": 0.9202606672265287,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.0715343413332366,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.0037684870026847366
+        },
+        "samples": 4,
+        "engine_ms": 69.49663162231445,
+        "latency_ms": 71.41924899769947
+      }
+    },
+    {
+      "kind": "score",
+      "name": "partial_checkout",
+      "expected": 2,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 64,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 2,
+        "value": 2.03,
+        "certainty": 0.97,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.97,
+          "3": 0.03
+        },
+        "latency_ms": 168.91691800265107
+      },
+      "diffusiongemma": {
+        "prediction": 2,
+        "value": 2.0071324587924866,
+        "certainty": 0.9757012935955885,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.0016627088208244316,
+          "Minor degradation with a practical workaround.": 0.006089060574725696,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.9757012935955885,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.01654693700886133
+        },
+        "samples": 4,
+        "engine_ms": 70.74666023254395,
+        "latency_ms": 72.8360880020773
+      }
+    },
+    {
+      "kind": "score",
+      "name": "write_api_down",
+      "expected": 2,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 60,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 2,
+        "value": 2.04,
+        "certainty": 0.96,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.96,
+          "3": 0.04
+        },
+        "latency_ms": 175.48554699897068
+      },
+      "diffusiongemma": {
+        "prediction": 2,
+        "value": 2.012340142737005,
+        "certainty": 0.9745245945512928,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.0014041946744808706,
+          "Minor degradation with a practical workaround.": 0.0044613393441296275,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.9745245945512928,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.019609871430096647
+        },
+        "samples": 4,
+        "engine_ms": 69.87977027893066,
+        "latency_ms": 72.0149839980877
+      }
+    },
+    {
+      "kind": "score",
+      "name": "auth_bypass",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "score_critical",
+      "adversarial": false,
+      "char_count": 68,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 3.0,
+        "certainty": 1.0,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.0
+        },
+        "latency_ms": 146.3372430007439
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.989302289269148,
+        "certainty": 0.9931589125868168,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.001338163094688113,
+          "Minor degradation with a practical workaround.": 0.0011802971282925071,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.004322627190202629,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.9931589125868168
+        },
+        "samples": 4,
+        "engine_ms": 70.53685188293457,
+        "latency_ms": 72.53594299982069
+      }
+    },
+    {
+      "kind": "score",
+      "name": "data_corruption",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 65,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 3.0,
+        "certainty": 1.0,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.0
+        },
+        "latency_ms": 157.11204199760687
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.9909693854100787,
+        "certainty": 0.9941200493186682,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.0011833155364848545,
+          "Minor degradation with a practical workaround.": 0.0007840328356198249,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.003912602309227153,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.9941200493186682
+        },
+        "samples": 4,
+        "engine_ms": 70.25623321533203,
+        "latency_ms": 72.34652400074992
+      }
+    },
+    {
+      "kind": "score",
+      "name": "unknown_latency_scope",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 77,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 0.9,
+        "certainty": 0.81,
+        "probabilities": {
+          "0": 0.15,
+          "1": 0.81,
+          "2": 0.04,
+          "3": 0.0
+        },
+        "latency_ms": 186.3415849948069
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 1.490319800401387,
+        "certainty": 0.5033361656999421,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.005157746471746265,
+          "Minor degradation with a practical workaround.": 0.5033361656999421,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.48753462878348985,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.0039714590448217514
+        },
+        "samples": 4,
+        "engine_ms": 70.16229629516602,
+        "latency_ms": 72.22449200344272
+      }
+    },
+    {
+      "kind": "score",
+      "name": "single_crash",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 63,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.29,
+        "certainty": 0.52,
+        "probabilities": {
+          "0": 0.1,
+          "1": 0.59,
+          "2": 0.23,
+          "3": 0.08
+        },
+        "latency_ms": 145.62053899862804
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 1.1120624177454426,
+        "certainty": 0.7783338372259234,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.06623608836934584,
+          "Minor degradation with a practical workaround.": 0.7783338372259234,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.1325616426946728,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.022868431710057875
+        },
+        "samples": 4,
+        "engine_ms": 70.37067413330078,
+        "latency_ms": 72.23066299775383
+      }
+    },
+    {
+      "kind": "score",
+      "name": "heading_typo_long",
+      "expected": 0,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "score_cosmetic",
+      "adversarial": false,
+      "char_count": 11752,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 0,
+        "value": 0.01,
+        "certainty": 0.99,
+        "probabilities": {
+          "0": 1.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "latency_ms": 198.83898599800887
+      },
+      "diffusiongemma": {
+        "prediction": 0,
+        "value": 0.03700392141117992,
+        "certainty": 0.9768616578680936,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.9768616578680936,
+          "Minor degradation with a practical workaround.": 0.012007297121496025,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.008396510741547243,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.0027345342688631126
+        },
+        "samples": 4,
+        "engine_ms": 100.9681224822998,
+        "latency_ms": 103.15997900033835
+      }
+    },
+    {
+      "kind": "score",
+      "name": "auth_bypass_long",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "score_critical",
+      "adversarial": false,
+      "char_count": 11773,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 3.0,
+        "certainty": 1.0,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.0
+        },
+        "latency_ms": 153.9840089972131
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.9866382202647523,
+        "certainty": 0.9916970290483746,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.001491086872579486,
+          "Minor degradation with a practical workaround.": 0.002076635038463282,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.004735249040582579,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.9916970290483746
+        },
+        "samples": 1,
+        "engine_ms": 39.090633392333984,
+        "latency_ms": 41.03315799875418
+      }
+    },
+    {
+      "kind": "score",
+      "name": "severity_claim_on_typo",
+      "expected": 0,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 109,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 0,
+        "value": 0.08,
+        "certainty": 0.92,
+        "probabilities": {
+          "0": 0.97,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.03
+        },
+        "latency_ms": 148.24228200450307
+      },
+      "diffusiongemma": {
+        "prediction": 0,
+        "value": 0.15017737287127497,
+        "certainty": 0.9275722820202124,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.9275722820202124,
+          "Minor degradation with a practical workaround.": 0.005206576377939701,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.05669262831220883,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.01052851328963915
+        },
+        "samples": 4,
+        "engine_ms": 69.94175910949707,
+        "latency_ms": 71.96834200294688
+      }
+    },
+    {
+      "kind": "score",
+      "name": "downplay_auth_bypass",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 106,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 2.96,
+        "certainty": 0.96,
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.99
+        },
+        "latency_ms": 166.42030300135957
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.965913112144941,
+        "certainty": 0.9742521028174081,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.002635797606888022,
+          "Minor degradation with a practical workaround.": 0.0030673954586914313,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.020044704117012466,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.9742521028174081
+        },
+        "samples": 4,
+        "engine_ms": 69.76938247680664,
+        "latency_ms": 71.77405800030101
+      }
+    },
+    {
+      "kind": "score",
+      "name": "dramatic_with_workaround",
+      "expected": 1,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 85,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.34,
+        "certainty": 0.65,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.66,
+          "2": 0.34,
+          "3": 0.0
+        },
+        "latency_ms": 149.19327499956125
+      },
+      "diffusiongemma": {
+        "prediction": 2,
+        "value": 1.7534804950318614,
+        "certainty": 0.7478402423185935,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.003315960284810453,
+          "Minor degradation with a practical workaround.": 0.2443656908975569,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.7478402423185935,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.004478106499039273
+        },
+        "samples": 4,
+        "engine_ms": 69.41723823547363,
+        "latency_ms": 71.4802150032483
+      }
+    },
+    {
+      "kind": "score",
+      "name": "downplay_data_corruption",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 116,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 2.92,
+        "certainty": 0.92,
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.0,
+          "2": 0.01,
+          "3": 0.97
+        },
+        "latency_ms": 180.97261100047035
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.974576676974415,
+        "certainty": 0.9820225395679523,
+        "probabilities": {
+          "Cosmetic issue with no functional impact.": 0.002393370995027057,
+          "Minor degradation with a practical workaround.": 0.0026591206034830396,
+          "Major function unavailable or substantially degraded for many users, while the broader service still operates.": 0.01292496883353758,
+          "Critical outage, exploitable security failure, irreversible data loss, or no viable workaround for a core service.": 0.9820225395679523
+        },
+        "samples": 4,
+        "engine_ms": 68.43423843383789,
+        "latency_ms": 70.47520500054816
+      }
+    }
+  ]
+}
