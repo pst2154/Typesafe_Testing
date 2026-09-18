@@ -1,8 +1,10 @@
-# TypeSafe classification testing
+# TypeSafe classification and bounded-reasoning testing
 
 Reproducible comparisons of TypeSafe typed classifications and SOL structured
 classifications. The benchmark covers binary, multiclass, ordinal, ambiguous,
-short-context, long-context, and adversarial cases.
+short-context, long-context, and adversarial cases. A separate DiffusionGemma
+suite tests temporal, policy, relational, constraint, evidence, causal, and
+counterfactual reasoning with typed answers.
 
 The benchmark requires these environment variables:
 
@@ -21,6 +23,7 @@ python3 compare_typesafe_sol.py
 python3 compare_jev_small_router.py
 python3 compare_typesafe_needle.py
 python3 compare_typesafe_diffusiongemma.py
+python3 compare_typesafe_diffusiongemma_reasoning.py
 ```
 
 Set `COMPACT_RESULTS=1` to print aggregate and adversarial summaries without the
@@ -35,7 +38,7 @@ Routing comparisons:
 - [Jev vs. Qwen3.8-27B](QWEN_ROUTING_REPORT.md)
 - [Detailed Jev vs. SOL and Qwen benchmark report](DETAILED_BENCHMARK_REPORT.md)
 - [TypeSafe vs. Needle 3 classification benchmark](NEEDLE_TYPESAFE_REPORT.md)
-- [TypeSafe vs. DiffusionGemma typed-decision benchmark](DIFFUSIONGEMMA_TYPESAFE_REPORT.md)
+- [TypeSafe vs. DiffusionGemma typed-decision and bounded-reasoning benchmark](DIFFUSIONGEMMA_TYPESAFE_REPORT.md)
 
 The repository contains no credentials, endpoint values, internal paths, or raw
 production data.

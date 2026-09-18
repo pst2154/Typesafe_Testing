@@ -1,0 +1,1857 @@
+{
+  "timestamp_utc": "2026-09-18T04:31:51Z",
+  "suite": "bounded_reasoning_v1",
+  "case_count": 41,
+  "scored_case_count": 35,
+  "configuration": {
+    "typesafe_requested_model": "jev-latest",
+    "typesafe_reported_models": [
+      "jev-1.13.0"
+    ],
+    "diffusion_steps": 1,
+    "diffusion_samples": "adaptive, one to four",
+    "diffusion_think_tokens": 0,
+    "seed": 42
+  },
+  "aggregate": {
+    "typesafe": {
+      "correct": 32,
+      "scored": 35,
+      "accuracy": 0.9142857142857143,
+      "mean_ms": 356.5694077803594,
+      "p50_ms": 180.80433599971002,
+      "p95_ms": 501.2016320033581,
+      "mean_clear_certainty": 0.8577142857142858,
+      "mean_ambiguous_certainty": 0.6283333333333333
+    },
+    "diffusiongemma": {
+      "correct": 32,
+      "scored": 35,
+      "accuracy": 0.9142857142857143,
+      "mean_ms": 76.95398490276847,
+      "p50_ms": 72.82481500442373,
+      "p95_ms": 103.91228100343142,
+      "mean_clear_certainty": 0.9284985250449446,
+      "mean_ambiguous_certainty": 0.9316050002834676
+    }
+  },
+  "by_category": {
+    "causal_diagnosis": {
+      "typesafe": {
+        "correct": 5,
+        "scored": 5,
+        "accuracy": 1.0,
+        "mean_ms": 258.40632960171206,
+        "p50_ms": 194.85874800011516,
+        "p95_ms": 438.50899300014134,
+        "mean_clear_certainty": 0.996,
+        "mean_ambiguous_certainty": null
+      },
+      "diffusiongemma": {
+        "correct": 5,
+        "scored": 5,
+        "accuracy": 1.0,
+        "mean_ms": 79.51644879940432,
+        "p50_ms": 73.69087400002172,
+        "p95_ms": 103.71515600127168,
+        "mean_clear_certainty": 0.9941792258785876,
+        "mean_ambiguous_certainty": null
+      }
+    },
+    "constraint_satisfaction": {
+      "typesafe": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 176.35754540096968,
+        "p50_ms": 188.82978599867783,
+        "p95_ms": 205.85614800074836,
+        "mean_clear_certainty": 1.0,
+        "mean_ambiguous_certainty": 0.97
+      },
+      "diffusiongemma": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 80.53574120131088,
+        "p50_ms": 73.77467400510795,
+        "p95_ms": 104.60803099704208,
+        "mean_clear_certainty": 0.9882917018199856,
+        "mean_ambiguous_certainty": 0.9814810860320393
+      }
+    },
+    "counterfactual_reasoning": {
+      "typesafe": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 178.71401439915644,
+        "p50_ms": 180.80433599971002,
+        "p95_ms": 208.9542729954701,
+        "mean_clear_certainty": 0.895,
+        "mean_ambiguous_certainty": 0.24
+      },
+      "diffusiongemma": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 77.17561980098253,
+        "p50_ms": 70.98947600024985,
+        "p95_ms": 101.09760799969081,
+        "mean_clear_certainty": 0.8905323392142386,
+        "mean_ambiguous_certainty": 0.8716136980614604
+      }
+    },
+    "evidence_entailment": {
+      "typesafe": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 315.253038998344,
+        "p50_ms": 304.3845579959452,
+        "p95_ms": 501.2016320033581,
+        "mean_clear_certainty": 0.765,
+        "mean_ambiguous_certainty": 0.72
+      },
+      "diffusiongemma": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 77.11309239966795,
+        "p50_ms": 71.4778949986794,
+        "p95_ms": 102.63248800038127,
+        "mean_clear_certainty": 0.9886277490300361,
+        "mean_ambiguous_certainty": 0.9920616676198271
+      }
+    },
+    "evidence_strength": {
+      "typesafe": {
+        "correct": 3,
+        "scored": 5,
+        "accuracy": 0.6,
+        "mean_ms": 343.4964059997583,
+        "p50_ms": 175.21753150140285,
+        "p95_ms": 1204.8958019950078,
+        "mean_clear_certainty": 0.8099999999999999,
+        "mean_ambiguous_certainty": 0.95
+      },
+      "diffusiongemma": {
+        "correct": 4,
+        "scored": 5,
+        "accuracy": 0.8,
+        "mean_ms": 78.19025149971519,
+        "p50_ms": 73.59857299888972,
+        "p95_ms": 103.91228100343142,
+        "mean_clear_certainty": 0.8614650622216671,
+        "mean_ambiguous_certainty": 0.9652978001052985
+      }
+    },
+    "policy_application": {
+      "typesafe": {
+        "correct": 4,
+        "scored": 4,
+        "accuracy": 1.0,
+        "mean_ms": 221.66917540016584,
+        "p50_ms": 175.00650200236123,
+        "p95_ms": 471.59040399856167,
+        "mean_clear_certainty": 0.65,
+        "mean_ambiguous_certainty": 0.07999999999999996
+      },
+      "diffusiongemma": {
+        "correct": 3,
+        "scored": 4,
+        "accuracy": 0.75,
+        "mean_ms": 77.4714800005313,
+        "p50_ms": 71.48240000242367,
+        "p95_ms": 103.60240799491294,
+        "mean_clear_certainty": 0.9849613847860261,
+        "mean_ambiguous_certainty": 0.9257078526908856
+      }
+    },
+    "relational_reasoning": {
+      "typesafe": {
+        "correct": 5,
+        "scored": 5,
+        "accuracy": 1.0,
+        "mean_ms": 181.85533299983945,
+        "p50_ms": 171.20520299795317,
+        "p95_ms": 249.90807900030632,
+        "mean_clear_certainty": 0.854,
+        "mean_ambiguous_certainty": null
+      },
+      "diffusiongemma": {
+        "correct": 5,
+        "scored": 5,
+        "accuracy": 1.0,
+        "mean_ms": 65.92758720071288,
+        "p50_ms": 72.47080500383163,
+        "p95_ms": 73.20201699621975,
+        "mean_clear_certainty": 0.8421275117474935,
+        "mean_ambiguous_certainty": null
+      }
+    },
+    "temporal_state": {
+      "typesafe": {
+        "correct": 3,
+        "scored": 4,
+        "accuracy": 0.75,
+        "mean_ms": 1179.41801979905,
+        "p50_ms": 192.93536099576158,
+        "p95_ms": 5190.232601999014,
+        "mean_clear_certainty": 0.87,
+        "mean_ambiguous_certainty": 0.81
+      },
+      "diffusiongemma": {
+        "correct": 3,
+        "scored": 4,
+        "accuracy": 0.75,
+        "mean_ms": 79.45440500043333,
+        "p50_ms": 73.05996100330958,
+        "p95_ms": 105.05345799901988,
+        "mean_clear_certainty": 0.8997341694832932,
+        "mean_ambiguous_certainty": 0.8534678971912947
+      }
+    }
+  },
+  "by_primitive": {
+    "choice": {
+      "typesafe": {
+        "correct": 17,
+        "scored": 18,
+        "accuracy": 0.9444444444444444,
+        "mean_ms": 449.0093069503928,
+        "p50_ms": 181.60151650226908,
+        "p95_ms": 438.50899300014134,
+        "mean_clear_certainty": 0.9294444444444444,
+        "mean_ambiguous_certainty": 0.89
+      },
+      "diffusiongemma": {
+        "correct": 17,
+        "scored": 18,
+        "accuracy": 0.9444444444444444,
+        "mean_ms": 76.35854555046535,
+        "p50_ms": 73.23694599836017,
+        "p95_ms": 104.60803099704208,
+        "mean_clear_certainty": 0.9296465096301956,
+        "mean_ambiguous_certainty": 0.917474491611667
+      }
+    },
+    "noul": {
+      "typesafe": {
+        "correct": 12,
+        "scored": 12,
+        "accuracy": 1.0,
+        "mean_ms": 238.5454095992221,
+        "p50_ms": 180.80433599971002,
+        "p95_ms": 501.2016320033581,
+        "mean_clear_certainty": 0.77,
+        "mean_ambiguous_certainty": 0.3466666666666666
+      },
+      "diffusiongemma": {
+        "correct": 11,
+        "scored": 12,
+        "accuracy": 0.9166666666666666,
+        "mean_ms": 77.25339740039392,
+        "p50_ms": 71.4778949986794,
+        "p95_ms": 103.60240799491294,
+        "mean_clear_certainty": 0.954707157676767,
+        "mean_ambiguous_certainty": 0.9297944061240577
+      }
+    },
+    "score": {
+      "typesafe": {
+        "correct": 3,
+        "scored": 5,
+        "accuracy": 0.6,
+        "mean_ms": 343.4964059997583,
+        "p50_ms": 175.21753150140285,
+        "p95_ms": 1204.8958019950078,
+        "mean_clear_certainty": 0.8099999999999999,
+        "mean_ambiguous_certainty": 0.95
+      },
+      "diffusiongemma": {
+        "correct": 4,
+        "scored": 5,
+        "accuracy": 0.8,
+        "mean_ms": 78.19025149971519,
+        "p50_ms": 73.59857299888972,
+        "p95_ms": 103.91228100343142,
+        "mean_clear_certainty": 0.8614650622216671,
+        "mean_ambiguous_certainty": 0.9652978001052985
+      }
+    }
+  },
+  "by_context_length": {
+    "long": {
+      "typesafe": {
+        "correct": 7,
+        "scored": 8,
+        "accuracy": 0.875,
+        "mean_ms": 160.43136137523106,
+        "p50_ms": 155.17920150523423,
+        "p95_ms": 186.76495599356713,
+        "mean_clear_certainty": 0.84875,
+        "mean_ambiguous_certainty": null
+      },
+      "diffusiongemma": {
+        "correct": 7,
+        "scored": 8,
+        "accuracy": 0.875,
+        "mean_ms": 95.48813699984748,
+        "p50_ms": 103.65878199809231,
+        "p95_ms": 105.05345799901988,
+        "mean_clear_certainty": 0.9571598981040853,
+        "mean_ambiguous_certainty": null
+      }
+    },
+    "short": {
+      "typesafe": {
+        "correct": 25,
+        "scored": 27,
+        "accuracy": 0.9259259259259259,
+        "mean_ms": 404.1180250906936,
+        "p50_ms": 188.82978599867783,
+        "p95_ms": 1204.8958019950078,
+        "mean_clear_certainty": 0.8603703703703703,
+        "mean_ambiguous_certainty": 0.6283333333333333
+      },
+      "diffusiongemma": {
+        "correct": 25,
+        "scored": 27,
+        "accuracy": 0.9259259259259259,
+        "mean_ms": 72.46085712165839,
+        "p50_ms": 72.657774995605,
+        "p95_ms": 74.11530899844365,
+        "mean_clear_certainty": 0.9200062663607547,
+        "mean_ambiguous_certainty": 0.9316050002834676
+      }
+    }
+  },
+  "adversarial": {
+    "typesafe": {
+      "correct": 10,
+      "scored": 12,
+      "accuracy": 0.8333333333333334,
+      "mean_ms": 172.21464775078252,
+      "p50_ms": 175.35456000405247,
+      "p95_ms": 208.03673900081776,
+      "mean_clear_certainty": 0.8241666666666667,
+      "mean_ambiguous_certainty": null
+    },
+    "diffusiongemma": {
+      "correct": 10,
+      "scored": 12,
+      "accuracy": 0.8333333333333334,
+      "mean_ms": 88.01583858318433,
+      "p50_ms": 101.86504800003604,
+      "p95_ms": 105.05345799901988,
+      "mean_clear_certainty": 0.8800437406537951,
+      "mean_ambiguous_certainty": null
+    }
+  },
+  "context_pairs": {
+    "pair_count": 8,
+    "typesafe": {
+      "stable_pairs": 8,
+      "short_correct": 7,
+      "long_correct": 7,
+      "count_each": 8,
+      "short_mean_ms": 249.46974287377088,
+      "long_mean_ms": 160.43136137523106
+    },
+    "diffusiongemma": {
+      "stable_pairs": 7,
+      "short_correct": 8,
+      "long_correct": 7,
+      "count_each": 8,
+      "short_mean_ms": 73.31071012595203,
+      "long_mean_ms": 95.48813699984748
+    }
+  },
+  "agreement": 0.926829268292683,
+  "rows": [
+    {
+      "name": "role_after_revoke_and_scoped_grant",
+      "category": "temporal_state",
+      "primitive": "choice",
+      "expected": "none",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "access_none",
+      "adversarial": false,
+      "char_count": 144,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.98,
+        "probabilities": {
+          "viewer": 0.01,
+          "none": 0.98,
+          "editor": 0.0,
+          "admin": 0.01
+        },
+        "latency_ms": 160.87574199627852
+      },
+      "diffusiongemma": {
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.988477587267148,
+        "probabilities": {
+          "admin": 0.00823699810820847,
+          "editor": 0.0008535541282004391,
+          "viewer": 0.0024318604964431063,
+          "none": 0.988477587267148
+        },
+        "samples": 4,
+        "engine_ms": 71.55942916870117,
+        "latency_ms": 73.90512400161242
+      }
+    },
+    {
+      "name": "role_override_order_not_document_order",
+      "category": "temporal_state",
+      "primitive": "choice",
+      "expected": "viewer",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 125,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.69,
+        "probabilities": {
+          "editor": 0.0,
+          "viewer": 0.22,
+          "none": 0.77,
+          "admin": 0.01
+        },
+        "latency_ms": 208.03673900081776
+      },
+      "diffusiongemma": {
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.6463587450905733,
+        "probabilities": {
+          "admin": 0.2824950996162247,
+          "editor": 0.007798805671536081,
+          "viewer": 0.06334734962166585,
+          "none": 0.6463587450905733
+        },
+        "samples": 4,
+        "engine_ms": 70.82962989807129,
+        "latency_ms": 72.6802509961999
+      }
+    },
+    {
+      "name": "future_revoke_does_not_apply",
+      "category": "temporal_state",
+      "primitive": "choice",
+      "expected": "editor",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 108,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "editor",
+        "value": "editor",
+        "certainty": 0.81,
+        "probabilities": {
+          "viewer": 0.04,
+          "editor": 0.86,
+          "admin": 0.03,
+          "none": 0.07
+        },
+        "latency_ms": 5190.232601999014
+      },
+      "diffusiongemma": {
+        "prediction": "editor",
+        "value": "editor",
+        "certainty": 0.995242515251949,
+        "probabilities": {
+          "admin": 0.002302294618684646,
+          "editor": 0.995242515251949,
+          "viewer": 0.0001066378533860454,
+          "none": 0.0023485522759804163
+        },
+        "samples": 4,
+        "engine_ms": 70.95003128051758,
+        "latency_ms": 73.05996100330958
+      }
+    },
+    {
+      "name": "role_long_current_none",
+      "category": "temporal_state",
+      "primitive": "choice",
+      "expected": "none",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "access_none",
+      "adversarial": true,
+      "char_count": 9162,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 1.0,
+        "probabilities": {
+          "admin": 0.0,
+          "none": 1.0,
+          "editor": 0.0,
+          "viewer": 0.0
+        },
+        "latency_ms": 145.0096550033777
+      },
+      "diffusiongemma": {
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.9688578303235025,
+        "probabilities": {
+          "admin": 0.030844763218663137,
+          "editor": 0.00021945211365287118,
+          "viewer": 7.79543441814908e-05,
+          "none": 0.9688578303235025
+        },
+        "samples": 4,
+        "engine_ms": 102.82349586486816,
+        "latency_ms": 105.05345799901988
+      }
+    },
+    {
+      "name": "role_ambiguous_equal_timestamps",
+      "category": "temporal_state",
+      "primitive": "choice",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 157,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.81,
+        "probabilities": {
+          "viewer": 0.0,
+          "editor": 0.14,
+          "none": 0.86,
+          "admin": 0.0
+        },
+        "latency_ms": 192.93536099576158
+      },
+      "diffusiongemma": {
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.8534678971912947,
+        "probabilities": {
+          "admin": 0.011232581769356157,
+          "editor": 0.13359139820866858,
+          "viewer": 0.0017081228306806216,
+          "none": 0.8534678971912947
+        },
+        "samples": 4,
+        "engine_ms": 70.45578956604004,
+        "latency_ms": 72.57323100202484
+      }
+    },
+    {
+      "name": "expense_meets_all_rules",
+      "category": "policy_application",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "policy_true",
+      "adversarial": false,
+      "char_count": 316,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.9,
+        "certainty": 0.8,
+        "probabilities": null,
+        "latency_ms": 144.96039799996652
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9894583454634163,
+        "certainty": 0.9894583454634163,
+        "probabilities": {
+          "yes": 0.9894583454634163,
+          "no": 0.010541654536583761
+        },
+        "samples": 4,
+        "engine_ms": 69.31066513061523,
+        "latency_ms": 71.48240000242367
+      }
+    },
+    {
+      "name": "outage_does_not_waive_receipt",
+      "category": "policy_application",
+      "primitive": "noul",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 265,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.14,
+        "certainty": 0.72,
+        "probabilities": null,
+        "latency_ms": 471.59040399856167
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.002922377013182297,
+        "certainty": 0.9970776229868177,
+        "probabilities": {
+          "yes": 0.002922377013182297,
+          "no": 0.9970776229868177
+        },
+        "samples": 4,
+        "engine_ms": 68.80998611450195,
+        "latency_ms": 70.89164100034395
+      }
+    },
+    {
+      "name": "deadline_exception_applies",
+      "category": "policy_application",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 256,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.63,
+        "certainty": 0.26,
+        "probabilities": null,
+        "latency_ms": 140.45269999769516
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.045549473807223594,
+        "certainty": 0.9544505261927765,
+        "probabilities": {
+          "yes": 0.045549473807223594,
+          "no": 0.9544505261927765
+        },
+        "samples": 4,
+        "engine_ms": 69.3979263305664,
+        "latency_ms": 71.50998100405559
+      }
+    },
+    {
+      "name": "policy_long_meets_all_rules",
+      "category": "policy_application",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "policy_true",
+      "adversarial": true,
+      "char_count": 9255,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.91,
+        "certainty": 0.8200000000000001,
+        "probabilities": null,
+        "latency_ms": 176.33587300224463
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9988590445010943,
+        "certainty": 0.9988590445010943,
+        "probabilities": {
+          "yes": 0.9988590445010943,
+          "no": 0.0011409554989057218
+        },
+        "samples": 4,
+        "engine_ms": 101.42922401428223,
+        "latency_ms": 103.60240799491294
+      }
+    },
+    {
+      "name": "policy_ambiguous_missing_purchase_date",
+      "category": "policy_application",
+      "primitive": "noul",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 150,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.46,
+        "certainty": 0.07999999999999996,
+        "probabilities": null,
+        "latency_ms": 175.00650200236123
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.07429214730911439,
+        "certainty": 0.9257078526908856,
+        "probabilities": {
+          "yes": 0.07429214730911439,
+          "no": 0.9257078526908856
+        },
+        "samples": 4,
+        "engine_ms": 67.82317161560059,
+        "latency_ms": 69.87097000092035
+      }
+    },
+    {
+      "name": "delegated_team_owner_chain",
+      "category": "relational_reasoning",
+      "primitive": "choice",
+      "expected": "Chen",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "owner_chen",
+      "adversarial": false,
+      "char_count": 187,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "Chen",
+        "value": "Chen",
+        "certainty": 0.87,
+        "probabilities": {
+          "Ben": 0.02,
+          "unresolved": 0.08,
+          "Chen": 0.9,
+          "Asha": 0.0,
+          "Dina": 0.0
+        },
+        "latency_ms": 249.90807900030632
+      },
+      "diffusiongemma": {
+        "prediction": "Chen",
+        "value": "Chen",
+        "certainty": 0.9978317898806703,
+        "probabilities": {
+          "Asha": 0.0007323453134491219,
+          "Ben": 0.0004651117007777229,
+          "Chen": 0.9978317898806703,
+          "Dina": 0.0009451921599522867,
+          "unresolved": 2.556094515065557e-05
+        },
+        "samples": 4,
+        "engine_ms": 69.37360763549805,
+        "latency_ms": 71.584648998396
+      }
+    },
+    {
+      "name": "direct_owner_beats_responder",
+      "category": "relational_reasoning",
+      "primitive": "choice",
+      "expected": "Dina",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 166,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "Dina",
+        "value": "Dina",
+        "certainty": 0.99,
+        "probabilities": {
+          "unresolved": 0.0,
+          "Ben": 0.0,
+          "Chen": 0.01,
+          "Asha": 0.0,
+          "Dina": 0.99
+        },
+        "latency_ms": 171.20520299795317
+      },
+      "diffusiongemma": {
+        "prediction": "Dina",
+        "value": "Dina",
+        "certainty": 0.9977203190192188,
+        "probabilities": {
+          "Asha": 0.0008467874850609095,
+          "Ben": 0.0010597045804446989,
+          "Chen": 7.756542878550573e-05,
+          "Dina": 0.9977203190192188,
+          "unresolved": 0.0002956234864901266
+        },
+        "samples": 4,
+        "engine_ms": 71.00844383239746,
+        "latency_ms": 73.09679900208721
+      }
+    },
+    {
+      "name": "superseded_delegation",
+      "category": "relational_reasoning",
+      "primitive": "choice",
+      "expected": "Asha",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 145,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "Asha",
+        "value": "Asha",
+        "certainty": 0.41,
+        "probabilities": {
+          "Chen": 0.0,
+          "Ben": 0.04,
+          "Asha": 0.53,
+          "unresolved": 0.43,
+          "Dina": 0.0
+        },
+        "latency_ms": 174.37324700586032
+      },
+      "diffusiongemma": {
+        "prediction": "Asha",
+        "value": "Asha",
+        "certainty": 0.27172904716496815,
+        "probabilities": {
+          "Asha": 0.27172904716496815,
+          "Ben": 0.15327389050126974,
+          "Chen": 0.26619041062935944,
+          "Dina": 0.15109741527471954,
+          "unresolved": 0.15770923642968307
+        },
+        "samples": 4,
+        "engine_ms": 70.45578956604004,
+        "latency_ms": 72.47080500383163
+      }
+    },
+    {
+      "name": "owner_long_chain",
+      "category": "relational_reasoning",
+      "primitive": "choice",
+      "expected": "Chen",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "owner_chen",
+      "adversarial": true,
+      "char_count": 9196,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "Chen",
+        "value": "Chen",
+        "certainty": 1.0,
+        "probabilities": {
+          "Ben": 0.0,
+          "unresolved": 0.0,
+          "Dina": 0.0,
+          "Chen": 1.0,
+          "Asha": 0.0
+        },
+        "latency_ms": 143.79822399496334
+      },
+      "diffusiongemma": {
+        "prediction": "Chen",
+        "value": "Chen",
+        "certainty": 0.9990196323871481,
+        "probabilities": {
+          "Asha": 0.000304582750791743,
+          "Ben": 0.00014334987636052825,
+          "Chen": 0.9990196323871481,
+          "Dina": 0.0005042615630631612,
+          "unresolved": 2.8173422636381105e-05
+        },
+        "samples": 1,
+        "engine_ms": 37.24789619445801,
+        "latency_ms": 39.28366600302979
+      }
+    },
+    {
+      "name": "owner_cycle_unresolved",
+      "category": "relational_reasoning",
+      "primitive": "choice",
+      "expected": "unresolved",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 164,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "unresolved",
+        "value": "unresolved",
+        "certainty": 1.0,
+        "probabilities": {
+          "Chen": 0.0,
+          "Ben": 0.0,
+          "unresolved": 1.0,
+          "Asha": 0.0,
+          "Dina": 0.0
+        },
+        "latency_ms": 169.9919120001141
+      },
+      "diffusiongemma": {
+        "prediction": "unresolved",
+        "value": "unresolved",
+        "certainty": 0.9443367702854619,
+        "probabilities": {
+          "Asha": 0.002583835543273975,
+          "Ben": 0.0015763630789878509,
+          "Chen": 8.2967999987916e-05,
+          "Dina": 0.05142006309228839,
+          "unresolved": 0.9443367702854619
+        },
+        "samples": 4,
+        "engine_ms": 71.18654251098633,
+        "latency_ms": 73.20201699621975
+      }
+    },
+    {
+      "name": "unique_feasible_gpu_plan",
+      "category": "constraint_satisfaction",
+      "primitive": "choice",
+      "expected": "plan_b",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "plan_b",
+      "adversarial": false,
+      "char_count": 371,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 1.0,
+        "probabilities": {
+          "plan_a": 0.0,
+          "none": 0.0,
+          "plan_b": 1.0,
+          "plan_c": 0.0,
+          "plan_d": 0.0
+        },
+        "latency_ms": 188.82978599867783
+      },
+      "diffusiongemma": {
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 0.9793408626963112,
+        "probabilities": {
+          "plan_a": 0.0008424128722572129,
+          "plan_b": 0.9793408626963112,
+          "plan_c": 0.00034739549624529607,
+          "plan_d": 0.018469190810590234,
+          "none": 0.0010001381245960338
+        },
+        "samples": 4,
+        "engine_ms": 75.96015930175781,
+        "latency_ms": 78.02814900060184
+      }
+    },
+    {
+      "name": "no_plan_satisfies_all",
+      "category": "constraint_satisfaction",
+      "primitive": "choice",
+      "expected": "none",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 201,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 1.0,
+        "probabilities": {
+          "none": 1.0,
+          "plan_a": 0.0,
+          "plan_d": 0.0,
+          "plan_b": 0.0,
+          "plan_c": 0.0
+        },
+        "latency_ms": 138.70978100021603
+      },
+      "diffusiongemma": {
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.9879700365548629,
+        "probabilities": {
+          "plan_a": 0.002245937448423433,
+          "plan_b": 0.0029208288970281387,
+          "plan_c": 0.000764268517236793,
+          "plan_d": 0.006098928582448615,
+          "none": 0.9879700365548629
+        },
+        "samples": 4,
+        "engine_ms": 71.67816162109375,
+        "latency_ms": 73.77467400510795
+      }
+    },
+    {
+      "name": "marketing_claim_is_not_requirement",
+      "category": "constraint_satisfaction",
+      "primitive": "choice",
+      "expected": "plan_b",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 282,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 1.0,
+        "probabilities": {
+          "none": 0.0,
+          "plan_b": 1.0,
+          "plan_d": 0.0,
+          "plan_c": 0.0,
+          "plan_a": 0.0
+        },
+        "latency_ms": 205.85614800074836
+      },
+      "diffusiongemma": {
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 0.9961101607304019,
+        "probabilities": {
+          "plan_a": 0.00212710446086746,
+          "plan_b": 0.9961101607304019,
+          "plan_c": 0.000237580958906875,
+          "plan_d": 0.00048826313667380363,
+          "none": 0.001036890713149821
+        },
+        "samples": 4,
+        "engine_ms": 71.31290435791016,
+        "latency_ms": 73.44303699937882
+      }
+    },
+    {
+      "name": "long_unique_feasible_plan",
+      "category": "constraint_satisfaction",
+      "primitive": "choice",
+      "expected": "plan_b",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "plan_b",
+      "adversarial": true,
+      "char_count": 9215,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 1.0,
+        "probabilities": {
+          "plan_a": 0.0,
+          "plan_c": 0.0,
+          "none": 0.0,
+          "plan_b": 1.0,
+          "plan_d": 0.0
+        },
+        "latency_ms": 151.92374500475125
+      },
+      "diffusiongemma": {
+        "prediction": "plan_b",
+        "value": "plan_b",
+        "certainty": 0.9897457472983664,
+        "probabilities": {
+          "plan_a": 0.007187870820424127,
+          "plan_b": 0.9897457472983664,
+          "plan_c": 0.0002361022756547922,
+          "plan_d": 0.0009650589479374266,
+          "none": 0.0018652206576172006
+        },
+        "samples": 4,
+        "engine_ms": 102.56004333496094,
+        "latency_ms": 104.60803099704208
+      }
+    },
+    {
+      "name": "ambiguous_cost_boundary",
+      "category": "constraint_satisfaction",
+      "primitive": "choice",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 175,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "none",
+        "value": "none",
+        "certainty": 0.97,
+        "probabilities": {
+          "plan_a": 0.02,
+          "plan_c": 0.01,
+          "none": 0.97,
+          "plan_d": 0.0,
+          "plan_b": 0.0
+        },
+        "latency_ms": 196.46826700045494
+      },
+      "diffusiongemma": {
+        "prediction": "plan_c",
+        "value": "plan_c",
+        "certainty": 0.9814810860320393,
+        "probabilities": {
+          "plan_a": 0.0022759363827092754,
+          "plan_b": 0.009893729081873338,
+          "plan_c": 0.9814810860320393,
+          "plan_d": 0.0020594113614569353,
+          "none": 0.004289837141920976
+        },
+        "samples": 4,
+        "engine_ms": 70.68181037902832,
+        "latency_ms": 72.82481500442373
+      }
+    },
+    {
+      "name": "universal_claim_not_supported_by_sample",
+      "category": "evidence_entailment",
+      "primitive": "noul",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 127,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.04,
+        "certainty": 0.92,
+        "probabilities": null,
+        "latency_ms": 304.3845579959452
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0008354956050404921,
+        "certainty": 0.9991645043949594,
+        "probabilities": {
+          "yes": 0.0008354956050404921,
+          "no": 0.9991645043949594
+        },
+        "samples": 4,
+        "engine_ms": 67.47007369995117,
+        "latency_ms": 69.45376200019382
+      }
+    },
+    {
+      "name": "bounded_claim_supported",
+      "category": "evidence_entailment",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "evidence_true",
+      "adversarial": false,
+      "char_count": 186,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.89,
+        "certainty": 0.78,
+        "probabilities": null,
+        "latency_ms": 435.46659399726195
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9642257870794113,
+        "certainty": 0.9642257870794113,
+        "probabilities": {
+          "yes": 0.9642257870794113,
+          "no": 0.035774212920588765
+        },
+        "samples": 4,
+        "engine_ms": 70.04666328430176,
+        "latency_ms": 72.11883000127273
+      }
+    },
+    {
+      "name": "absence_of_log_not_proof",
+      "category": "evidence_entailment",
+      "primitive": "noul",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 155,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.09,
+        "certainty": 0.8200000000000001,
+        "probabilities": null,
+        "latency_ms": 148.4474550015875
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.002662774967650322,
+        "certainty": 0.9973372250323498,
+        "probabilities": {
+          "yes": 0.002662774967650322,
+          "no": 0.9973372250323498
+        },
+        "samples": 4,
+        "engine_ms": 69.40340995788574,
+        "latency_ms": 71.4778949986794
+      }
+    },
+    {
+      "name": "long_bounded_claim_supported",
+      "category": "evidence_entailment",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "evidence_true",
+      "adversarial": true,
+      "char_count": 9221,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.77,
+        "certainty": 0.54,
+        "probabilities": null,
+        "latency_ms": 186.76495599356713
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9937834796134241,
+        "certainty": 0.9937834796134241,
+        "probabilities": {
+          "yes": 0.9937834796134241,
+          "no": 0.006216520386575938
+        },
+        "samples": 4,
+        "engine_ms": 100.46768188476562,
+        "latency_ms": 102.63248800038127
+      }
+    },
+    {
+      "name": "ambiguous_quantifier_scope",
+      "category": "evidence_entailment",
+      "primitive": "noul",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 170,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.14,
+        "certainty": 0.72,
+        "probabilities": null,
+        "latency_ms": 501.2016320033581
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.007938332380172854,
+        "certainty": 0.9920616676198271,
+        "probabilities": {
+          "yes": 0.007938332380172854,
+          "no": 0.9920616676198271
+        },
+        "samples": 4,
+        "engine_ms": 67.85035133361816,
+        "latency_ms": 69.88248699781252
+      }
+    },
+    {
+      "name": "gateway_bypass_isolates_cause",
+      "category": "causal_diagnosis",
+      "primitive": "choice",
+      "expected": "gateway",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "cause_gateway",
+      "adversarial": false,
+      "char_count": 213,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 1.0,
+        "probabilities": {
+          "gateway": 1.0,
+          "client": 0.0,
+          "undetermined": 0.0,
+          "worker": 0.0,
+          "database": 0.0
+        },
+        "latency_ms": 438.50899300014134
+      },
+      "diffusiongemma": {
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 0.9987474436443147,
+        "probabilities": {
+          "client": 0.0005362530109672408,
+          "gateway": 0.9987474436443147,
+          "database": 6.868369771445563e-05,
+          "worker": 0.00031164926251852943,
+          "undetermined": 0.0003359703844851517
+        },
+        "samples": 4,
+        "engine_ms": 70.88208198547363,
+        "latency_ms": 73.27187500050059
+      }
+    },
+    {
+      "name": "client_specific_reproduction",
+      "category": "causal_diagnosis",
+      "primitive": "choice",
+      "expected": "client",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 173,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "client",
+        "value": "client",
+        "certainty": 0.99,
+        "probabilities": {
+          "worker": 0.0,
+          "undetermined": 0.01,
+          "client": 0.99,
+          "gateway": 0.0,
+          "database": 0.0
+        },
+        "latency_ms": 329.1724369992153
+      },
+      "diffusiongemma": {
+        "prediction": "client",
+        "value": "client",
+        "certainty": 0.9964726263489969,
+        "probabilities": {
+          "client": 0.9964726263489969,
+          "gateway": 0.00121579966316066,
+          "database": 0.0009291266453962562,
+          "worker": 0.0005784449211857125,
+          "undetermined": 0.0008040024212605688
+        },
+        "samples": 4,
+        "engine_ms": 70.6484317779541,
+        "latency_ms": 72.78902999678394
+      }
+    },
+    {
+      "name": "correlation_does_not_isolate_component",
+      "category": "causal_diagnosis",
+      "primitive": "choice",
+      "expected": "undetermined",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 146,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "undetermined",
+        "value": "undetermined",
+        "certainty": 0.99,
+        "probabilities": {
+          "client": 0.0,
+          "database": 0.0,
+          "worker": 0.0,
+          "gateway": 0.0,
+          "undetermined": 1.0
+        },
+        "latency_ms": 171.0568120033713
+      },
+      "diffusiongemma": {
+        "prediction": "undetermined",
+        "value": "undetermined",
+        "certainty": 0.9962637830821065,
+        "probabilities": {
+          "client": 0.0019476813627909576,
+          "gateway": 0.00033559584006122447,
+          "database": 1.508930217812859e-05,
+          "worker": 0.0014378504128632044,
+          "undetermined": 0.9962637830821065
+        },
+        "samples": 4,
+        "engine_ms": 72.06487655639648,
+        "latency_ms": 74.11530899844365
+      }
+    },
+    {
+      "name": "injected_root_cause_ignored",
+      "category": "causal_diagnosis",
+      "primitive": "choice",
+      "expected": "gateway",
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": true,
+      "char_count": 204,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 1.0,
+        "probabilities": {
+          "client": 0.0,
+          "database": 0.0,
+          "worker": 0.0,
+          "gateway": 1.0,
+          "undetermined": 0.0
+        },
+        "latency_ms": 194.85874800011516
+      },
+      "diffusiongemma": {
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 0.9890477500269144,
+        "probabilities": {
+          "client": 0.004152483527659302,
+          "gateway": 0.9890477500269144,
+          "database": 0.0001694049940838111,
+          "worker": 0.0014265890391231707,
+          "undetermined": 0.0052037724122193756
+        },
+        "samples": 4,
+        "engine_ms": 71.54083251953125,
+        "latency_ms": 73.69087400002172
+      }
+    },
+    {
+      "name": "long_gateway_bypass",
+      "category": "causal_diagnosis",
+      "primitive": "choice",
+      "expected": "gateway",
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "cause_gateway",
+      "adversarial": true,
+      "char_count": 9200,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 1.0,
+        "probabilities": {
+          "worker": 0.0,
+          "database": 0.0,
+          "gateway": 1.0,
+          "undetermined": 0.0,
+          "client": 0.0
+        },
+        "latency_ms": 158.4346580057172
+      },
+      "diffusiongemma": {
+        "prediction": "gateway",
+        "value": "gateway",
+        "certainty": 0.9903645262906058,
+        "probabilities": {
+          "client": 0.0021772953042923197,
+          "gateway": 0.9903645262906058,
+          "database": 0.0005244222951507558,
+          "worker": 0.0055852371578396405,
+          "undetermined": 0.001348518952111456
+        },
+        "samples": 4,
+        "engine_ms": 101.66001319885254,
+        "latency_ms": 103.71515600127168
+      }
+    },
+    {
+      "name": "remove_nonessential_cache",
+      "category": "counterfactual_reasoning",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 218,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.96,
+        "certainty": 0.9199999999999999,
+        "probabilities": null,
+        "latency_ms": 150.50119999796152
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.5966135941447241,
+        "certainty": 0.5966135941447241,
+        "probabilities": {
+          "yes": 0.5966135941447241,
+          "no": 0.40338640585527585
+        },
+        "samples": 4,
+        "engine_ms": 68.603515625,
+        "latency_ms": 70.64351200097008
+      }
+    },
+    {
+      "name": "remove_necessary_flag",
+      "category": "counterfactual_reasoning",
+      "primitive": "noul",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "counterfactual_false",
+      "adversarial": false,
+      "char_count": 207,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.05,
+        "certainty": 0.9,
+        "probabilities": null,
+        "latency_ms": 208.9542729954701
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.003511000943718899,
+        "certainty": 0.9964889990562811,
+        "probabilities": {
+          "yes": 0.003511000943718899,
+          "no": 0.9964889990562811
+        },
+        "samples": 4,
+        "engine_ms": 70.25456428527832,
+        "latency_ms": 72.36349400045583
+      }
+    },
+    {
+      "name": "alternative_sufficient_cause_remains",
+      "category": "counterfactual_reasoning",
+      "primitive": "noul",
+      "expected": true,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 189,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": true,
+        "value": 0.95,
+        "certainty": 0.8999999999999999,
+        "probabilities": null,
+        "latency_ms": 183.2772269990528
+      },
+      "diffusiongemma": {
+        "prediction": true,
+        "value": 0.9692915489854641,
+        "certainty": 0.9692915489854641,
+        "probabilities": {
+          "yes": 0.9692915489854641,
+          "no": 0.030708451014535947
+        },
+        "samples": 4,
+        "engine_ms": 68.91703605651855,
+        "latency_ms": 70.98947600024985
+      }
+    },
+    {
+      "name": "long_remove_necessary_flag",
+      "category": "counterfactual_reasoning",
+      "primitive": "noul",
+      "expected": false,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "counterfactual_false",
+      "adversarial": true,
+      "char_count": 9175,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.07,
+        "certainty": 0.86,
+        "probabilities": null,
+        "latency_ms": 180.80433599971002
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.0002647853295150751,
+        "certainty": 0.9997352146704849,
+        "probabilities": {
+          "yes": 0.0002647853295150751,
+          "no": 0.9997352146704849
+        },
+        "samples": 4,
+        "engine_ms": 99.00808334350586,
+        "latency_ms": 101.09760799969081
+      }
+    },
+    {
+      "name": "ambiguous_causal_graph",
+      "category": "counterfactual_reasoning",
+      "primitive": "noul",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 189,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": false,
+        "value": 0.38,
+        "certainty": 0.24,
+        "probabilities": null,
+        "latency_ms": 170.03303600358777
+      },
+      "diffusiongemma": {
+        "prediction": false,
+        "value": 0.12838630193853967,
+        "certainty": 0.8716136980614604,
+        "probabilities": {
+          "yes": 0.12838630193853967,
+          "no": 0.8716136980614604
+        },
+        "samples": 4,
+        "engine_ms": 68.73607635498047,
+        "latency_ms": 70.78400900354609
+      }
+    },
+    {
+      "name": "mere_timing_is_weak",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": 1,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 136,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 0.99,
+        "certainty": 0.99,
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.99,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "latency_ms": 202.16958800301654
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 0.9794024882058989,
+        "certainty": 0.9691894200310183,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.026686906477815457,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.9691894200310183,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.0021579522986181145,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.001965721192548112
+        },
+        "samples": 4,
+        "engine_ms": 71.502685546875,
+        "latency_ms": 73.51988300069934
+      }
+    },
+    {
+      "name": "controlled_ab_is_strong",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": 2,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": "evidence_strong",
+      "adversarial": false,
+      "char_count": 159,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.23,
+        "certainty": 0.77,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.77,
+          "2": 0.23,
+          "3": 0.0
+        },
+        "latency_ms": 168.2540780020645
+      },
+      "diffusiongemma": {
+        "prediction": 2,
+        "value": 1.7166216349225212,
+        "certainty": 0.7181600055009411,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.011611545083090417,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.2651918621636331,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.7181600055009411,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.0050365872523354055
+        },
+        "samples": 4,
+        "engine_ms": 71.60639762878418,
+        "latency_ms": 73.73116000235314
+      }
+    },
+    {
+      "name": "repeatable_toggle_is_conclusive",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": 3,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 210,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 3,
+        "value": 2.99,
+        "certainty": 0.99,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.01,
+          "3": 0.99
+        },
+        "latency_ms": 182.1809850007412
+      },
+      "diffusiongemma": {
+        "prediction": 3,
+        "value": 2.961283249956692,
+        "certainty": 0.9812101297697485,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.008646557545936014,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.002633764721184656,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.007509547963130904,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.9812101297697485
+        },
+        "samples": 4,
+        "engine_ms": 70.65773010253906,
+        "latency_ms": 72.657774995605
+      }
+    },
+    {
+      "name": "contradicted_release_claim",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": 0,
+      "ambiguous": false,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 129,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 0,
+        "value": 0.27,
+        "certainty": 0.73,
+        "probabilities": {
+          "0": 0.75,
+          "1": 0.23,
+          "2": 0.02,
+          "3": 0.0
+        },
+        "latency_ms": 163.09853900020244
+      },
+      "diffusiongemma": {
+        "prediction": 0,
+        "value": 0.09933179124231817,
+        "certainty": 0.9218520460585709,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.9218520460585709,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.06595265818442658,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.0032067542131162317,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.00898854154388634
+        },
+        "samples": 4,
+        "engine_ms": 69.52548027038574,
+        "latency_ms": 71.64314699912211
+      }
+    },
+    {
+      "name": "long_controlled_ab",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": 2,
+      "ambiguous": false,
+      "context_length": "long",
+      "pair_id": "evidence_strong",
+      "adversarial": true,
+      "char_count": 9153,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.39,
+        "certainty": 0.57,
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.57,
+          "2": 0.41,
+          "3": 0.0
+        },
+        "latency_ms": 140.37944399751723
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 1.2499154192981208,
+        "certainty": 0.7169137097480568,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.017666278350490824,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.7169137097480568,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.2632583261542933,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.0021616857471591032
+        },
+        "samples": 4,
+        "engine_ms": 101.75108909606934,
+        "latency_ms": 103.91228100343142
+      }
+    },
+    {
+      "name": "ambiguous_strength_between_levels",
+      "category": "evidence_strength",
+      "primitive": "score",
+      "expected": null,
+      "ambiguous": true,
+      "context_length": "short",
+      "pair_id": null,
+      "adversarial": false,
+      "char_count": 156,
+      "typesafe": {
+        "model": "jev-1.13.0",
+        "prediction": 1,
+        "value": 1.05,
+        "certainty": 0.95,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.95,
+          "2": 0.05,
+          "3": 0.0
+        },
+        "latency_ms": 1204.8958019950078
+      },
+      "diffusiongemma": {
+        "prediction": 1,
+        "value": 0.9787678087871379,
+        "certainty": 0.9652978001052985,
+        "probabilities": {
+          "Unsupported: evidence contradicts the claim or supplies no relevant connection.": 0.028782862380035537,
+          "Weak: timing or correlation is suggestive, but major alternative causes remain untested.": 0.9652978001052985,
+          "Strong: targeted comparisons or interventions substantially isolate release R, though a material alternative remains.": 0.004288003862158456,
+          "Conclusive: reversing or reproducing the specific change repeatedly removes and restores the failure while relevant alternatives are controlled.": 0.0016313336525075085
+        },
+        "samples": 4,
+        "engine_ms": 71.53630256652832,
+        "latency_ms": 73.6772629970801
+      }
+    }
+  ]
+}

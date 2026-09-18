@@ -1,13 +1,19 @@
-# DiffusionGemma vs. TypeSafe for typed decisions
+# DiffusionGemma vs. TypeSafe for typed decisions and bounded reasoning
 
 Run timestamp: 2026-09-18 UTC
 
 ## Executive summary
 
-This experiment compared TypeSafe/Jev with DiffusionGemma on 46 small decision
-problems: yes/no judgments, four-way routing, and four-level severity scoring.
-The suite included ordinary cases, prompt-injection attempts, ambiguous inputs,
-and matched short/long-context pairs.
+This work ran two complementary comparisons of TypeSafe/Jev and DiffusionGemma:
+
+1. A 46-case classification suite covering yes/no judgments, four-way routing,
+   severity scoring, adversarial inputs, and short/long-context pairs.
+2. A harder 41-case bounded-reasoning suite covering temporal state, policy
+   exceptions, multi-hop relations, constraint satisfaction, entailment, causal
+   diagnosis, counterfactuals, and evidence strength.
+
+The reasoning suite still ends in a typed answer, but the task is deriving that
+answer rather than recognizing a topic or intent.
 
 The main result is promising for a self-hosted decision engine:
 
@@ -25,9 +31,16 @@ better or intrinsically faster than TypeSafe: DiffusionGemma ran locally on one
 B300 GPU, while TypeSafe was called as a hosted service. Network and hardware
 placement are part of the latency result.
 
-The result should be read as evidence that DiffusionGemma can make useful typed
-decisions quickly, not as a general reasoning benchmark. Neither system was
-asked for free-form reasoning or a chain of thought.
+The harder follow-up produced a tie: both systems answered 32 of 35 determinate
+reasoning cases correctly (91.4%), with identical labels across two complete
+passes. DiffusionGemma had a 73 ms warmed median versus 181 ms for TypeSafe, but
+it was substantially more confident on deliberately underdetermined inputs.
+TypeSafe's lower certainty—greater expressed uncertainty—was often the more
+useful behavior on those cases.
+
+These results show useful bounded reasoning, not unrestricted mathematical,
+coding, or long-form reasoning. Neither system was asked to emit a chain of
+thought.
 
 ## What was tested
 
@@ -215,11 +228,109 @@ adversarial decision changed. The benchmark did not have a TypeSafe sampling see
 control, so the two-result accuracy gap should not be presented as a stable model
 ranking.
 
+## Follow-up: bounded reasoning
+
+The classification suite is useful for routing, but it does not say much about
+whether a model can combine facts. A separate follow-up therefore used 41 new
+cases whose outputs were still typed while their solutions required one or more
+reasoning steps.
+
+| Reasoning capability | Example of the required operation |
+| --- | --- |
+| Temporal state | Sort grants and revocations by time, then determine the role at an incident timestamp |
+| Policy application | Apply a deadline, receipt rule, and narrowly scoped exception together |
+| Relational reasoning | Follow ownership and delegation links until reaching a human owner |
+| Constraint satisfaction | Reject every candidate violating any hard requirement |
+| Evidence entailment | Distinguish a supported bounded claim from an unsupported universal claim |
+| Causal diagnosis | Use bypasses and rollbacks to isolate a component rather than trust correlation |
+| Counterfactual reasoning | Remove one causal condition while holding the remaining facts fixed |
+| Evidence strength | Separate timing, controlled comparison, and repeatable intervention |
+
+Thirty-five cases had a determinate expected answer. Six underdetermined probes
+were excluded from exact-match accuracy and used to inspect uncertainty. Twelve
+determinate cases contained stale evidence, injected answers, misleading order,
+or other adversarial distractors. Eight short cases had matched long versions in
+which current evidence was buried among roughly 10K characters of history.
+
+### Reasoning results
+
+| Result | TypeSafe | DiffusionGemma |
+| --- | ---: | ---: |
+| Correct on 35 clear cases | **32/35 (91.4%)** | **32/35 (91.4%)** |
+| Adversarial clear cases | 10/12 (83.3%) | 10/12 (83.3%) |
+| Choice | 17/18 | 17/18 |
+| Noul | **12/12** | 11/12 |
+| Score | 3/5 | **4/5** |
+| Median latency | 181 ms | **73 ms** |
+| Observed p95 latency | 501 ms | **104 ms** |
+
+Both systems got every clear causal-diagnosis, constraint-satisfaction,
+counterfactual, entailment, and relational case right. Their errors clustered in
+three places:
+
+- Both missed a temporal-ordering problem whose events were intentionally listed
+  out of order. A viewer grant occurred after a full revocation, but both systems
+  answered that no access remained.
+- DiffusionGemma missed a reimbursement exception. A documented outage extended
+  a 30-day deadline by ten days, making a day-37 submission eligible. TypeSafe
+  answered yes, although only with 0.26 derived certainty; DiffusionGemma answered
+  no with 0.954 certainty.
+- TypeSafe rated a randomized, matched A/B comparison as weak rather than strong
+  evidence in both its short and long forms. DiffusionGemma rated the short form
+  strong, but changed to weak when the same evidence was embedded in long context.
+
+The resulting overall tie hides a useful specialization difference: TypeSafe did
+better on the Boolean policy judgment, while DiffusionGemma did better on the
+ordinal evidence-strength rubric.
+
+### Reasoning under long context
+
+| Matched-pair result | TypeSafe | DiffusionGemma |
+| --- | ---: | ---: |
+| Stable short/long labels | **8/8** | 7/8 |
+| Short answers correct | 7/8 | **8/8** |
+| Long answers correct | 7/8 | 7/8 |
+
+TypeSafe preserved every paired label. DiffusionGemma changed one evidence-strength
+answer from the authored level in short context to the adjacent lower level in
+long context. This is one pair, not enough to estimate a context degradation rate,
+but it is exactly the kind of boundary movement that a longer evaluation should
+measure.
+
+### Uncertainty was the largest behavioral difference
+
+| Reasoning subset | TypeSafe mean certainty | DiffusionGemma mean certainty |
+| --- | ---: | ---: |
+| Clear cases | 0.858 | 0.928 |
+| Underdetermined probes | **0.628** | 0.932 |
+
+For two underdetermined Noul problems—missing dates in a policy decision and an
+underspecified causal graph—TypeSafe returned derived certainty of 0.08 and 0.24.
+DiffusionGemma returned 0.926 and 0.872 on its selected answers. DiffusionGemma was
+also over 0.96 confident on three other ambiguous probes. A confidence-gated
+cascade would therefore receive substantially more useful abstention signal from
+TypeSafe on this small set.
+
+Neither system always recognized underdetermination. Both were confident on an
+equal-timestamp role conflict, and TypeSafe was highly confident on an ambiguous
+cost-boundary and evidence-strength case. Probabilities are signals to validate,
+not a guarantee that ambiguity has been detected.
+
+### Reasoning repeatability
+
+The full 41-case reasoning suite was run twice. Every TypeSafe label and every
+DiffusionGemma label was identical between passes, and both passes produced the
+same 32/35 score. The published latency table uses the second warmed pass.
+DiffusionGemma used four adaptive reads on 40 of 41 cases and one read on one
+case, so the configured adaptive policy again behaved almost entirely like a
+fixed four-read policy.
+
 ## Practical interpretation
 
 DiffusionGemma looks useful when all of the following are true:
 
-- decisions can be expressed as a small fixed label set;
+- decisions or bounded reasoning outcomes can be expressed as a small fixed
+  answer set;
 - a GPU-backed, long-lived service is acceptable;
 - request shapes can be pre-warmed;
 - full probability distributions are consumed, not just winning labels; and
@@ -227,28 +338,38 @@ DiffusionGemma looks useful when all of the following are true:
 
 TypeSafe remains operationally attractive when a hosted typed-decision primitive
 is preferable to owning model serving, kernel warm-up, capacity, and reliability.
+On the reasoning probes, it also supplied more useful low-certainty signals for
+several cases with missing information or underspecified causal structure.
 The correct choice therefore depends on more than model accuracy: ownership cost,
 deployment footprint, traffic shape, and fallback policy matter.
 
 ## Limitations
 
-- The suite has only 40 scored cases and was labeled by one evaluator.
-- Inputs are synthetic, English-only, and concentrated in support routing and
-  incident severity.
+- The classification suite has 40 scored cases and the reasoning suite has 35;
+  both were labeled by one evaluator.
+- Inputs are synthetic and English-only. The reasoning tasks are purpose-built
+  probes, not a representative sample of production traffic.
 - The latency comparison includes different hardware and network paths.
-- Observed p95 is an order statistic from only 46 calls, not a production SLO.
+- Each observed p95 is an order statistic from at most 46 calls, not a
+  production SLO.
 - The systems use different interfaces and confidence definitions.
 - Probability-derived certainty is not proven to be calibrated correctness.
 - Only one DiffusionGemma serving configuration was measured.
-- The benchmark does not measure throughput, concurrency, GPU cost, free-form
-  reasoning, or downstream business impact.
+- The reasoning suite uses closed, typed outputs. It does not measure free-form
+  mathematical reasoning, coding, planning, or explanation quality.
+- The benchmark does not measure throughput, concurrency, GPU cost, or downstream
+  business impact.
 
 ## Reproduction artifacts
 
 - Harness: [`compare_typesafe_diffusiongemma.py`](compare_typesafe_diffusiongemma.py)
 - Sanitized per-case results:
   [`results/diffusiongemma_vs_typesafe.json`](results/diffusiongemma_vs_typesafe.json)
+- Reasoning harness:
+  [`compare_typesafe_diffusiongemma_reasoning.py`](compare_typesafe_diffusiongemma_reasoning.py)
+- Sanitized reasoning results:
+  [`results/diffusiongemma_vs_typesafe_reasoning.json`](results/diffusiongemma_vs_typesafe_reasoning.json)
 
 The committed artifacts contain no credentials, service locations, private source
-locations, or input text. Service configuration and credentials are supplied at
-runtime through environment variables.
+locations, or production data. Service configuration and credentials are supplied
+at runtime through environment variables.
