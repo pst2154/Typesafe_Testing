@@ -1,0 +1,1192 @@
+[
+  {
+    "id": "json_object",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Is a JSON object an ordered or unordered collection of name/value pairs?",
+    "criteria": {
+      "a": "An ordered collection",
+      "b": "An unordered collection"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "An unordered collection",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.0024167775542748844,
+        "b": 0.997446789742216,
+        "insufficient_evidence": 0.00013643270350904193
+      },
+      "confidence": 0.997446789742216
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9990346360334933,
+        "contradicted": 0.000848743467341721,
+        "unknown": 0.00011662049916498122
+      },
+      "confidence": 0.9990346360334933
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L164-183",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "   An object is an unordered collection of zero or more name/value\n   pairs, where a name is a string and a value is a string, number,\n   boolean, null, object, or array.\n\n   An array is an ordered sequence of zero or more values.\n\n\n\nBray                         Standards Track                    [Page 3]\n\f\nRFC 8259                          JSON                     December 2017\n\n\n   The terms \"object\" and \"array\" come from the conventions of\n   JavaScript.\n\n   JSON's design goals were for it to be minimal, portable, textual, and\n   a subset of JavaScript.\n\n",
+        "line_start": 164,
+        "line_end": 183,
+        "retrieval_score": 43.46861593638957
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L164-183",
+      "rfc8259:L301-328",
+      "rfc7519:L302-313",
+      "rfc8259:L341-362"
+    ],
+    "used_ids": [
+      "rfc8259:L164-183"
+    ],
+    "timing_ms": {
+      "retrieval": 2.3396670003421605,
+      "decision": 360.62008400040213,
+      "verification": 215.61733300040942,
+      "total": 580.5734169989591
+    }
+  },
+  {
+    "id": "json_names",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Should names within a JSON object be unique?",
+    "criteria": {
+      "a": "Names should always be duplicated",
+      "b": "Names should be unique"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Names should be unique",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.011880999521733254,
+        "b": 0.9880452764521757,
+        "insufficient_evidence": 7.372402609110397e-05
+      },
+      "confidence": 0.9880452764521757
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9882641977778271,
+        "contradicted": 0.00936193619516451,
+        "unknown": 0.0023738660270083032
+      },
+      "confidence": 0.9882641977778271
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L301-328",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "3.  Values\n\n   A JSON value MUST be an object, array, number, or string, or one of\n   the following three literal names:\n\n      false\n      null\n      true\n\n   The literal names MUST be lowercase.  No other literal names are\n   allowed.\n\n      value = false / null / true / object / array / number / string\n\n      false = %x66.61.6c.73.65   ; false\n\n      null  = %x6e.75.6c.6c      ; null\n\n      true  = %x74.72.75.65      ; true\n\n4.  Objects\n\n   An object structure is represented as a pair of curly brackets\n   surrounding zero or more name/value pairs (or members).  A name is a\n   string.  A single colon comes after each name, separating the name\n   from the value.  A single comma separates a value from a following\n   name.  The names within an object SHOULD be unique.\n\n",
+        "line_start": 301,
+        "line_end": 328,
+        "retrieval_score": 21.683091455992667
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L301-328",
+      "rfc7519:L422-440",
+      "rfc8259:L329-340",
+      "rfc7519:L563-587"
+    ],
+    "used_ids": [
+      "rfc8259:L301-328"
+    ],
+    "timing_ms": {
+      "retrieval": 1.6547080012969673,
+      "decision": 433.85720800142735,
+      "verification": 298.7820419948548,
+      "total": 737.2243330028141
+    }
+  },
+  {
+    "id": "json_boolean",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Can a JSON value be true false or null?",
+    "criteria": {
+      "a": "No, JSON values must be objects",
+      "b": "Yes, true false and null are JSON values"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Yes, true false and null are JSON values",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.0018500044766617237,
+        "b": 0.9980630586473169,
+        "insufficient_evidence": 8.69368760212879e-05
+      },
+      "confidence": 0.9980630586473169
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9980012747536732,
+        "contradicted": 0.0018911425667770447,
+        "unknown": 0.00010758267954973811
+      },
+      "confidence": 0.9980012747536732
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L301-328",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "3.  Values\n\n   A JSON value MUST be an object, array, number, or string, or one of\n   the following three literal names:\n\n      false\n      null\n      true\n\n   The literal names MUST be lowercase.  No other literal names are\n   allowed.\n\n      value = false / null / true / object / array / number / string\n\n      false = %x66.61.6c.73.65   ; false\n\n      null  = %x6e.75.6c.6c      ; null\n\n      true  = %x74.72.75.65      ; true\n\n4.  Objects\n\n   An object structure is represented as a pair of curly brackets\n   surrounding zero or more name/value pairs (or members).  A name is a\n   string.  A single colon comes after each name, separating the name\n   from the value.  A single comma separates a value from a following\n   name.  The names within an object SHOULD be unique.\n\n",
+        "line_start": 301,
+        "line_end": 328,
+        "retrieval_score": 29.458079859373683
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L301-328",
+      "rfc9110:L6249-6267",
+      "rfc8259:L164-183",
+      "rfc9110:L6153-6170"
+    ],
+    "used_ids": [
+      "rfc8259:L301-328"
+    ],
+    "timing_ms": {
+      "retrieval": 2.1981669997330755,
+      "decision": 246.78791699989233,
+      "verification": 237.6606250036275,
+      "total": 489.0889169910224
+    }
+  },
+  {
+    "id": "json_zero",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Are leading zeros allowed in JSON numbers?",
+    "criteria": {
+      "a": "Leading zeros are required",
+      "b": "Leading zeros are not allowed"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Leading zeros are not allowed",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.0065727531790479524,
+        "b": 0.9933607482561929,
+        "insufficient_evidence": 6.649856475909664e-05
+      },
+      "confidence": 0.9933607482561929
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9990520895315713,
+        "contradicted": 0.0008927885409279417,
+        "unknown": 5.512192750076443e-05
+      },
+      "confidence": 0.9990520895315713
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L363-376",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "   array = begin-array [ value *( value-separator value ) ] end-array\n\n   There is no requirement that the values in an array be of the same\n   type.\n\n6.  Numbers\n\n   The representation of numbers is similar to that used in most\n   programming languages.  A number is represented in base 10 using\n   decimal digits.  It contains an integer component that may be\n   prefixed with an optional minus sign, which may be followed by a\n   fraction part and/or an exponent part.  Leading zeros are not\n   allowed.\n\n",
+        "line_start": 363,
+        "line_end": 376,
+        "retrieval_score": 22.272963018717064
+      },
+      {
+        "id": "rfc6455:L1424-1441",
+        "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+        "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b",
+        "text": "\n\nFette & Melnikov             Standards Track                   [Page 25]\n\f\nRFC 6455                 The WebSocket Protocol            December 2011\n\n\n      extension-param = token [ \"=\" (token | quoted-string) ]\n           ; When using the quoted-string syntax variant, the value\n           ; after quoted-string unescaping MUST conform to the\n           ; 'token' ABNF.\n      NZDIGIT       =  \"1\" | \"2\" | \"3\" | \"4\" | \"5\" | \"6\" |\n                       \"7\" | \"8\" | \"9\"\n      version = DIGIT | (NZDIGIT DIGIT) |\n                (\"1\" DIGIT DIGIT) | (\"2\" DIGIT DIGIT)\n                ; Limited to 0-255 range, with no leading zeros\n\n",
+        "line_start": 1424,
+        "line_end": 1441,
+        "retrieval_score": 11.840674520533508
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L363-376",
+      "rfc6455:L1424-1441",
+      "rfc9110:L1244-1257",
+      "rfc7519:L355-371"
+    ],
+    "used_ids": [
+      "rfc8259:L363-376",
+      "rfc6455:L1424-1441"
+    ],
+    "timing_ms": {
+      "retrieval": 1.3927079999120906,
+      "decision": 244.87162499281112,
+      "verification": 248.70587499754038,
+      "total": 497.0044999936363
+    }
+  },
+  {
+    "id": "jwt_jti",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What is the purpose of the JWT jti claim?",
+    "criteria": {
+      "a": "The expiration date",
+      "b": "A unique identifier for the JWT"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "A unique identifier for the JWT",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.003334241874715793,
+        "b": 0.9915937052392317,
+        "insufficient_evidence": 0.005072052886052596
+      },
+      "confidence": 0.9915937052392317
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9986662933072021,
+        "contradicted": 0.0012557086914748382,
+        "unknown": 7.79980013230753e-05
+      },
+      "confidence": 0.9986662933072021
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L534-551",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.6.  \"iat\" (Issued At) Claim\n\n   The \"iat\" (issued at) claim identifies the time at which the JWT was\n   issued.  This claim can be used to determine the age of the JWT.  Its\n   value MUST be a number containing a NumericDate value.  Use of this\n   claim is OPTIONAL.\n\n4.1.7.  \"jti\" (JWT ID) Claim\n\n   The \"jti\" (JWT ID) claim provides a unique identifier for the JWT.\n   The identifier value MUST be assigned in a manner that ensures that\n   there is a negligible probability that the same value will be\n   accidentally assigned to a different data object; if the application\n   uses multiple issuers, collisions MUST be prevented among values\n   produced by different issuers as well.  The \"jti\" claim can be used\n   to prevent the JWT from being replayed.  The \"jti\" value is a case-\n   sensitive string.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 534,
+        "line_end": 551,
+        "retrieval_score": 22.23955080293932
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L534-551",
+      "rfc7519:L129-136",
+      "rfc7519:L1032-1052",
+      "rfc7519:L242-262"
+    ],
+    "used_ids": [
+      "rfc7519:L534-551"
+    ],
+    "timing_ms": {
+      "retrieval": 3.6966250045225024,
+      "decision": 305.11366701102816,
+      "verification": 225.34849999647122,
+      "total": 537.5165839941474
+    }
+  },
+  {
+    "id": "jwt_optional",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Is use of the JWT exp claim optional?",
+    "criteria": {
+      "a": "Every JWT must contain exp",
+      "b": "Use of exp is optional"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Use of exp is optional",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.003798183370517244,
+        "b": 0.9960724878900884,
+        "insufficient_evidence": 0.00012932873939433385
+      },
+      "confidence": 0.9960724878900884
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9959095208167823,
+        "contradicted": 0.003781147663450951,
+        "unknown": 0.00030933151976678054
+      },
+      "confidence": 0.9959095208167823
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L505-523",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.4.  \"exp\" (Expiration Time) Claim\n\n   The \"exp\" (expiration time) claim identifies the expiration time on\n   or after which the JWT MUST NOT be accepted for processing.  The\n   processing of the \"exp\" claim requires that the current date/time\n   MUST be before the expiration date/time listed in the \"exp\" claim.\n\n\n\nJones, et al.                Standards Track                    [Page 9]\n\f\nRFC 7519                  JSON Web Token (JWT)                  May 2015\n\n\n   Implementers MAY provide for some small leeway, usually no more than\n   a few minutes, to account for clock skew.  Its value MUST be a number\n   containing a NumericDate value.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 505,
+        "line_end": 523,
+        "retrieval_score": 24.716717026135775
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L505-523",
+      "rfc7519:L534-551",
+      "rfc7519:L474-490",
+      "rfc7519:L491-504"
+    ],
+    "used_ids": [
+      "rfc7519:L505-523"
+    ],
+    "timing_ms": {
+      "retrieval": 1.7853330064099282,
+      "decision": 228.0063340003835,
+      "verification": 323.154625002644,
+      "total": 555.0401670043357
+    }
+  },
+  {
+    "id": "jwt_iss",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What does the JWT iss claim identify?",
+    "criteria": {
+      "a": "The encryption algorithm",
+      "b": "The principal that issued the JWT"
+    },
+    "expected": "b",
+    "correct": false,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.09367316490425309,
+        "b": 0.5747716446837847,
+        "insufficient_evidence": 0.3315551904119622
+      },
+      "confidence": 0.5747716446837847
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "contradicted",
+      "probabilities": {
+        "supported": 0.06651891169733498,
+        "contradicted": 0.5141099205386437,
+        "unknown": 0.4193711677640214
+      },
+      "confidence": 0.5141099205386437
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc7519:L491-504",
+      "rfc7519:L474-490",
+      "rfc7519:L129-136",
+      "rfc7519:L1005-1031"
+    ],
+    "used_ids": [
+      "rfc7519:L491-504"
+    ],
+    "timing_ms": {
+      "retrieval": 1.3065829989500344,
+      "decision": 242.32350000238512,
+      "verification": 328.16583299427293,
+      "total": 574.0623750025406
+    }
+  },
+  {
+    "id": "http_403",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What does HTTP 403 Forbidden mean?",
+    "criteria": {
+      "a": "The server successfully deleted the resource",
+      "b": "The server understood the request but refuses to fulfill it"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "The server understood the request but refuses to fulfill it",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.0015329766264164685,
+        "b": 0.9980686906242802,
+        "insufficient_evidence": 0.0003983327493032765
+      },
+      "confidence": 0.9980686906242802
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9998333303240357,
+        "contradicted": 0.0001498613138713044,
+        "unknown": 1.6808362093083394e-05
+      },
+      "confidence": 0.9998333303240357
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L7565-7582",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "15.5.3.  402 Payment Required\n\n   The 402 (Payment Required) status code is reserved for future use.\n\n15.5.4.  403 Forbidden\n\n   The 403 (Forbidden) status code indicates that the server understood\n   the request but refuses to fulfill it.  A server that wishes to make\n   public why the request has been forbidden can describe that reason in\n   the response content (if any).\n\n   If authentication credentials were provided in the request, the\n   server considers them insufficient to grant access.  The client\n   SHOULD NOT automatically repeat the request with the same\n   credentials.  The client MAY repeat the request with new or different\n   credentials.  However, a request might be forbidden for reasons\n   unrelated to the credentials.\n\n",
+        "line_start": 7565,
+        "line_end": 7582,
+        "retrieval_score": 14.79080866603453
+      },
+      {
+        "id": "rfc9110:L4966-4980",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "   A server that receives valid credentials that are not adequate to\n   gain access ought to respond with the 403 (Forbidden) status code\n   (Section 15.5.4).\n\n   HTTP does not restrict applications to this simple challenge-response\n   framework for access authentication.  Additional mechanisms can be\n   used, such as authentication at the transport level or via message\n   encapsulation, and with additional header fields specifying\n   authentication information.  However, such additional mechanisms are\n   not defined by this specification.\n\n   Note that various custom mechanisms for user authentication use the\n   Set-Cookie and Cookie header fields, defined in [COOKIE], for passing\n   tokens related to authentication.\n\n",
+        "line_start": 4966,
+        "line_end": 4980,
+        "retrieval_score": 13.323554302062872
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L7565-7582",
+      "rfc9110:L4966-4980",
+      "rfc6455:L2832-2843",
+      "rfc6455:L1222-1244"
+    ],
+    "used_ids": [
+      "rfc9110:L7565-7582",
+      "rfc9110:L4966-4980"
+    ],
+    "timing_ms": {
+      "retrieval": 1.982499990845099,
+      "decision": 351.5318749996368,
+      "verification": 193.40587500482798,
+      "total": 550.0774169922806
+    }
+  },
+  {
+    "id": "http_410",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What does HTTP 410 Gone indicate about availability of the target resource?",
+    "criteria": {
+      "a": "The resource moved temporarily",
+      "b": "Access is no longer available and likely permanent"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Access is no longer available and likely permanent",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.009966146706832898,
+        "b": 0.9897396111091699,
+        "insufficient_evidence": 0.0002942421839972288
+      },
+      "confidence": 0.9897396111091699
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9987832384445086,
+        "contradicted": 0.0011413943589560138,
+        "unknown": 7.536719653531893e-05
+      },
+      "confidence": 0.9987832384445086
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L7667-7685",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "15.5.11.  410 Gone\n\n   The 410 (Gone) status code indicates that access to the target\n   resource is no longer available at the origin server and that this\n   condition is likely to be permanent.  If the origin server does not\n   know, or has no facility to determine, whether or not the condition\n   is permanent, the status code 404 (Not Found) ought to be used\n   instead.\n\n   The 410 response is primarily intended to assist the task of web\n   maintenance by notifying the recipient that the resource is\n   intentionally unavailable and that the server owners desire that\n   remote links to that resource be removed.  Such an event is common\n   for limited-time, promotional services and for resources belonging to\n   individuals no longer associated with the origin server's site.  It\n   is not necessary to mark all permanently unavailable resources as\n   \"gone\" or to keep the mark for any length of time -- that is left to\n   the discretion of the server owner.\n\n",
+        "line_start": 7667,
+        "line_end": 7685,
+        "retrieval_score": 21.010011058126892
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L7667-7685",
+      "rfc9110:L7583-7596",
+      "rfc9110:L7423-7439",
+      "rfc9110:L4126-4136"
+    ],
+    "used_ids": [
+      "rfc9110:L7667-7685"
+    ],
+    "timing_ms": {
+      "retrieval": 3.6697089963126928,
+      "decision": 240.80145898915362,
+      "verification": 310.7814579998376,
+      "total": 559.3009589938447
+    }
+  },
+  {
+    "id": "http_405",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Must an origin server generate an Allow header field in a 405 Method Not Allowed response?",
+    "criteria": {
+      "a": "No it must not generate Allow",
+      "b": "Yes it must generate Allow"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Yes it must generate Allow",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.018828904494297527,
+        "b": 0.9810360511947138,
+        "insufficient_evidence": 0.00013504431098862742
+      },
+      "confidence": 0.9810360511947138
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9981318228440137,
+        "contradicted": 0.0017286347142017504,
+        "unknown": 0.00013954244178456465
+      },
+      "confidence": 0.9981318228440137
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L7597-7608",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "   A 404 response is heuristically cacheable; i.e., unless otherwise\n   indicated by the method definition or explicit cache controls (see\n   Section 4.2.2 of [CACHING]).\n\n15.5.6.  405 Method Not Allowed\n\n   The 405 (Method Not Allowed) status code indicates that the method\n   received in the request-line is known by the origin server but not\n   supported by the target resource.  The origin server MUST generate an\n   Allow header field in a 405 response containing a list of the target\n   resource's currently supported methods.\n\n",
+        "line_start": 7597,
+        "line_end": 7608,
+        "retrieval_score": 33.64225128941756
+      },
+      {
+        "id": "rfc9110:L4710-4729",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "10.2.1.  Allow\n\n   The \"Allow\" header field lists the set of methods advertised as\n   supported by the target resource.  The purpose of this field is\n   strictly to inform the recipient of valid request methods associated\n   with the resource.\n\n     Allow = #method\n\n   Example of use:\n\n   Allow: GET, HEAD, PUT\n\n   The actual set of allowed methods is defined by the origin server at\n   the time of each request.  An origin server MUST generate an Allow\n   header field in a 405 (Method Not Allowed) response and MAY do so in\n   any other response.  An empty Allow field value indicates that the\n   resource allows no methods, which might occur in a 405 response if\n   the resource has been temporarily disabled by configuration.\n\n",
+        "line_start": 4710,
+        "line_end": 4729,
+        "retrieval_score": 33.09019282469384
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L7597-7608",
+      "rfc9110:L4710-4729",
+      "rfc9110:L3792-3805",
+      "rfc9110:L4444-4467"
+    ],
+    "used_ids": [
+      "rfc9110:L7597-7608",
+      "rfc9110:L4710-4729"
+    ],
+    "timing_ms": {
+      "retrieval": 4.153834001044743,
+      "decision": 238.2350830012001,
+      "verification": 346.61470899300184,
+      "total": 591.8075419904198
+    }
+  },
+  {
+    "id": "http_204",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Does a 204 No Content response contain additional response content?",
+    "criteria": {
+      "a": "Yes, it must contain a representation",
+      "b": "No, it has no additional response content"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "No, it has no additional response content",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.006487622786148316,
+        "b": 0.9925972668371389,
+        "insufficient_evidence": 0.0009151103767129288
+      },
+      "confidence": 0.9925972668371389
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9994476399384258,
+        "contradicted": 0.00041597364099672053,
+        "unknown": 0.0001363864205774643
+      },
+      "confidence": 0.9994476399384258
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L7011-7022",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "   A 203 response is heuristically cacheable; i.e., unless otherwise\n   indicated by the method definition or explicit cache controls (see\n   Section 4.2.2 of [CACHING]).\n\n15.3.5.  204 No Content\n\n   The 204 (No Content) status code indicates that the server has\n   successfully fulfilled the request and that there is no additional\n   content to send in the response content.  Metadata in the response\n   header fields refer to the target resource and its selected\n   representation after the requested action was applied.\n\n",
+        "line_start": 7011,
+        "line_end": 7022,
+        "retrieval_score": 17.490959333543465
+      },
+      {
+        "id": "rfc9110:L6942-6952",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "                               Table 6\n\n   Aside from responses to CONNECT, a 200 response is expected to\n   contain message content unless the message framing explicitly\n   indicates that the content has zero length.  If some aspect of the\n   request indicates a preference for no content upon success, the\n   origin server ought to send a 204 (No Content) response instead.  For\n   CONNECT, there is no content because the successful result is a\n   tunnel, which begins immediately after the 200 response header\n   section.\n\n",
+        "line_start": 6942,
+        "line_end": 6952,
+        "retrieval_score": 16.640603539687355
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L7011-7022",
+      "rfc9110:L6942-6952",
+      "rfc9110:L4089-4097",
+      "rfc9110:L3238-3249"
+    ],
+    "used_ids": [
+      "rfc9110:L7011-7022",
+      "rfc9110:L6942-6952"
+    ],
+    "timing_ms": {
+      "retrieval": 3.0214580037863925,
+      "decision": 327.1177499991609,
+      "verification": 316.4544999890495,
+      "total": 649.9504170060391
+    }
+  },
+  {
+    "id": "http_head",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Must a server refrain from sending content in a response to HEAD?",
+    "criteria": {
+      "a": "The server must send the full GET content",
+      "b": "The server must not send content in a HEAD response"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "The server must not send content in a HEAD response",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.06477153515982462,
+        "b": 0.9345991691479509,
+        "insufficient_evidence": 0.000629295692224435
+      },
+      "confidence": 0.9345991691479509
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9969807635128705,
+        "contradicted": 0.0026354999496134147,
+        "unknown": 0.0003837365375160868
+      },
+      "confidence": 0.9969807635128705
+    },
+    "citations": [
+      {
+        "id": "rfc9111:L986-999",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.txt",
+        "sha256": "aeb52adb3279d5f23dae34f68af11bd5cef0a0aff7ffcd014c9ca93c5302cf3e",
+        "text": "   For each stored response identified, the cache MUST update its header\n   fields with the header fields provided in the 304 (Not Modified)\n   response, as per Section 3.2.\n\n4.3.5.  Freshening Responses with HEAD\n\n   A response to the HEAD method is identical to what an equivalent\n   request made with a GET would have been, without sending the content.\n   This property of HEAD responses can be used to invalidate or update a\n   cached GET response if the more efficient conditional GET request\n   mechanism is not available (due to no validators being present in the\n   stored response) or if transmission of the content is not desired\n   even if it has changed.\n\n",
+        "line_start": 986,
+        "line_end": 999,
+        "retrieval_score": 13.999862796519473
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9111:L986-999",
+      "rfc9110:L3985-4003",
+      "rfc9110:L3238-3249",
+      "rfc9110:L3226-3237"
+    ],
+    "used_ids": [
+      "rfc9111:L986-999"
+    ],
+    "timing_ms": {
+      "retrieval": 3.17204199382104,
+      "decision": 232.76370800158475,
+      "verification": 360.2399579976918,
+      "total": 599.0992079896387
+    }
+  },
+  {
+    "id": "ws_server_mask",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Must a WebSocket server mask the frames it sends to clients?",
+    "criteria": {
+      "a": "A server must mask all frames sent to clients",
+      "b": "A server must not mask frames sent to clients"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "A server must not mask frames sent to clients",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.012603132097796971,
+        "b": 0.9873307076695936,
+        "insufficient_evidence": 6.616023260938052e-05
+      },
+      "confidence": 0.9873307076695936
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9998241865267532,
+        "contradicted": 0.00016731551049093194,
+        "unknown": 8.49796275590766e-06
+      },
+      "confidence": 0.9998241865267532
+    },
+    "citations": [
+      {
+        "id": "rfc6455:L1504-1527",
+        "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+        "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b",
+        "text": "      GET /chat HTTP/1.1\n      Host: server.example.com\n      Upgrade: websocket\n      Connection: Upgrade\n      ...\n      Sec-WebSocket-Version: 13\n\n5.  Data Framing\n\n5.1.  Overview\n\n   In the WebSocket Protocol, data is transmitted using a sequence of\n   frames.  To avoid confusing network intermediaries (such as\n   intercepting proxies) and for security reasons that are further\n   discussed in Section 10.3, a client MUST mask all frames that it\n   sends to the server (see Section 5.3 for further details).  (Note\n   that masking is done whether or not the WebSocket Protocol is running\n   over TLS.)  The server MUST close the connection upon receiving a\n   frame that is not masked.  In this case, a server MAY send a Close\n   frame with a status code of 1002 (protocol error) as defined in\n   Section 7.4.1.  A server MUST NOT mask any frames that it sends to\n   the client.  A client MUST close a connection if it detects a masked\n   frame.  In this case, it MAY use the status code 1002 (protocol\n   error) as defined in Section 7.4.1.  (These rules might be relaxed in\n",
+        "line_start": 1504,
+        "line_end": 1527,
+        "retrieval_score": 24.09702789752602
+      }
+    ],
+    "retrieved_ids": [
+      "rfc6455:L1504-1527",
+      "rfc6455:L1642-1667",
+      "rfc6455:L2929-2942",
+      "rfc6455:L435-453"
+    ],
+    "used_ids": [
+      "rfc6455:L1504-1527"
+    ],
+    "timing_ms": {
+      "retrieval": 2.841249995981343,
+      "decision": 241.25916699995287,
+      "verification": 317.91295800940134,
+      "total": 565.3450829995563
+    }
+  },
+  {
+    "id": "ws_control",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Can WebSocket control frames be fragmented?",
+    "criteria": {
+      "a": "Control frames must always be fragmented",
+      "b": "Control frames must not be fragmented"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "Control frames must not be fragmented",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.002635534602714683,
+        "b": 0.9971021132325038,
+        "insufficient_evidence": 0.00026235216478142113
+      },
+      "confidence": 0.9971021132325038
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9975130173710299,
+        "contradicted": 0.0022788841646936707,
+        "unknown": 0.00020809846427631212
+      },
+      "confidence": 0.9975130173710299
+    },
+    "citations": [
+      {
+        "id": "rfc6455:L1973-1983",
+        "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+        "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b",
+        "text": "   o  As a consequence of these rules, all fragments of a message are of\n      the same type, as set by the first fragment's opcode.  Since\n      control frames cannot be fragmented, the type for all fragments in\n      a message MUST be either text, binary, or one of the reserved\n      opcodes.\n\n   NOTE: If control frames could not be interjected, the latency of a\n   ping, for example, would be very long if behind a large message.\n   Hence, the requirement of handling control frames in the middle of a\n   fragmented message.\n\n",
+        "line_start": 1973,
+        "line_end": 1983,
+        "retrieval_score": 17.48914120427832
+      }
+    ],
+    "retrieved_ids": [
+      "rfc6455:L1973-1983",
+      "rfc6455:L2009-2029",
+      "rfc6455:L1931-1954",
+      "rfc6455:L1918-1930"
+    ],
+    "used_ids": [
+      "rfc6455:L1973-1983"
+    ],
+    "timing_ms": {
+      "retrieval": 2.322250002180226,
+      "decision": 320.50720798724797,
+      "verification": 231.54729200177826,
+      "total": 557.8830419981387
+    }
+  },
+  {
+    "id": "ws_text",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What encoding is used by WebSocket text messages?",
+    "criteria": {
+      "a": "UTF-16",
+      "b": "UTF-8"
+    },
+    "expected": "b",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "b",
+    "answer": "UTF-8",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.002303033557552774,
+        "b": 0.9974329016503091,
+        "insufficient_evidence": 0.0002640647921382697
+      },
+      "confidence": 0.9974329016503091
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9993535632313231,
+        "contradicted": 0.0005710872451621365,
+        "unknown": 7.534952351479305e-05
+      },
+      "confidence": 0.9993535632313231
+    },
+    "citations": [
+      {
+        "id": "rfc6455:L3012-3026",
+        "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+        "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b",
+        "text": "   A common class of security problems arises when sending text data\n   using the wrong encoding.  This protocol specifies that messages with\n   a Text data type (as opposed to Binary or other types) contain UTF-8-\n   encoded data.  Although the length is still indicated and\n   applications implementing this protocol should use the length to\n   determine where the frame actually ends, sending data in an improper\n\n\n\n\nFette & Melnikov             Standards Track                   [Page 53]\n\f\nRFC 6455                 The WebSocket Protocol            December 2011\n\n",
+        "line_start": 3012,
+        "line_end": 3026,
+        "retrieval_score": 13.375459636664106
+      },
+      {
+        "id": "rfc9110:L3043-3056",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "8.4.  Content-Encoding\n\n   The \"Content-Encoding\" header field indicates what content codings\n   have been applied to the representation, beyond those inherent in the\n   media type, and thus what decoding mechanisms have to be applied in\n   order to obtain data in the media type referenced by the Content-Type\n   header field.  Content-Encoding is primarily used to allow a\n   representation's data to be compressed without losing the identity of\n   its underlying media type.\n\n     Content-Encoding = #content-coding\n\n   An example of its use is\n\n",
+        "line_start": 3043,
+        "line_end": 3056,
+        "retrieval_score": 12.206684652804022
+      }
+    ],
+    "retrieved_ids": [
+      "rfc6455:L3012-3026",
+      "rfc9110:L3043-3056",
+      "rfc9110:L5264-5275",
+      "rfc9110:L2993-3014"
+    ],
+    "used_ids": [
+      "rfc6455:L3012-3026",
+      "rfc9110:L3043-3056"
+    ],
+    "timing_ms": {
+      "retrieval": 3.6657089949585497,
+      "decision": 307.20779100374784,
+      "verification": 365.8626670076046,
+      "total": 680.1049169880571
+    }
+  },
+  {
+    "id": "absent_laya_training",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "How many documents were used to train Laya?",
+    "criteria": {
+      "a": "Ten million documents",
+      "b": "One million documents"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.00020844471910057679,
+        "b": 0.0006085791377030586,
+        "insufficient_evidence": 0.9991829761431964
+      },
+      "confidence": 0.9991829761431964
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L1989-2002",
+      "rfc9110:L8237-8249",
+      "rfc9110:L3487-3507",
+      "rfc9110:L40-58"
+    ],
+    "used_ids": [
+      "rfc9110:L1989-2002",
+      "rfc9110:L8237-8249"
+    ],
+    "timing_ms": {
+      "retrieval": 2.2922920034034178,
+      "decision": 238.9992909884313,
+      "verification": 0.00404199818149209,
+      "total": 244.25383399648126
+    }
+  },
+  {
+    "id": "absent_company",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "What is our company production database retention period?",
+    "criteria": {
+      "a": "90 days",
+      "b": "30 days"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.0005177519584555041,
+        "b": 0.0017013570949580867,
+        "insufficient_evidence": 0.9977808909465864
+      },
+      "confidence": 0.9977808909465864
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L735-743",
+      "rfc9110:L8577-8592",
+      "rfc7519:L774-787",
+      "rfc7519:L945-958"
+    ],
+    "used_ids": [
+      "rfc9110:L735-743",
+      "rfc9110:L8577-8592"
+    ],
+    "timing_ms": {
+      "retrieval": 1.9190829916624352,
+      "decision": 349.61704099259805,
+      "verification": 0.0036249984987080097,
+      "total": 354.51249999459833
+    }
+  },
+  {
+    "id": "absent_owner",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Who owns our staging Kubernetes cluster?",
+    "criteria": {
+      "a": "Bob",
+      "b": "Alice"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.00087598958936387,
+        "b": 0.0022238027125545687,
+        "insufficient_evidence": 0.9969002076980816
+      },
+      "confidence": 0.9969002076980816
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L735-743",
+      "rfc6455:L3800-3810",
+      "rfc7519:L959-974",
+      "rfc9110:L1125-1134"
+    ],
+    "used_ids": [
+      "rfc9110:L735-743",
+      "rfc6455:L3800-3810"
+    ],
+    "timing_ms": {
+      "retrieval": 0.7953750027809292,
+      "decision": 235.7639159890823,
+      "verification": 0.0027909991331398487,
+      "total": 238.11808400205337
+    }
+  },
+  {
+    "id": "absent_bill",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "How much was our last GPU cloud invoice?",
+    "criteria": {
+      "a": "1000 dollars",
+      "b": "100 dollars"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.0004733661966099604,
+        "b": 0.0009305704802997925,
+        "insufficient_evidence": 0.9985960633230904
+      },
+      "confidence": 0.9985960633230904
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9111:L1816-1828",
+      "rfc6455:L565-581",
+      "rfc9110:L686-696",
+      "rfc9110:L3487-3507"
+    ],
+    "used_ids": [
+      "rfc9111:L1816-1828",
+      "rfc6455:L565-581"
+    ],
+    "timing_ms": {
+      "retrieval": 0.94524999440182,
+      "decision": 239.95808300969657,
+      "verification": 0.004708999767899513,
+      "total": 242.70629200327676
+    }
+  },
+  {
+    "id": "absent_port",
+    "repeat": 0,
+    "suite": "heldout",
+    "query": "Which port does our internal application use for its private gateway?",
+    "criteria": {
+      "a": "9000",
+      "b": "8000"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.0010609333284291695,
+        "b": 0.02611641925437281,
+        "insufficient_evidence": 0.9728226474171981
+      },
+      "confidence": 0.9728226474171981
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L2434-2445",
+      "rfc9110:L7801-7816",
+      "rfc9111:L1427-1440",
+      "rfc9110:L7895-7907"
+    ],
+    "used_ids": [
+      "rfc9110:L2434-2445",
+      "rfc9110:L7801-7816"
+    ],
+    "timing_ms": {
+      "retrieval": 2.4941250012489036,
+      "decision": 253.7160419888096,
+      "verification": 0.0040000013541430235,
+      "total": 259.3176670052344
+    }
+  }
+]

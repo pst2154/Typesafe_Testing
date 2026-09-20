@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "json_utf8",
+    "expected": "utf8",
+    "correct": true,
+    "model": "laya",
+    "choice": "utf8",
+    "answer": "UTF-8",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "utf8",
+      "probabilities": {
+        "utf8": 0.9253,
+        "utf16": 0.0236,
+        "insufficient_evidence": 0.0511
+      },
+      "confidence": 0.7158,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.5348,
+        "contradicted": 0.1697,
+        "unknown": 0.2955
+      },
+      "confidence": 0.0934,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L483-501",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "      escape = %x5C              ; \\\n\n      quotation-mark = %x22      ; \"\n\n      unescaped = %x20-21 / %x23-5B / %x5D-10FFFF\n\n8.  String and Character Issues\n\n8.1.  Character Encoding\n\n   JSON text exchanged between systems that are not part of a closed\n   ecosystem MUST be encoded using UTF-8 [RFC3629].\n\n   Previous specifications of JSON have not required the use of UTF-8\n   when transmitting JSON text.  However, the vast majority of JSON-\n   based software implementations have chosen to use the UTF-8 encoding,\n   to the extent that it is the only encoding that achieves\n   interoperability.\n\n",
+        "line_start": 483,
+        "line_end": 501,
+        "retrieval_score": 44.03107026402304
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L483-501",
+      "rfc8259:L562-603",
+      "rfc9110:L543-563",
+      "rfc8259:L454-482"
+    ],
+    "used_ids": [
+      "rfc8259:L483-501"
+    ],
+    "timing_ms": {
+      "retrieval": 1.706082999589853,
+      "decision": 2794.1568329988513,
+      "verification": 360.038083003019,
+      "total": 3159.603000007337
+    }
+  },
+  {
+    "id": "json_nan",
+    "expected": "no",
+    "correct": false,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "NaN and Infinity are permitted JSON numbers",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.7416,
+        "no": 0.1057,
+        "insufficient_evidence": 0.1527
+      },
+      "confidence": 0.3207,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.8823,
+        "contradicted": 0.0307,
+        "unknown": 0.087
+      },
+      "confidence": 0.6086,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L377-387",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "   A fraction part is a decimal point followed by one or more digits.\n\n   An exponent part begins with the letter E in uppercase or lowercase,\n   which may be followed by a plus or minus sign.  The E and optional\n   sign are followed by one or more digits.\n\n   Numeric values that cannot be represented in the grammar below (such\n   as Infinity and NaN) are not permitted.\n\n      number = [ minus ] int [ frac ] [ exp ]\n\n",
+        "line_start": 377,
+        "line_end": 387,
+        "retrieval_score": 22.02634116674511
+      },
+      {
+        "id": "rfc9111:L227-235",
+        "url": "https://www.rfc-editor.org/rfc/rfc9111.txt",
+        "sha256": "aeb52adb3279d5f23dae34f68af11bd5cef0a0aff7ffcd014c9ca93c5302cf3e",
+        "text": "      |  *Note:* The value 2147483648 is here for historical reasons,\n      |  represents infinity (over 68 years), and does not need to be\n      |  stored in binary form; an implementation could produce it as a\n      |  string if any overflow occurs, even if the calculations are\n      |  performed with an arithmetic type incapable of directly\n      |  representing that number.  What matters here is that an\n      |  overflow be detected and not treated as a negative value in\n      |  later calculations.\n\n",
+        "line_start": 227,
+        "line_end": 235,
+        "retrieval_score": 14.375191279260704
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L377-387",
+      "rfc9111:L227-235",
+      "rfc7519:L277-301",
+      "rfc8259:L164-183"
+    ],
+    "used_ids": [
+      "rfc8259:L377-387",
+      "rfc9111:L227-235"
+    ],
+    "timing_ms": {
+      "retrieval": 1.942874994711019,
+      "decision": 282.16762500233017,
+      "verification": 157.3372919956455,
+      "total": 442.9918749956414
+    }
+  },
+  {
+    "id": "json_array",
+    "expected": "ordered",
+    "correct": true,
+    "model": "laya",
+    "choice": "ordered",
+    "answer": "A JSON array is ordered",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "ordered",
+      "probabilities": {
+        "ordered": 0.7217,
+        "unordered": 0.1611,
+        "insufficient_evidence": 0.1171
+      },
+      "confidence": 0.2894,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.6077,
+        "contradicted": 0.1499,
+        "unknown": 0.2424
+      },
+      "confidence": 0.1529,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L164-183",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "   An object is an unordered collection of zero or more name/value\n   pairs, where a name is a string and a value is a string, number,\n   boolean, null, object, or array.\n\n   An array is an ordered sequence of zero or more values.\n\n\n\nBray                         Standards Track                    [Page 3]\n\f\nRFC 8259                          JSON                     December 2017\n\n\n   The terms \"object\" and \"array\" come from the conventions of\n   JavaScript.\n\n   JSON's design goals were for it to be minimal, portable, textual, and\n   a subset of JavaScript.\n\n",
+        "line_start": 164,
+        "line_end": 183,
+        "retrieval_score": 34.857119445133925
+      },
+      {
+        "id": "rfc8259:L255-266",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "   A JSON text is a serialized value.  Note that certain previous\n   specifications of JSON constrained a JSON text to be an object or an\n   array.  Implementations that generate only objects or arrays where a\n   JSON text is called for will be interoperable in the sense that all\n   implementations will accept these as conforming JSON texts.\n\n      JSON-text = ws value ws\n\n   These are the six structural characters:\n\n      begin-array     = ws %x5B ws  ; [ left square bracket\n\n",
+        "line_start": 255,
+        "line_end": 266,
+        "retrieval_score": 15.57568202786181
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L164-183",
+      "rfc8259:L255-266",
+      "rfc8259:L301-328",
+      "rfc8259:L652-692"
+    ],
+    "used_ids": [
+      "rfc8259:L164-183",
+      "rfc8259:L255-266"
+    ],
+    "timing_ms": {
+      "retrieval": 3.5759589954977855,
+      "decision": 264.2939590004971,
+      "verification": 367.16700000397395,
+      "total": 637.4060419911984
+    }
+  },
+  {
+    "id": "json_literal",
+    "expected": "yes",
+    "correct": true,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "JSON literal names must be lowercase",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.6755,
+        "no": 0.1633,
+        "insufficient_evidence": 0.1612
+      },
+      "confidence": 0.2216,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.6194,
+        "contradicted": 0.1212,
+        "unknown": 0.2594
+      },
+      "confidence": 0.1785,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc8259:L301-328",
+        "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+        "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "text": "3.  Values\n\n   A JSON value MUST be an object, array, number, or string, or one of\n   the following three literal names:\n\n      false\n      null\n      true\n\n   The literal names MUST be lowercase.  No other literal names are\n   allowed.\n\n      value = false / null / true / object / array / number / string\n\n      false = %x66.61.6c.73.65   ; false\n\n      null  = %x6e.75.6c.6c      ; null\n\n      true  = %x74.72.75.65      ; true\n\n4.  Objects\n\n   An object structure is represented as a pair of curly brackets\n   surrounding zero or more name/value pairs (or members).  A name is a\n   string.  A single colon comes after each name, separating the name\n   from the value.  A single comma separates a value from a following\n   name.  The names within an object SHOULD be unique.\n\n",
+        "line_start": 301,
+        "line_end": 328,
+        "retrieval_score": 43.94100175005477
+      }
+    ],
+    "retrieved_ids": [
+      "rfc8259:L301-328",
+      "rfc8259:L241-254",
+      "rfc9110:L6249-6267",
+      "rfc9110:L5917-5933"
+    ],
+    "used_ids": [
+      "rfc8259:L301-328"
+    ],
+    "timing_ms": {
+      "retrieval": 2.2605830017710105,
+      "decision": 161.02820800733753,
+      "verification": 164.4506670127157,
+      "total": 330.30695799971
+    }
+  },
+  {
+    "id": "jwt_aud",
+    "expected": "reject",
+    "correct": false,
+    "model": "laya",
+    "choice": "accept",
+    "answer": "The JWT must be accepted",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "accept",
+      "probabilities": {
+        "reject": 0.2236,
+        "accept": 0.6565,
+        "insufficient_evidence": 0.1199
+      },
+      "confidence": 0.2122,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.7458,
+        "contradicted": 0.0989,
+        "unknown": 0.1553
+      },
+      "confidence": 0.3293,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L491-504",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.3.  \"aud\" (Audience) Claim\n\n   The \"aud\" (audience) claim identifies the recipients that the JWT is\n   intended for.  Each principal intended to process the JWT MUST\n   identify itself with a value in the audience claim.  If the principal\n   processing the claim does not identify itself with a value in the\n   \"aud\" claim when this claim is present, then the JWT MUST be\n   rejected.  In the general case, the \"aud\" value is an array of case-\n   sensitive strings, each containing a StringOrURI value.  In the\n   special case when the JWT has one audience, the \"aud\" value MAY be a\n   single case-sensitive string containing a StringOrURI value.  The\n   interpretation of audience values is generally application specific.\n   Use of this claim is OPTIONAL.\n\n",
+        "line_start": 491,
+        "line_end": 504,
+        "retrieval_score": 46.91921508302218
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L491-504",
+      "rfc7519:L129-136",
+      "rfc7519:L759-773",
+      "rfc7519:L534-551"
+    ],
+    "used_ids": [
+      "rfc7519:L491-504"
+    ],
+    "timing_ms": {
+      "retrieval": 6.751000008080155,
+      "decision": 151.02729199861642,
+      "verification": 308.4264159988379,
+      "total": 470.6972499989206
+    }
+  },
+  {
+    "id": "jwt_exp",
+    "expected": "yes",
+    "correct": true,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "The exp claim identifies the expiration time",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.9255,
+        "no": 0.0362,
+        "insufficient_evidence": 0.0383
+      },
+      "confidence": 0.7118,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.868,
+        "contradicted": 0.0538,
+        "unknown": 0.0782
+      },
+      "confidence": 0.5636,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L505-523",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.4.  \"exp\" (Expiration Time) Claim\n\n   The \"exp\" (expiration time) claim identifies the expiration time on\n   or after which the JWT MUST NOT be accepted for processing.  The\n   processing of the \"exp\" claim requires that the current date/time\n   MUST be before the expiration date/time listed in the \"exp\" claim.\n\n\n\nJones, et al.                Standards Track                    [Page 9]\n\f\nRFC 7519                  JSON Web Token (JWT)                  May 2015\n\n\n   Implementers MAY provide for some small leeway, usually no more than\n   a few minutes, to account for clock skew.  Its value MUST be a number\n   containing a NumericDate value.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 505,
+        "line_end": 523,
+        "retrieval_score": 43.70277000261995
+      },
+      {
+        "id": "rfc7519:L524-533",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.5.  \"nbf\" (Not Before) Claim\n\n   The \"nbf\" (not before) claim identifies the time before which the JWT\n   MUST NOT be accepted for processing.  The processing of the \"nbf\"\n   claim requires that the current date/time MUST be after or equal to\n   the not-before date/time listed in the \"nbf\" claim.  Implementers MAY\n   provide for some small leeway, usually no more than a few minutes, to\n   account for clock skew.  Its value MUST be a number containing a\n   NumericDate value.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 524,
+        "line_end": 533,
+        "retrieval_score": 26.56092330350304
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L505-523",
+      "rfc7519:L524-533",
+      "rfc7519:L129-136",
+      "rfc9111:L686-702"
+    ],
+    "used_ids": [
+      "rfc7519:L505-523",
+      "rfc7519:L524-533"
+    ],
+    "timing_ms": {
+      "retrieval": 2.6829589914996177,
+      "decision": 213.367707998259,
+      "verification": 226.2944999965839,
+      "total": 444.1148750047432
+    }
+  },
+  {
+    "id": "jwt_iat",
+    "expected": "issued",
+    "correct": true,
+    "model": "laya",
+    "choice": "issued",
+    "answer": "The time at which the JWT was issued",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "issued",
+      "probabilities": {
+        "issued": 0.8381,
+        "expires": 0.066,
+        "insufficient_evidence": 0.0959
+      },
+      "confidence": 0.4973,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.7082,
+        "contradicted": 0.0971,
+        "unknown": 0.1946
+      },
+      "confidence": 0.2815,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L534-551",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.6.  \"iat\" (Issued At) Claim\n\n   The \"iat\" (issued at) claim identifies the time at which the JWT was\n   issued.  This claim can be used to determine the age of the JWT.  Its\n   value MUST be a number containing a NumericDate value.  Use of this\n   claim is OPTIONAL.\n\n4.1.7.  \"jti\" (JWT ID) Claim\n\n   The \"jti\" (JWT ID) claim provides a unique identifier for the JWT.\n   The identifier value MUST be assigned in a manner that ensures that\n   there is a negligible probability that the same value will be\n   accidentally assigned to a different data object; if the application\n   uses multiple issuers, collisions MUST be prevented among values\n   produced by different issuers as well.  The \"jti\" claim can be used\n   to prevent the JWT from being replayed.  The \"jti\" value is a case-\n   sensitive string.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 534,
+        "line_end": 551,
+        "retrieval_score": 19.315911846929012
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L534-551",
+      "rfc7519:L491-504",
+      "rfc7519:L129-136",
+      "rfc7519:L1032-1052"
+    ],
+    "used_ids": [
+      "rfc7519:L534-551"
+    ],
+    "timing_ms": {
+      "retrieval": 3.443082998273894,
+      "decision": 128.31749999895692,
+      "verification": 182.3948749952251,
+      "total": 319.47179199778475
+    }
+  },
+  {
+    "id": "jwt_nbf",
+    "expected": "before",
+    "correct": true,
+    "model": "laya",
+    "choice": "before",
+    "answer": "The time before which the JWT must not be accepted",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "before",
+      "probabilities": {
+        "before": 0.3997,
+        "after": 0.3994,
+        "insufficient_evidence": 0.2008
+      },
+      "confidence": 0.0392,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.8429,
+        "contradicted": 0.0611,
+        "unknown": 0.0959
+      },
+      "confidence": 0.5087,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc7519:L524-533",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.5.  \"nbf\" (Not Before) Claim\n\n   The \"nbf\" (not before) claim identifies the time before which the JWT\n   MUST NOT be accepted for processing.  The processing of the \"nbf\"\n   claim requires that the current date/time MUST be after or equal to\n   the not-before date/time listed in the \"nbf\" claim.  Implementers MAY\n   provide for some small leeway, usually no more than a few minutes, to\n   account for clock skew.  Its value MUST be a number containing a\n   NumericDate value.  Use of this claim is OPTIONAL.\n\n",
+        "line_start": 524,
+        "line_end": 533,
+        "retrieval_score": 20.106131039186206
+      },
+      {
+        "id": "rfc7519:L491-504",
+        "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+        "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248",
+        "text": "4.1.3.  \"aud\" (Audience) Claim\n\n   The \"aud\" (audience) claim identifies the recipients that the JWT is\n   intended for.  Each principal intended to process the JWT MUST\n   identify itself with a value in the audience claim.  If the principal\n   processing the claim does not identify itself with a value in the\n   \"aud\" claim when this claim is present, then the JWT MUST be\n   rejected.  In the general case, the \"aud\" value is an array of case-\n   sensitive strings, each containing a StringOrURI value.  In the\n   special case when the JWT has one audience, the \"aud\" value MAY be a\n   single case-sensitive string containing a StringOrURI value.  The\n   interpretation of audience values is generally application specific.\n   Use of this claim is OPTIONAL.\n\n",
+        "line_start": 491,
+        "line_end": 504,
+        "retrieval_score": 18.65131235794949
+      }
+    ],
+    "retrieved_ids": [
+      "rfc7519:L524-533",
+      "rfc7519:L491-504",
+      "rfc7519:L129-136",
+      "rfc7519:L1032-1052"
+    ],
+    "used_ids": [
+      "rfc7519:L524-533",
+      "rfc7519:L491-504"
+    ],
+    "timing_ms": {
+      "retrieval": 1.4197909913491458,
+      "decision": 200.5780000035884,
+      "verification": 198.73429200379178,
+      "total": 402.6671249885112
+    }
+  },
+  {
+    "id": "http_safe",
+    "expected": "yes",
+    "correct": true,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "GET HEAD OPTIONS and TRACE are safe methods",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.9048,
+        "no": 0.0426,
+        "insufficient_evidence": 0.0526
+      },
+      "confidence": 0.6543,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.8637,
+        "contradicted": 0.0381,
+        "unknown": 0.0983
+      },
+      "confidence": 0.5641,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L3834-3847",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "   Of the request methods defined by this specification, the GET, HEAD,\n   OPTIONS, and TRACE methods are defined to be safe.\n\n   The purpose of distinguishing between safe and unsafe methods is to\n   allow automated retrieval processes (spiders) and cache performance\n   optimization (pre-fetching) to work without fear of causing harm.  In\n   addition, it allows a user agent to apply appropriate constraints on\n   the automated use of unsafe methods when processing potentially\n   untrusted content.\n\n   A user agent SHOULD distinguish between safe and unsafe methods when\n   presenting potential actions to a user, such that the user can be\n   made aware of an unsafe action before it is requested.\n\n",
+        "line_start": 3834,
+        "line_end": 3847,
+        "retrieval_score": 29.147905512374045
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L3834-3847",
+      "rfc9110:L6917-6941",
+      "rfc9110:L8987-9008",
+      "rfc9110:L3806-3821"
+    ],
+    "used_ids": [
+      "rfc9110:L3834-3847"
+    ],
+    "timing_ms": {
+      "retrieval": 4.922041000099853,
+      "decision": 149.4019169913372,
+      "verification": 207.53649999096524,
+      "total": 367.0795000070939
+    }
+  },
+  {
+    "id": "http_idempotent",
+    "expected": "yes",
+    "correct": true,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "PUT DELETE and safe methods are idempotent",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.9232,
+        "no": 0.0342,
+        "insufficient_evidence": 0.0426
+      },
+      "confidence": 0.7053,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.9218,
+        "contradicted": 0.0205,
+        "unknown": 0.0578
+      },
+      "confidence": 0.7093,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L3861-3873",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "9.2.2.  Idempotent Methods\n\n   A request method is considered \"idempotent\" if the intended effect on\n   the server of multiple identical requests with that method is the\n   same as the effect for a single such request.  Of the request methods\n   defined by this specification, PUT, DELETE, and safe request methods\n   are idempotent.\n\n   Like the definition of safe, the idempotent property only applies to\n   what has been requested by the user; a server is free to log each\n   request separately, retain a revision control history, or implement\n   other non-idempotent side effects for each idempotent request.\n\n",
+        "line_start": 3861,
+        "line_end": 3873,
+        "retrieval_score": 29.73132240589207
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L3861-3873",
+      "rfc9110:L8987-9008",
+      "rfc9110:L3874-3882",
+      "rfc9110:L171-228"
+    ],
+    "used_ids": [
+      "rfc9110:L3861-3873"
+    ],
+    "timing_ms": {
+      "retrieval": 1.5075419942149892,
+      "decision": 130.038749994128,
+      "verification": 236.7695410066517,
+      "total": 370.33504199644085
+    }
+  },
+  {
+    "id": "http_404",
+    "expected": "missing",
+    "correct": true,
+    "model": "laya",
+    "choice": "missing",
+    "answer": "The origin server did not find a current representation or will not disclose one exists",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "missing",
+      "probabilities": {
+        "missing": 0.4734,
+        "auth": 0.1762,
+        "insufficient_evidence": 0.3504
+      },
+      "confidence": 0.0649,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.7293,
+        "contradicted": 0.079,
+        "unknown": 0.1917
+      },
+      "confidence": 0.3196,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc9110:L7583-7596",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "text": "   An origin server that wishes to \"hide\" the current existence of a\n   forbidden target resource MAY instead respond with a status code of\n   404 (Not Found).\n\n15.5.5.  404 Not Found\n\n   The 404 (Not Found) status code indicates that the origin server did\n   not find a current representation for the target resource or is not\n   willing to disclose that one exists.  A 404 status code does not\n   indicate whether this lack of representation is temporary or\n   permanent; the 410 (Gone) status code is preferred over 404 if the\n   origin server knows, presumably through some configurable means, that\n   the condition is likely to be permanent.\n\n",
+        "line_start": 7583,
+        "line_end": 7596,
+        "retrieval_score": 26.308710089955788
+      }
+    ],
+    "retrieved_ids": [
+      "rfc9110:L7583-7596",
+      "rfc9110:L10240-10268",
+      "rfc9110:L7667-7685",
+      "rfc9110:L7230-7244"
+    ],
+    "used_ids": [
+      "rfc9110:L7583-7596"
+    ],
+    "timing_ms": {
+      "retrieval": 1.8486250046407804,
+      "decision": 123.67200000153389,
+      "verification": 93.74950001074467,
+      "total": 221.70612499758136
+    }
+  },
+  {
+    "id": "http_503",
+    "expected": "temporary",
+    "correct": false,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "temporary",
+      "probabilities": {
+        "temporary": 0.8399,
+        "permanent": 0.052,
+        "insufficient_evidence": 0.1082
+      },
+      "confidence": 0.5078,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "unknown",
+      "probabilities": {
+        "supported": 0.3796,
+        "contradicted": 0.14,
+        "unknown": 0.4804
+      },
+      "confidence": 0.0941,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L7876-7894",
+      "rfc9110:L10282-10303",
+      "rfc9110:L4793-4808",
+      "rfc9110:L9084-9117"
+    ],
+    "used_ids": [
+      "rfc9110:L7876-7894"
+    ],
+    "timing_ms": {
+      "retrieval": 2.6558339886832982,
+      "decision": 155.44362500077114,
+      "verification": 161.95762499410193,
+      "total": 324.1896249965066
+    }
+  },
+  {
+    "id": "cache_no_store",
+    "expected": "no_store",
+    "correct": false,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "no_store",
+      "probabilities": {
+        "store": 0.2362,
+        "no_store": 0.5779,
+        "insufficient_evidence": 0.1859
+      },
+      "confidence": 0.1166,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "unknown",
+      "probabilities": {
+        "supported": 0.2359,
+        "contradicted": 0.2567,
+        "unknown": 0.5075
+      },
+      "confidence": 0.0588,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9111:L1160-1179",
+      "rfc9111:L1295-1306",
+      "rfc9111:L1241-1257",
+      "rfc9111:L1180-1194"
+    ],
+    "used_ids": [
+      "rfc9111:L1160-1179",
+      "rfc9111:L1295-1306"
+    ],
+    "timing_ms": {
+      "retrieval": 4.113458999199793,
+      "decision": 215.28037499228958,
+      "verification": 198.92062500002794,
+      "total": 421.5579589945264
+    }
+  },
+  {
+    "id": "websocket_mask",
+    "expected": "yes",
+    "correct": true,
+    "model": "laya",
+    "choice": "yes",
+    "answer": "Client to server frames must be masked",
+    "abstained": false,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "yes",
+      "probabilities": {
+        "yes": 0.8691,
+        "no": 0.0559,
+        "insufficient_evidence": 0.075
+      },
+      "confidence": 0.5654,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "supported",
+      "probabilities": {
+        "supported": 0.843,
+        "contradicted": 0.0356,
+        "unknown": 0.1214
+      },
+      "confidence": 0.5278,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [
+      {
+        "id": "rfc6455:L1504-1527",
+        "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+        "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b",
+        "text": "      GET /chat HTTP/1.1\n      Host: server.example.com\n      Upgrade: websocket\n      Connection: Upgrade\n      ...\n      Sec-WebSocket-Version: 13\n\n5.  Data Framing\n\n5.1.  Overview\n\n   In the WebSocket Protocol, data is transmitted using a sequence of\n   frames.  To avoid confusing network intermediaries (such as\n   intercepting proxies) and for security reasons that are further\n   discussed in Section 10.3, a client MUST mask all frames that it\n   sends to the server (see Section 5.3 for further details).  (Note\n   that masking is done whether or not the WebSocket Protocol is running\n   over TLS.)  The server MUST close the connection upon receiving a\n   frame that is not masked.  In this case, a server MAY send a Close\n   frame with a status code of 1002 (protocol error) as defined in\n   Section 7.4.1.  A server MUST NOT mask any frames that it sends to\n   the client.  A client MUST close a connection if it detects a masked\n   frame.  In this case, it MAY use the status code 1002 (protocol\n   error) as defined in Section 7.4.1.  (These rules might be relaxed in\n",
+        "line_start": 1504,
+        "line_end": 1527,
+        "retrieval_score": 19.186511479691042
+      }
+    ],
+    "retrieved_ids": [
+      "rfc6455:L1504-1527",
+      "rfc6455:L2030-2048",
+      "rfc6455:L2929-2942",
+      "rfc6455:L1642-1667"
+    ],
+    "used_ids": [
+      "rfc6455:L1504-1527"
+    ],
+    "timing_ms": {
+      "retrieval": 2.435500005958602,
+      "decision": 175.45866600994486,
+      "verification": 208.4744580060942,
+      "total": 389.52995800354984
+    }
+  },
+  {
+    "id": "websocket_ping",
+    "expected": "pong",
+    "correct": false,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "pong",
+      "probabilities": {
+        "pong": 0.6199,
+        "text": 0.2091,
+        "insufficient_evidence": 0.1711
+      },
+      "confidence": 0.1574,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "unknown",
+      "probabilities": {
+        "supported": 0.2188,
+        "contradicted": 0.3321,
+        "unknown": 0.4491
+      },
+      "confidence": 0.0369,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc6455:L2067-2082",
+      "rfc6455:L2030-2048",
+      "rfc6455:L2100-2121",
+      "rfc6455:L2434-2444"
+    ],
+    "used_ids": [
+      "rfc6455:L2067-2082"
+    ],
+    "timing_ms": {
+      "retrieval": 5.797207995783538,
+      "decision": 96.95179200207349,
+      "verification": 132.67058299970813,
+      "total": 240.11733299994376
+    }
+  },
+  {
+    "id": "absent_salary",
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.1848,
+        "b": 0.1232,
+        "insufficient_evidence": 0.692
+      },
+      "confidence": 0.2492,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc6455:L29-42",
+      "rfc7519:L28-41",
+      "rfc9110:L7763-7786",
+      "rfc9110:L450-471"
+    ],
+    "used_ids": [
+      "rfc6455:L29-42",
+      "rfc7519:L28-41"
+    ],
+    "timing_ms": {
+      "retrieval": 3.254290990298614,
+      "decision": 178.14387498947326,
+      "verification": 0.0031249946914613247,
+      "total": 184.01499999163207
+    }
+  },
+  {
+    "id": "absent_password",
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.2766,
+        "b": 0.4743,
+        "insufficient_evidence": 0.2491
+      },
+      "confidence": 0.0392,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "contradicted",
+      "probabilities": {
+        "supported": 0.1187,
+        "contradicted": 0.5965,
+        "unknown": 0.2849
+      },
+      "confidence": 0.1636,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L1199-1210",
+      "rfc6455:L2781-2803",
+      "rfc9111:L1427-1440",
+      "rfc9110:L735-743"
+    ],
+    "used_ids": [
+      "rfc9110:L1199-1210",
+      "rfc6455:L2781-2803"
+    ],
+    "timing_ms": {
+      "retrieval": 4.293833000701852,
+      "decision": 201.29279200045858,
+      "verification": 194.0965419926215,
+      "total": 403.2743749994552
+    }
+  },
+  {
+    "id": "absent_latency",
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.19,
+        "b": 0.209,
+        "insufficient_evidence": 0.601
+      },
+      "confidence": 0.1365,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L983-993",
+      "rfc6455:L2480-2492",
+      "rfc6455:L2986-2997",
+      "rfc6455:L2863-2880"
+    ],
+    "used_ids": [
+      "rfc9110:L983-993",
+      "rfc6455:L2480-2492"
+    ],
+    "timing_ms": {
+      "retrieval": 2.753415988991037,
+      "decision": 204.29287498700432,
+      "verification": 0.0037919962778687477,
+      "total": 211.87695799744688
+    }
+  },
+  {
+    "id": "absent_policy",
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "b",
+      "probabilities": {
+        "a": 0.3366,
+        "b": 0.3397,
+        "insufficient_evidence": 0.3238
+      },
+      "confidence": 0.0002,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": {
+      "type": "choice",
+      "choice": "unknown",
+      "probabilities": {
+        "supported": 0.1942,
+        "contradicted": 0.3322,
+        "unknown": 0.4735
+      },
+      "confidence": 0.0548,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L735-743",
+      "rfc9110:L5987-5999",
+      "rfc9111:L1441-1460",
+      "rfc9110:L4126-4136"
+    ],
+    "used_ids": [
+      "rfc9110:L735-743",
+      "rfc9110:L5987-5999"
+    ],
+    "timing_ms": {
+      "retrieval": 3.0587920045945793,
+      "decision": 189.92358399555087,
+      "verification": 189.66941699909512,
+      "total": 385.95316700229887
+    }
+  },
+  {
+    "id": "absent_capacity",
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "laya",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "type": "choice",
+      "choice": "insufficient_evidence",
+      "probabilities": {
+        "a": 0.1614,
+        "b": 0.1715,
+        "insufficient_evidence": 0.6671
+      },
+      "confidence": 0.211,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc9110:L8274-8287",
+      "rfc9110:L10006-10018",
+      "rfc9111:L729-745",
+      "rfc9110:L8237-8249"
+    ],
+    "used_ids": [
+      "rfc9110:L8274-8287",
+      "rfc9110:L10006-10018"
+    ],
+    "timing_ms": {
+      "retrieval": 3.255250005167909,
+      "decision": 211.56333399994764,
+      "verification": 0.00508299854118377,
+      "total": 218.91362500900868
+    }
+  }
+]

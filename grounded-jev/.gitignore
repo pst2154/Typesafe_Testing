@@ -1,0 +1,4 @@
+model-path.txt
+.venv/
+__pycache__/
+*.log

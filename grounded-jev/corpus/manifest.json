@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rfc8259",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+    "file": "rfc8259.txt",
+    "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7"
+  },
+  {
+    "id": "rfc7519",
+    "url": "https://www.rfc-editor.org/rfc/rfc7519.txt",
+    "file": "rfc7519.txt",
+    "sha256": "fecd930e9ccf2276b95c0017c6c4ff5d09352e4bc3c7629946447894e0f97248"
+  },
+  {
+    "id": "rfc9110",
+    "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+    "file": "rfc9110.txt",
+    "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a"
+  },
+  {
+    "id": "rfc9111",
+    "url": "https://www.rfc-editor.org/rfc/rfc9111.txt",
+    "file": "rfc9111.txt",
+    "sha256": "aeb52adb3279d5f23dae34f68af11bd5cef0a0aff7ffcd014c9ca93c5302cf3e"
+  },
+  {
+    "id": "rfc6455",
+    "url": "https://www.rfc-editor.org/rfc/rfc6455.txt",
+    "file": "rfc6455.txt",
+    "sha256": "765775326aee0ecca9b04bde3fd1f52932d498e33e34e428bd61b8a24da0fa3b"
+  }
+]
