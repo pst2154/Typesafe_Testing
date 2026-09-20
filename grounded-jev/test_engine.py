@@ -2,6 +2,7 @@ import unittest
 from pathlib import Path
 from retrieval import Corpus
 from engine import Grounded
+from variants import OnePass
 
 class Fake:
     name='fake'
@@ -27,5 +28,13 @@ class Tests(unittest.TestCase):
     def test_empty_query_rejected(self):
         with self.assertRaises(ValueError):
             Grounded(self.corpus,Fake()).decide('',{'yes':'yes','no':'no'})
+
+    def test_one_pass_validates_and_preserves_model_answer(self):
+        app=OnePass(self.corpus,Fake(),'diverse')
+        with self.assertRaises(ValueError): app.decide('',{'yes':'yes','no':'no'})
+        r=app.decide('JSON encoding',{'yes':'UTF-8','no':'UTF-16'})
+        self.assertEqual(r['choice'],'yes')
+        self.assertIsNone(r['verification'])
+        self.assertTrue(r['citations'])
 
 if __name__=='__main__': unittest.main()

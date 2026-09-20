@@ -81,14 +81,22 @@ if __name__ == '__main__':
     parser.add_argument('--backend',choices=['laya','diffusiongemma'],required=True)
     parser.add_argument('--output',required=True)
     parser.add_argument('--limit',type=int,default=len(CASES))
-    parser.add_argument('--suite',choices=['screen','heldout'],default='screen')
+    parser.add_argument('--suite',choices=['screen','heldout','external'],default='screen')
     parser.add_argument('--repeat',type=int,default=1)
     parser.add_argument('--swap-labels',action='store_true')
+    parser.add_argument('--variant',choices=['baseline','plain','entailment','expanded','diverse'],default='baseline')
     args=parser.parse_args()
     backend=LayaBackend() if args.backend=='laya' else DiffusionBackend()
-    app=Grounded(Corpus(Path(__file__).with_name('corpus')),backend)
+    corpus_dir='external-corpus' if args.suite=='external' else 'corpus'
+    app=Grounded(Corpus(Path(__file__).with_name(corpus_dir)),backend)
+    if args.variant!='baseline':
+        from variants import OnePass
+        app=OnePass(app.corpus,backend,args.variant)
     rows=[]
     cases=CASES if args.suite=='screen' else HELDOUT
+    if args.suite=='external':
+        from external_cases import EXTERNAL
+        cases=EXTERNAL
     # Warm separately; report no warmup as a scored or timed observation.
     app.decide('Is JSON an ordered array?',{'yes':'JSON arrays are ordered','no':'JSON arrays are unordered'})
     for index,(id,query,criteria,expected) in enumerate(cases[:args.limit]*args.repeat):

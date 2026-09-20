@@ -1,0 +1,1202 @@
+[
+  {
+    "mode": "baseline",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 14 days.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 2862.726457999088,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9934,
+          "b": 0.003,
+          "insufficient_evidence": 0.0036
+        },
+        "confidence": 0.9595,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 90 days.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 87.06212500692345,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.1687,
+          "b": 0.7381,
+          "insufficient_evidence": 0.0933
+        },
+        "confidence": 0.3213,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole offers a web dashboard. No log retention duration is specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 435.6981250020908,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.8443,
+          "b": 0.004,
+          "insufficient_evidence": 0.1517
+        },
+        "confidence": 0.5895,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 443.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 105.11637500894722,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9755,
+          "b": 0.0169,
+          "insufficient_evidence": 0.0076
+        },
+        "confidence": 0.8814,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 8443.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 230.45520899177063,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.3198,
+          "b": 0.6645,
+          "insufficient_evidence": 0.0157
+        },
+        "confidence": 0.3615,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper is a network service. Its port is not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 120.82787499821279,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.8068,
+          "b": 0.1769,
+          "insufficient_evidence": 0.0163
+        },
+        "confidence": 0.5024,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST mask all outgoing frames.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 110.96016700321343,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9431,
+          "b": 0.039,
+          "insufficient_evidence": 0.0179
+        },
+        "confidence": 0.7691,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST NOT mask outgoing frames.",
+    "expected": "b",
+    "choice": "a",
+    "correct": false,
+    "ms": 103.70670800330117,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.4812,
+          "b": 0.4485,
+          "insufficient_evidence": 0.0703
+        },
+        "confidence": 0.1823,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "This hypothetical protocol supports frames. Masking rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 107.08679199160542,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9562,
+          "b": 0.0305,
+          "insufficient_evidence": 0.0133
+        },
+        "confidence": 0.8118,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly permits NaN values.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 164.4244999915827,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9901,
+          "b": 0.0045,
+          "insufficient_evidence": 0.0054
+        },
+        "confidence": 0.9433,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly forbids NaN values.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 131.57091700122692,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.0336,
+          "b": 0.9229,
+          "insufficient_evidence": 0.0435
+        },
+        "confidence": 0.7046,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "baseline",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format supports objects. Numeric rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 147.7430840022862,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9228,
+          "b": 0.0034,
+          "insufficient_evidence": 0.0738
+        },
+        "confidence": 0.74,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 14 days.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 347.7065839979332,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.8259,
+          "b": 0.0012,
+          "insufficient_evidence": 0.1729
+        },
+        "confidence": 0.5726,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 90 days.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 108.70620800415054,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.2567,
+          "b": 0.6668,
+          "insufficient_evidence": 0.0764
+        },
+        "confidence": 0.2574,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole offers a web dashboard. No log retention duration is specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 139.94358299532905,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.8127,
+          "b": 0.0007,
+          "insufficient_evidence": 0.1866
+        },
+        "confidence": 0.5569,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 443.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 107.40570799680427,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.7071,
+          "b": 0.2739,
+          "insufficient_evidence": 0.019
+        },
+        "confidence": 0.3855,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 8443.",
+    "expected": "b",
+    "choice": "a",
+    "correct": false,
+    "ms": 144.85741600219626,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.6102,
+          "b": 0.3836,
+          "insufficient_evidence": 0.0062
+        },
+        "confidence": 0.3625,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper is a network service. Its port is not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 88.14845800225157,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.6846,
+          "b": 0.2452,
+          "insufficient_evidence": 0.0702
+        },
+        "confidence": 0.2804,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST mask all outgoing frames.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 96.91579100035597,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9741,
+          "b": 0.0186,
+          "insufficient_evidence": 0.0073
+        },
+        "confidence": 0.8767,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST NOT mask outgoing frames.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 104.00558299443219,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.2788,
+          "b": 0.5529,
+          "insufficient_evidence": 0.1684
+        },
+        "confidence": 0.1046,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "This hypothetical protocol supports frames. Masking rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "insufficient_evidence",
+    "correct": true,
+    "ms": 154.0545409952756,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.352,
+          "b": 0.2897,
+          "insufficient_evidence": 0.3583
+        },
+        "confidence": 0.004,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly permits NaN values.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 210.89837500767317,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.9503,
+          "b": 0.029,
+          "insufficient_evidence": 0.0207
+        },
+        "confidence": 0.7894,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly forbids NaN values.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 117.86358400422614,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "b",
+        "probabilities": {
+          "a": 0.2952,
+          "b": 0.5953,
+          "insufficient_evidence": 0.1095
+        },
+        "confidence": 0.1707,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "plain",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format supports objects. Numeric rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "a",
+    "correct": false,
+    "ms": 154.88149999873713,
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "a",
+        "probabilities": {
+          "a": 0.5737,
+          "b": 0.0281,
+          "insufficient_evidence": 0.3981
+        },
+        "confidence": 0.2847,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 14 days.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 1853.3380000008037,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.5971,
+          "contradiction": 0.0034,
+          "neutral": 0.3996
+        },
+        "confidence": 0.3686,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0068,
+          "contradiction": 0.4749,
+          "neutral": 0.5182
+        },
+        "confidence": 0.337,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole retains logs for 90 days.",
+    "expected": "b",
+    "choice": "b",
+    "correct": true,
+    "ms": 139.23316600266844,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0079,
+          "contradiction": 0.6005,
+          "neutral": 0.3916
+        },
+        "confidence": 0.3524,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.599,
+          "contradiction": 0.0059,
+          "neutral": 0.3951
+        },
+        "confidence": 0.3591,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "retention",
+    "query": "How long does the fictional Oriole service retain logs?",
+    "criteria": {
+      "a": "Oriole retains logs for 14 days",
+      "b": "Oriole retains logs for 90 days"
+    },
+    "evidence": "Oriole offers a web dashboard. No log retention duration is specified.",
+    "expected": "insufficient_evidence",
+    "choice": "insufficient_evidence",
+    "correct": true,
+    "ms": 139.5769160008058,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.005,
+          "contradiction": 0.5806,
+          "neutral": 0.4144
+        },
+        "confidence": 0.3561,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0085,
+          "contradiction": 0.6389,
+          "neutral": 0.3526
+        },
+        "confidence": 0.3681,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 443.",
+    "expected": "a",
+    "choice": "insufficient_evidence",
+    "correct": false,
+    "ms": 142.1906249888707,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.4706,
+          "contradiction": 0.0018,
+          "neutral": 0.5276
+        },
+        "confidence": 0.3596,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0776,
+          "contradiction": 0.7025,
+          "neutral": 0.2199
+        },
+        "confidence": 0.2905,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper listens on port 8443.",
+    "expected": "b",
+    "choice": "insufficient_evidence",
+    "correct": false,
+    "ms": 190.08145898988005,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0397,
+          "contradiction": 0.4104,
+          "neutral": 0.5499
+        },
+        "confidence": 0.2513,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.4661,
+          "contradiction": 0.0015,
+          "neutral": 0.5324
+        },
+        "confidence": 0.3618,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "port",
+    "query": "Which port does the fictional Juniper service listen on?",
+    "criteria": {
+      "a": "Juniper listens on port 443",
+      "b": "Juniper listens on port 8443"
+    },
+    "evidence": "Juniper is a network service. Its port is not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "insufficient_evidence",
+    "correct": true,
+    "ms": 73.71941700694151,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.1002,
+          "contradiction": 0.6157,
+          "neutral": 0.2841
+        },
+        "confidence": 0.1929,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.1115,
+          "contradiction": 0.6098,
+          "neutral": 0.2787
+        },
+        "confidence": 0.1787,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST mask all outgoing frames.",
+    "expected": "a",
+    "choice": "a",
+    "correct": true,
+    "ms": 147.0200830081012,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.5583,
+          "contradiction": 0.0019,
+          "neutral": 0.4398
+        },
+        "confidence": 0.3643,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0011,
+          "contradiction": 0.9509,
+          "neutral": 0.0479
+        },
+        "confidence": 0.8169,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "In this hypothetical protocol, servers MUST NOT mask outgoing frames.",
+    "expected": "b",
+    "choice": "insufficient_evidence",
+    "correct": false,
+    "ms": 113.72875000233762,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0095,
+          "contradiction": 0.5131,
+          "neutral": 0.4773
+        },
+        "confidence": 0.3267,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.4645,
+          "contradiction": 0.0017,
+          "neutral": 0.5338
+        },
+        "confidence": 0.3607,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "mask",
+    "query": "Under this hypothetical protocol, should servers mask outgoing frames?",
+    "criteria": {
+      "a": "Servers must mask outgoing frames",
+      "b": "Servers must not mask outgoing frames"
+    },
+    "evidence": "This hypothetical protocol supports frames. Masking rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "insufficient_evidence",
+    "correct": true,
+    "ms": 111.82629100221675,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0379,
+          "contradiction": 0.4117,
+          "neutral": 0.5504
+        },
+        "confidence": 0.2554,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1062,
+          "contradiction": 0.0568,
+          "neutral": 0.837
+        },
+        "confidence": 0.4994,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly permits NaN values.",
+    "expected": "a",
+    "choice": "insufficient_evidence",
+    "correct": false,
+    "ms": 181.69666700123344,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0824,
+          "contradiction": 0.0011,
+          "neutral": 0.9165
+        },
+        "confidence": 0.7334,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0001,
+          "contradiction": 0.4051,
+          "neutral": 0.5948
+        },
+        "confidence": 0.3845,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format explicitly forbids NaN values.",
+    "expected": "b",
+    "choice": "insufficient_evidence",
+    "correct": false,
+    "ms": 151.33654099190608,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.0092,
+          "contradiction": 0.7977,
+          "neutral": 0.1931
+        },
+        "confidence": 0.5074,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.0988,
+          "contradiction": 0.0016,
+          "neutral": 0.8997
+        },
+        "confidence": 0.696,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  },
+  {
+    "mode": "entailment",
+    "scenario": "number",
+    "query": "Under this hypothetical data format, is NaN allowed?",
+    "criteria": {
+      "a": "NaN is permitted",
+      "b": "NaN is forbidden"
+    },
+    "evidence": "This hypothetical data format supports objects. Numeric rules are not specified.",
+    "expected": "insufficient_evidence",
+    "choice": "insufficient_evidence",
+    "correct": true,
+    "ms": 123.69445800140966,
+    "answers": {
+      "a": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1004,
+          "contradiction": 0.0127,
+          "neutral": 0.8868
+        },
+        "confidence": 0.6424,
+        "action": {
+          "act_probability": 1.0
+        }
+      },
+      "b": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.032,
+          "contradiction": 0.0084,
+          "neutral": 0.9596
+        },
+        "confidence": 0.8271,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    }
+  }
+]

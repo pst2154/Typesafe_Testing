@@ -4,11 +4,43 @@ Tested September 20, 2026.
 
 ## Outcome
 
-A working RAG decision prototype retrieves public technical documentation, selects a typed answer, checks that answer against the retrieved evidence, and returns source excerpts or abstains. It does not generate prose. Use **DiffusionGemma** for this prototype's accuracy-first configuration; Laya was faster locally but made more mistakes, including unsupported answers that its own verifier accepted.
+A working RAG decision prototype retrieves public technical documentation, selects a typed answer, and returns source excerpts or abstains. It does not generate prose. Use **DiffusionGemma with the `diverse` one-pass variant** for the tuned prototype. The original two-pass baseline remains available. Laya was faster locally but made more mistakes, including unsupported answers that its own verifier accepted.
 
 This is a **Jev-style interface**, not a deployment or benchmark of TypeSafe's proprietary Jev model. Laya and DiffusionGemma are the actual inference backends.
 
-## Measured results
+## Tuning update: faster context use and a real fine-tuning attempt
+
+The original baseline below was frozen and published before tuning. We then tested shorter evidence-first prompts, batched per-option entailment, half-precision Laya, candidate-expanded retrieval, and two-query retrieval diversification. The original held-out set became a **regression set** once its results informed follow-up work; do not treat the tuned scores on it as a new blind test.
+
+| DiffusionGemma path | Original 20-query set, three repeats | p50 / p95 | URI document set, 16 queries, three repeats | p50 / p95 |
+|---|---:|---:|---:|---:|
+| Original two-pass baseline | 57/60 | 526 / 694 ms | Not measured | — |
+| Short evidence-first, one pass | 60/60 | 278 / 360 ms | 39/48 | 300 / 418 ms |
+| One pass, diversified retrieval | 60/60 | 271 / 376 ms | 42/48 | 260 / 364 ms |
+
+The tuned path removes the sequential verifier call, reduces instruction/JSON overhead, and fits more source text into the same 512-token budget. It searches both the query alone and the query plus **all** candidate descriptions, interleaving their results. It does not know the expected answer. This avoids relying exclusively on candidate-expanded retrieval, which improved some cases but lost the URI port passage. One-pass results have `verification: null`; they do not claim a second check occurred.
+
+On the regression set, median latency fell about **48%** (526 to 271 ms). This is a workload-level improvement, not a controlled kernel-speed claim. The URI document, RFC 3986, was absent from the training corpus and its 16 questions were written before reading the fine-tuned model's results. Retrieval changes were subsequently tested on it, so the final 42/48 is a **post-tuning validation result**, not a pristine held-out estimate. Its six errors were abstentions, with no wrong non-abstaining answers in this sample. A new blind test remains necessary before claiming general improvement.
+
+### Does the model actually follow changed evidence?
+
+Twelve synthetic context interventions cover fictional retention periods, ports, frame masking and numeric formats: two opposing documented values and one missing-information case per scenario. These are not official RFC statements. DiffusionGemma scored 11/12 with the longer baseline question, 12/12 with the short evidence-first question, and 12/12 with batched entailment. Laya scored 8/12, 9/12 and 9/12 respectively. These are small behavioral probes, not independent general-accuracy estimates.
+
+Explicit entailment was not a universal fix: on the development documentation questions, Laya's entailment variant fell to 11/20; DiffusionGemma's was 18/20 versus 20/20 for its plain evidence-first variant. Laya float16 plus the plain prompt scored 18/20 at 190 ms median on the development set, but still produced wrong answers. Because precision and prompt changed together in that experiment, no isolated float16 speedup is claimed.
+
+### Laya fine-tuning: performed, evaluated, and rejected for serving
+
+We trained **1,052,673 parameters in Laya's decision scorer**, freezing the encoder, contextual transformer head, type embeddings, and auxiliary action head. Frozen contextual features were collected once; AdamW optimized the scorer using those features. This is genuine head-only fine-tuning, not full-model training, LoRA, retrieval caching, or a changed prompt presented as training.
+
+The deterministic synthetic dataset contains 648 training, 216 validation, and 216 test examples. Entity names are disjoint across splits. Nine technical-attribute templates supply supported alternatives, explicit negations, distractor entities, and missing information. Splits share template families, so synthetic accuracy alone cannot establish transfer.
+
+- Initial learning rate `1e-5`, 15 epochs: no validation accuracy improvement; selection retained the original head.
+- Second run `1e-4`, 100 epochs, selected by validation accuracy: validation rose from 62.0% to 73.1%; the synthetic test rose from **63.9% to 75.5%**. Seed 31415; batch size 32; clipping 1.0; weight decay 0.01.
+- On the new URI document with the same plain RAG interface: untuned Laya scored **24/48 (50%)**, fine-tuned Laya **21/48 (43.8%)**. Wrong non-abstaining answers increased from 18 to 21. The trained head also did worse on the context-intervention probes.
+
+**Do not deploy this adapter as an improvement.** It overfit the synthetic task and failed the document-transfer test. The experimental scorer checkpoint, generated dataset, training histories, and external results are included to make this failure reproducible. Fine-tuned probabilities were not recalibrated. The local service uses the faster DiffusionGemma path, not these weights. Fine-tuned and untuned local timing is not used to claim a speed gain; one tuning evaluation overlapped another local inference process.
+
+## Original baseline measured results
 
 The final comparison uses 20 held-out questions: 15 answerable technical questions and five questions absent from the corpus. Each was run three times, giving 60 requests per backend, not 60 independent questions. One separate warmup was excluded. Accuracy counts expected abstention as correct and abstention on an answerable question as incorrect.
 
@@ -58,10 +90,10 @@ Raw results include the prompts, options, expected labels, model outputs, retrie
 - Most answerable questions name the relevant technical terms directly. Hard paraphrases, cross-document reasoning, conflicting revisions, and large-scale retrieval are not tested.
 - The original held-out choices placed the correct technical answer first; the separate label/order-swapped run checks that weakness explicitly.
 - Prompt injection is instructed against but not adversarially validated. Do not ingest untrusted documents and assume the verifier makes them safe.
-- No fine-tuning, semantic embeddings, GPU Laya comparison, or independent verifier was used. Those remain useful follow-up experiments.
+- The original baseline used no fine-tuning, semantic embeddings, GPU Laya comparison, or independent verifier. The later head-only fine-tuning experiment is documented above; GPU Laya, richer training data, and encoder adaptation remain untested.
 - A single-request admission limit returns HTTP 429 under overlap; there is no tested production concurrency claim.
 
-For this corpus and interface, the measured tradeoff is roughly **half a second for the more accurate remote DiffusionGemma path** versus **a quarter to a third of a second for local Laya with materially more errors**.
+The original comparison favored DiffusionGemma for accuracy. The subsequent one-pass/context-packing changes reduced its measured median to roughly **260–271 ms** on the two validation workloads. These results support the prototype configuration, not a universal production accuracy or latency guarantee.
 
 ## Sources
 
@@ -73,3 +105,4 @@ For this corpus and interface, the measured tradeoff is roughly **half a second 
 - [HTTP semantics RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)
 - [HTTP caching RFC 9111](https://www.rfc-editor.org/rfc/rfc9111)
 - [WebSocket RFC 6455](https://www.rfc-editor.org/rfc/rfc6455)
+- [URI RFC 3986](https://www.rfc-editor.org/rfc/rfc3986)

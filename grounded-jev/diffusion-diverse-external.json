@@ -1,0 +1,2795 @@
+[
+  {
+    "id": "uri_scheme_case",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Are URI scheme names case-sensitive?",
+    "criteria": {
+      "yes": "Scheme names are case-sensitive",
+      "no": "Scheme names are case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "Scheme names are case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.00037561133026416533,
+          "no": 0.9995583805788139,
+          "insufficient_evidence": 6.600809092195693e-05
+        },
+        "confidence": 0.9995583805788139
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 10.354959398585954
+      },
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 9.39541397453805
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361",
+      "rfc3986:L927-936",
+      "rfc3986:L937-946"
+    ],
+    "used_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361"
+    ],
+    "timing_ms": {
+      "retrieval": 0.5186249909456819,
+      "decision": 245.31391699565575,
+      "verification": 0,
+      "total": 246.8536249944009
+    }
+  },
+  {
+    "id": "uri_host_case",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Is the URI host subcomponent case-sensitive?",
+    "criteria": {
+      "yes": "The host is case-sensitive",
+      "no": "The host is case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "The host is case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.00018930569089698515,
+          "no": 0.9997925224520975,
+          "insufficient_evidence": 1.8171857005590072e-05
+        },
+        "confidence": 0.9997925224520975
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 12.898292915509925
+      },
+      {
+        "id": "rfc3986:L1009-1024",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Applications that render a URI for the sake of user feedback, such as\n   in graphical hypertext browsing, should render userinfo in a way that\n   is distinguished from the rest of a URI, when feasible.  Such\n   rendering will assist the user in cases where the userinfo has been\n   misleadingly crafted to look like a trusted domain name\n   (Section 7.6).\n\n3.2.2.  Host\n\n   The host subcomponent of authority is identified by an IP literal\n   encapsulated within square brackets, an IPv4 address in dotted-\n   decimal form, or a registered name.  The host subcomponent is case-\n   insensitive.  The presence of a host subcomponent within a URI does\n   not imply that the scheme requires access to the given host on the\n   Internet.  In many cases, the host syntax is used only for the sake\n\n",
+        "line_start": 1009,
+        "line_end": 1024,
+        "retrieval_score": 10.885365797701038
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024",
+      "rfc3986:L2253-2266",
+      "rfc3986:L2314-2329"
+    ],
+    "used_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024"
+    ],
+    "timing_ms": {
+      "retrieval": 0.6517079891636968,
+      "decision": 347.4844169977587,
+      "verification": 0,
+      "total": 349.1404579981463
+    }
+  },
+  {
+    "id": "uri_port",
+    "repeat": 0,
+    "suite": "external",
+    "query": "What is the syntax of the URI port subcomponent?",
+    "criteria": {
+      "digits": "Zero or more decimal digits",
+      "letters": "One or more alphabetic letters"
+    },
+    "expected": "digits",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "digits",
+    "answer": "Zero or more decimal digits",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "digits",
+        "probabilities": {
+          "digits": 0.9993073560999234,
+          "letters": 0.0005173055809196154,
+          "insufficient_evidence": 0.00017533831915701064
+        },
+        "confidence": 0.9993073560999234
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1191-1219",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   percent-encoding, if they wish to maximize interoperability with\n   legacy URI resolvers.\n\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 21]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n3.2.3.  Port\n\n   The port subcomponent of authority is designated by an optional port\n   number in decimal following the host and delimited from it by a\n   single colon (\":\") character.\n\n      port        = *DIGIT\n\n   A scheme may define a default port.  For example, the \"http\" scheme\n   defines a default port of \"80\", corresponding to its reserved TCP\n   port number.  The type of port designated by the port number (e.g.,\n   TCP, UDP, SCTP) is defined by the URI scheme.  URI producers and\n   normalizers should omit the port component and its \":\" delimiter if\n   port is empty or if its value would be the same as that of the\n   scheme's default.\n\n",
+        "line_start": 1191,
+        "line_end": 1219,
+        "retrieval_score": 9.72184943996025
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L1075-1099",
+      "rfc3986:L2314-2329",
+      "rfc3986:L1155-1172"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219"
+    ],
+    "timing_ms": {
+      "retrieval": 0.8951249910751358,
+      "decision": 254.20141698850784,
+      "verification": 0,
+      "total": 256.91174999519717
+    }
+  },
+  {
+    "id": "uri_ipv6",
+    "repeat": 0,
+    "suite": "external",
+    "query": "How is an IPv6 address literal enclosed in a URI host?",
+    "criteria": {
+      "square": "Square brackets",
+      "round": "Round parentheses"
+    },
+    "expected": "square",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "square",
+    "answer": "Square brackets",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "square",
+        "probabilities": {
+          "square": 0.9997122553425244,
+          "round": 0.00026109378815229874,
+          "insufficient_evidence": 2.6650869323261262e-05
+        },
+        "confidence": 0.9997122553425244
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1075-1099",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an IPv6 literal address is represented inside\n   the square brackets without a preceding version flag.  The ABNF\n   provided here is a translation of the text definition of an IPv6\n   literal address provided in [RFC3513].  This syntax does not support\n   IPv6 scoped addressing zone identifiers.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 19]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   A 128-bit IPv6 address is divided into eight 16-bit pieces.  Each\n   piece is represented numerically in case-insensitive hexadecimal,\n   using one to four hexadecimal digits (leading zeroes are permitted).\n   The eight encoded pieces are given most-significant first, separated\n   by colon characters.  Optionally, the least-significant two pieces\n   may instead be represented in IPv4 address textual format.  A\n   sequence of one or more consecutive zero-valued 16-bit pieces within\n   the address may be elided, omitting all their digits and leaving\n   exactly two consecutive colons in their place to mark the elision.\n\n",
+        "line_start": 1075,
+        "line_end": 1099,
+        "retrieval_score": 16.482786383788408
+      },
+      {
+        "id": "rfc3986:L1053-1062",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an Internet Protocol literal address, version 6\n   [RFC3513] or later, is distinguished by enclosing the IP literal\n   within square brackets (\"[\" and \"]\").  This is the only place where\n   square bracket characters are allowed in the URI syntax.  In\n   anticipation of future, as-yet-undefined IP literal address formats,\n   an implementation may use an optional version flag to indicate such a\n   format explicitly rather than rely on heuristic determination.\n\n      IP-literal = \"[\" ( IPv6address / IPvFuture  ) \"]\"\n\n",
+        "line_start": 1053,
+        "line_end": 1062,
+        "retrieval_score": 23.15749178712338
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062",
+      "rfc3986:L1063-1074",
+      "rfc3986:L1009-1024"
+    ],
+    "used_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062"
+    ],
+    "timing_ms": {
+      "retrieval": 0.9357499948237091,
+      "decision": 327.09050000994466,
+      "verification": 0,
+      "total": 329.25854199856985
+    }
+  },
+  {
+    "id": "uri_query",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Which character introduces the query component of a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "q",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "q",
+    "answer": "A question mark",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "q",
+        "probabilities": {
+          "q": 0.9993621499204387,
+          "h": 0.0005548372004423759,
+          "insufficient_evidence": 8.301287911889985e-05
+        },
+        "confidence": 0.9993621499204387
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.908385478718342
+      },
+      {
+        "id": "rfc3986:L1301-1316",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.4.  Query\n\n   The query component contains non-hierarchical data that, along with\n   data in the path component (Section 3.3), serves to identify a\n   resource within the scope of the URI's scheme and naming authority\n   (if any).  The query component is indicated by the first question\n   mark (\"?\") character and terminated by a number sign (\"#\") character\n   or by the end of the URI.\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 23]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n",
+        "line_start": 1301,
+        "line_end": 1316,
+        "retrieval_score": 15.35778490890537
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316",
+      "rfc3986:L876-896",
+      "rfc3986:L1317-1330"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316"
+    ],
+    "timing_ms": {
+      "retrieval": 3.0735000036656857,
+      "decision": 251.00604099861812,
+      "verification": 0,
+      "total": 258.17025000287686
+    }
+  },
+  {
+    "id": "uri_fragment",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Which character introduces the fragment identifier in a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "h",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "h",
+    "answer": "A hash character",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "h",
+        "probabilities": {
+          "q": 0.00045228347649909305,
+          "h": 0.9995307232102357,
+          "insufficient_evidence": 1.6993313265178946e-05
+        },
+        "confidence": 0.9995307232102357
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1331-1341",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.5.  Fragment\n\n   The fragment identifier component of a URI allows indirect\n   identification of a secondary resource by reference to a primary\n   resource and additional identifying information.  The identified\n   secondary resource may be some portion or subset of the primary\n   resource, some view on representations of the primary resource, or\n   some other resource defined or described by those representations.  A\n   fragment identifier component is indicated by the presence of a\n   number sign (\"#\") character and terminated by the end of the URI.\n\n",
+        "line_start": 1331,
+        "line_end": 1341,
+        "retrieval_score": 9.158123032710108
+      },
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 10.65626432501976
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1367-1390",
+      "rfc3986:L1391-1404"
+    ],
+    "used_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 0.9977500012610108,
+      "decision": 244.40954100282397,
+      "verification": 0,
+      "total": 247.15279100928456
+    }
+  },
+  {
+    "id": "uri_percent",
+    "repeat": 0,
+    "suite": "external",
+    "query": "How is a percent-encoded octet represented?",
+    "criteria": {
+      "two": "A percent sign followed by two hexadecimal digits",
+      "four": "A percent sign followed by four decimal digits"
+    },
+    "expected": "two",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "two": 0.08797413092777209,
+          "four": 0.0012412129134172069,
+          "insufficient_evidence": 0.9107846561588107
+        },
+        "confidence": 0.9107846561588107
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L678-708",
+      "rfc3986:L638-657",
+      "rfc3986:L2477-2489",
+      "rfc3986:L1075-1099"
+    ],
+    "used_ids": [
+      "rfc3986:L678-708"
+    ],
+    "timing_ms": {
+      "retrieval": 3.63391698920168,
+      "decision": 332.9625830083387,
+      "verification": 0,
+      "total": 340.9775420004735
+    }
+  },
+  {
+    "id": "uri_hex_case",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Are uppercase and lowercase hexadecimal digits in percent-encoded triplets equivalent?",
+    "criteria": {
+      "yes": "They are equivalent",
+      "no": "They represent different octets"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "They are equivalent",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.9989888418054996,
+          "no": 0.0009638435262637232,
+          "insufficient_evidence": 4.731466823668593e-05
+        },
+        "confidence": 0.9989888418054996
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L658-677",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "      pct-encoded = \"%\" HEXDIG HEXDIG\n\n   The uppercase hexadecimal digits 'A' through 'F' are equivalent to\n   the lowercase digits 'a' through 'f', respectively.  If two URIs\n   differ only in the case of hexadecimal digits used in percent-encoded\n   octets, they are equivalent.  For consistency, URI producers and\n   normalizers should use uppercase hexadecimal digits for all percent-\n   encodings.\n\n2.2.  Reserved Characters\n\n   URIs include components and subcomponents that are delimited by\n   characters in the \"reserved\" set.  These characters are called\n   \"reserved\" because they may (or may not) be defined as delimiters by\n   the generic syntax, by each scheme-specific syntax, or by the\n   implementation-specific syntax of a URI's dereferencing algorithm.\n   If data for a URI component would conflict with a reserved\n   character's purpose as a delimiter, then the conflicting data must be\n   percent-encoded before the URI is formed.\n\n",
+        "line_start": 658,
+        "line_end": 677,
+        "retrieval_score": 27.587305118922618
+      },
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 19.976521957687485
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266",
+      "rfc3986:L927-936",
+      "rfc3986:L722-735"
+    ],
+    "used_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266"
+    ],
+    "timing_ms": {
+      "retrieval": 0.8489579922752455,
+      "decision": 285.8498339919606,
+      "verification": 0,
+      "total": 287.8315410052892
+    }
+  },
+  {
+    "id": "uri_userinfo",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Which character separates user information from host in URI authority?",
+    "criteria": {
+      "at": "An at-sign",
+      "hash": "A hash character"
+    },
+    "expected": "at",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "at",
+    "answer": "An at-sign",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "at",
+        "probabilities": {
+          "at": 0.9990739303364583,
+          "hash": 0.0005270944486111726,
+          "insufficient_evidence": 0.0003989752149304986
+        },
+        "confidence": 0.9990739303364583
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L982-996",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  Non-\n   validating parsers (those that merely separate a URI reference into\n   its major components) will often ignore the subcomponent structure of\n   authority, treating it as an opaque string from the double-slash to\n   the first terminating delimiter, until such time as the URI is\n   dereferenced.\n\n3.2.1.  User Information\n\n   The userinfo subcomponent may consist of a user name and, optionally,\n   scheme-specific information about how to gain authorization to access\n   the resource.  The user information, if present, is followed by a\n   commercial at-sign (\"@\") that delimits it from the host.\n\n",
+        "line_start": 982,
+        "line_end": 996,
+        "retrieval_score": 14.228087051075146
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.221544421419704
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981",
+      "rfc3986:L81-87",
+      "rfc3986:L947-962"
+    ],
+    "used_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 0.8315829909406602,
+      "decision": 249.04604199400637,
+      "verification": 0,
+      "total": 250.8889159944374
+    }
+  },
+  {
+    "id": "uri_authority",
+    "repeat": 0,
+    "suite": "external",
+    "query": "What precedes the authority component of a hierarchical URI?",
+    "criteria": {
+      "slashes": "A double slash",
+      "dots": "A double dot"
+    },
+    "expected": "slashes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "slashes",
+    "answer": "A double slash",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "slashes",
+        "probabilities": {
+          "slashes": 0.9991179090022525,
+          "dots": 0.0005200438077731343,
+          "insufficient_evidence": 0.00036204718997434577
+        },
+        "confidence": 0.9991179090022525
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.00430457066984
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.035615098178283
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981",
+      "rfc3986:L1301-1316",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 2.999916992848739,
+      "decision": 252.24041700130329,
+      "verification": 0,
+      "total": 259.26037499448285
+    }
+  },
+  {
+    "id": "uri_first",
+    "repeat": 0,
+    "suite": "external",
+    "query": "What type of character must a URI scheme begin with?",
+    "criteria": {
+      "digit": "A digit",
+      "letter": "A letter"
+    },
+    "expected": "letter",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "digit": 0.0022521912123111424,
+          "letter": 0.04030892112329604,
+          "insufficient_evidence": 0.9574388876643928
+        },
+        "confidence": 0.9574388876643928
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1464-1475",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 0.7668750040465966,
+      "decision": 430.49012499977835,
+      "verification": 0,
+      "total": 432.29066699859686
+    }
+  },
+  {
+    "id": "uri_fragment_before",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Is the fragment identifier separated from the rest of the URI prior to dereference?",
+    "criteria": {
+      "yes": "It is separated before dereference",
+      "no": "It is sent as part of the scheme-specific dereference"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "It is separated before dereference",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.9976205406874613,
+          "no": 0.0016852370020608066,
+          "insufficient_evidence": 0.0006942223104778696
+        },
+        "confidence": 0.9976205406874613
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1367-1390",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "\n\nBerners-Lee, et al.         Standards Track                    [Page 24]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   As with any URI, use of a fragment identifier component does not\n   imply that a retrieval action will take place.  A URI with a fragment\n   identifier may be used to refer to the secondary resource without any\n   implication that the primary resource is accessible or will ever be\n   accessed.\n\n   Fragment identifiers have a special role in information retrieval\n   systems as the primary form of client-side indirect referencing,\n   allowing an author to specifically identify aspects of an existing\n   resource that are only indirectly provided by the resource owner.  As\n   such, the fragment identifier is not used in the scheme-specific\n   processing of a URI; instead, the fragment identifier is separated\n   from the rest of the URI prior to a dereference, and thus the\n   identifying information within the fragment itself is dereferenced\n   solely by the user agent, regardless of the URI scheme.  Although\n   this separate handling is often perceived to be a loss of\n",
+        "line_start": 1367,
+        "line_end": 1390,
+        "retrieval_score": 19.87876875364512
+      },
+      {
+        "id": "rfc3986:L1508-1521",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "4.4.  Same-Document Reference\n\n   When a URI reference refers to a URI that is, aside from its fragment\n   component (if any), identical to the base URI (Section 5.1), that\n   reference is called a \"same-document\" reference.  The most frequent\n   examples of same-document references are relative references that are\n   empty or include only the number sign (\"#\") separator followed by a\n   fragment identifier.\n\n   When a same-document reference is dereferenced for a retrieval\n   action, the target of that reference is defined to be within the same\n   entity (representation, document, or message) as the reference;\n   therefore, a dereference should not result in a new retrieval action.\n\n",
+        "line_start": 1508,
+        "line_end": 1521,
+        "retrieval_score": 10.77978254919659
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521",
+      "rfc3986:L2894-2901",
+      "rfc3986:L1342-1353"
+    ],
+    "used_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521"
+    ],
+    "timing_ms": {
+      "retrieval": 3.2026249973569065,
+      "decision": 267.8818330023205,
+      "verification": 0,
+      "total": 273.75300000130665
+    }
+  },
+  {
+    "id": "uri_absent_owner",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Who owns the private Oriole service?",
+    "criteria": {
+      "a": "Alice",
+      "b": "Bob"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0004248470088687647,
+          "b": 0.000489280775353388,
+          "insufficient_evidence": 0.9990858722157778
+        },
+        "confidence": 0.9990858722157778
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438",
+      "rfc3986:L2490-2504",
+      "rfc3986:L834-848"
+    ],
+    "used_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438"
+    ],
+    "timing_ms": {
+      "retrieval": 0.6909169896971434,
+      "decision": 313.02820799464826,
+      "verification": 0,
+      "total": 315.08295799721964
+    }
+  },
+  {
+    "id": "uri_absent_port",
+    "repeat": 0,
+    "suite": "external",
+    "query": "Which TCP port is used by our private Oriole gateway?",
+    "criteria": {
+      "a": "443",
+      "b": "8443"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0005345800878161558,
+          "b": 0.0035897090024680387,
+          "insufficient_evidence": 0.9958757109097158
+        },
+        "confidence": 0.9958757109097158
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456",
+      "rfc3986:L2314-2329",
+      "rfc3986:L963-981"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456"
+    ],
+    "timing_ms": {
+      "retrieval": 1.9280419946881011,
+      "decision": 301.83920900162775,
+      "verification": 0,
+      "total": 306.34712500614114
+    }
+  },
+  {
+    "id": "uri_absent_policy",
+    "repeat": 0,
+    "suite": "external",
+    "query": "What is our company log retention policy?",
+    "criteria": {
+      "a": "14 days",
+      "b": "90 days"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 7.548319996092119e-05,
+          "b": 0.00021279414396818845,
+          "insufficient_evidence": 0.9997117226560709
+        },
+        "confidence": 0.9997117226560709
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172",
+      "rfc3986:L81-87",
+      "rfc3986:L503-511"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172"
+    ],
+    "timing_ms": {
+      "retrieval": 1.7066250002244487,
+      "decision": 241.8543330131797,
+      "verification": 0,
+      "total": 248.57941700611264
+    }
+  },
+  {
+    "id": "uri_absent_latency",
+    "repeat": 0,
+    "suite": "external",
+    "query": "What p95 latency does our current model service achieve?",
+    "criteria": {
+      "a": "100 ms",
+      "b": "200 ms"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.00016922417502818855,
+          "b": 0.000733184147036039,
+          "insufficient_evidence": 0.9990975916779358
+        },
+        "confidence": 0.9990975916779358
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138",
+      "rfc3986:L223-250",
+      "rfc3986:L2784-2813"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138"
+    ],
+    "timing_ms": {
+      "retrieval": 1.3904999941587448,
+      "decision": 298.96529199322686,
+      "verification": 0,
+      "total": 303.73262500506826
+    }
+  },
+  {
+    "id": "uri_scheme_case",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Are URI scheme names case-sensitive?",
+    "criteria": {
+      "yes": "Scheme names are case-sensitive",
+      "no": "Scheme names are case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "Scheme names are case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.00042494727628308675,
+          "no": 0.9994601644734248,
+          "insufficient_evidence": 0.00011488825029209551
+        },
+        "confidence": 0.9994601644734248
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 10.354959398585954
+      },
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 9.39541397453805
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361",
+      "rfc3986:L927-936",
+      "rfc3986:L937-946"
+    ],
+    "used_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361"
+    ],
+    "timing_ms": {
+      "retrieval": 2.1614159923046827,
+      "decision": 268.0690420093015,
+      "verification": 0,
+      "total": 274.47358300560154
+    }
+  },
+  {
+    "id": "uri_host_case",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Is the URI host subcomponent case-sensitive?",
+    "criteria": {
+      "yes": "The host is case-sensitive",
+      "no": "The host is case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "The host is case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.00015362735478808691,
+          "no": 0.9998012739889403,
+          "insufficient_evidence": 4.5098656271737184e-05
+        },
+        "confidence": 0.9998012739889403
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 12.898292915509925
+      },
+      {
+        "id": "rfc3986:L1009-1024",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Applications that render a URI for the sake of user feedback, such as\n   in graphical hypertext browsing, should render userinfo in a way that\n   is distinguished from the rest of a URI, when feasible.  Such\n   rendering will assist the user in cases where the userinfo has been\n   misleadingly crafted to look like a trusted domain name\n   (Section 7.6).\n\n3.2.2.  Host\n\n   The host subcomponent of authority is identified by an IP literal\n   encapsulated within square brackets, an IPv4 address in dotted-\n   decimal form, or a registered name.  The host subcomponent is case-\n   insensitive.  The presence of a host subcomponent within a URI does\n   not imply that the scheme requires access to the given host on the\n   Internet.  In many cases, the host syntax is used only for the sake\n\n",
+        "line_start": 1009,
+        "line_end": 1024,
+        "retrieval_score": 10.885365797701038
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024",
+      "rfc3986:L2253-2266",
+      "rfc3986:L2314-2329"
+    ],
+    "used_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024"
+    ],
+    "timing_ms": {
+      "retrieval": 2.4941669980762526,
+      "decision": 347.35587499744724,
+      "verification": 0,
+      "total": 355.0392920005834
+    }
+  },
+  {
+    "id": "uri_port",
+    "repeat": 1,
+    "suite": "external",
+    "query": "What is the syntax of the URI port subcomponent?",
+    "criteria": {
+      "digits": "Zero or more decimal digits",
+      "letters": "One or more alphabetic letters"
+    },
+    "expected": "digits",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "digits",
+    "answer": "Zero or more decimal digits",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "digits",
+        "probabilities": {
+          "digits": 0.9986125698354236,
+          "letters": 0.000811868819380475,
+          "insufficient_evidence": 0.0005755613451959888
+        },
+        "confidence": 0.9986125698354236
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1191-1219",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   percent-encoding, if they wish to maximize interoperability with\n   legacy URI resolvers.\n\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 21]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n3.2.3.  Port\n\n   The port subcomponent of authority is designated by an optional port\n   number in decimal following the host and delimited from it by a\n   single colon (\":\") character.\n\n      port        = *DIGIT\n\n   A scheme may define a default port.  For example, the \"http\" scheme\n   defines a default port of \"80\", corresponding to its reserved TCP\n   port number.  The type of port designated by the port number (e.g.,\n   TCP, UDP, SCTP) is defined by the URI scheme.  URI producers and\n   normalizers should omit the port component and its \":\" delimiter if\n   port is empty or if its value would be the same as that of the\n   scheme's default.\n\n",
+        "line_start": 1191,
+        "line_end": 1219,
+        "retrieval_score": 9.72184943996025
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L1075-1099",
+      "rfc3986:L2314-2329",
+      "rfc3986:L1155-1172"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219"
+    ],
+    "timing_ms": {
+      "retrieval": 3.2832089927978814,
+      "decision": 351.9451250031125,
+      "verification": 0,
+      "total": 361.02050000044983
+    }
+  },
+  {
+    "id": "uri_ipv6",
+    "repeat": 1,
+    "suite": "external",
+    "query": "How is an IPv6 address literal enclosed in a URI host?",
+    "criteria": {
+      "square": "Square brackets",
+      "round": "Round parentheses"
+    },
+    "expected": "square",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "square",
+    "answer": "Square brackets",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "square",
+        "probabilities": {
+          "square": 0.9996092121617597,
+          "round": 0.00030267301006501685,
+          "insufficient_evidence": 8.811482817524323e-05
+        },
+        "confidence": 0.9996092121617597
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1075-1099",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an IPv6 literal address is represented inside\n   the square brackets without a preceding version flag.  The ABNF\n   provided here is a translation of the text definition of an IPv6\n   literal address provided in [RFC3513].  This syntax does not support\n   IPv6 scoped addressing zone identifiers.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 19]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   A 128-bit IPv6 address is divided into eight 16-bit pieces.  Each\n   piece is represented numerically in case-insensitive hexadecimal,\n   using one to four hexadecimal digits (leading zeroes are permitted).\n   The eight encoded pieces are given most-significant first, separated\n   by colon characters.  Optionally, the least-significant two pieces\n   may instead be represented in IPv4 address textual format.  A\n   sequence of one or more consecutive zero-valued 16-bit pieces within\n   the address may be elided, omitting all their digits and leaving\n   exactly two consecutive colons in their place to mark the elision.\n\n",
+        "line_start": 1075,
+        "line_end": 1099,
+        "retrieval_score": 16.482786383788408
+      },
+      {
+        "id": "rfc3986:L1053-1062",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an Internet Protocol literal address, version 6\n   [RFC3513] or later, is distinguished by enclosing the IP literal\n   within square brackets (\"[\" and \"]\").  This is the only place where\n   square bracket characters are allowed in the URI syntax.  In\n   anticipation of future, as-yet-undefined IP literal address formats,\n   an implementation may use an optional version flag to indicate such a\n   format explicitly rather than rely on heuristic determination.\n\n      IP-literal = \"[\" ( IPv6address / IPvFuture  ) \"]\"\n\n",
+        "line_start": 1053,
+        "line_end": 1062,
+        "retrieval_score": 23.15749178712338
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062",
+      "rfc3986:L1063-1074",
+      "rfc3986:L1009-1024"
+    ],
+    "used_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062"
+    ],
+    "timing_ms": {
+      "retrieval": 1.2283329997444525,
+      "decision": 247.75154200324323,
+      "verification": 0,
+      "total": 250.22662500850856
+    }
+  },
+  {
+    "id": "uri_query",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Which character introduces the query component of a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "q",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "q",
+    "answer": "A question mark",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "q",
+        "probabilities": {
+          "q": 0.99955421782369,
+          "h": 0.0003947867934641148,
+          "insufficient_evidence": 5.0995382845832356e-05
+        },
+        "confidence": 0.99955421782369
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.908385478718342
+      },
+      {
+        "id": "rfc3986:L1301-1316",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.4.  Query\n\n   The query component contains non-hierarchical data that, along with\n   data in the path component (Section 3.3), serves to identify a\n   resource within the scope of the URI's scheme and naming authority\n   (if any).  The query component is indicated by the first question\n   mark (\"?\") character and terminated by a number sign (\"#\") character\n   or by the end of the URI.\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 23]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n",
+        "line_start": 1301,
+        "line_end": 1316,
+        "retrieval_score": 15.35778490890537
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316",
+      "rfc3986:L876-896",
+      "rfc3986:L1317-1330"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316"
+    ],
+    "timing_ms": {
+      "retrieval": 4.84104199858848,
+      "decision": 332.4195829918608,
+      "verification": 0,
+      "total": 339.97308398829773
+    }
+  },
+  {
+    "id": "uri_fragment",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Which character introduces the fragment identifier in a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "h",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "h",
+    "answer": "A hash character",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "h",
+        "probabilities": {
+          "q": 0.00024474113186213794,
+          "h": 0.9997413621797961,
+          "insufficient_evidence": 1.3896688341749762e-05
+        },
+        "confidence": 0.9997413621797961
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1331-1341",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.5.  Fragment\n\n   The fragment identifier component of a URI allows indirect\n   identification of a secondary resource by reference to a primary\n   resource and additional identifying information.  The identified\n   secondary resource may be some portion or subset of the primary\n   resource, some view on representations of the primary resource, or\n   some other resource defined or described by those representations.  A\n   fragment identifier component is indicated by the presence of a\n   number sign (\"#\") character and terminated by the end of the URI.\n\n",
+        "line_start": 1331,
+        "line_end": 1341,
+        "retrieval_score": 9.158123032710108
+      },
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 10.65626432501976
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1367-1390",
+      "rfc3986:L1391-1404"
+    ],
+    "used_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 2.1471250074682757,
+      "decision": 328.0606250045821,
+      "verification": 0,
+      "total": 332.80925000144634
+    }
+  },
+  {
+    "id": "uri_percent",
+    "repeat": 1,
+    "suite": "external",
+    "query": "How is a percent-encoded octet represented?",
+    "criteria": {
+      "two": "A percent sign followed by two hexadecimal digits",
+      "four": "A percent sign followed by four decimal digits"
+    },
+    "expected": "two",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "two": 0.08302632020030949,
+          "four": 0.0030594747992418537,
+          "insufficient_evidence": 0.9139142050004487
+        },
+        "confidence": 0.9139142050004487
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L678-708",
+      "rfc3986:L638-657",
+      "rfc3986:L2477-2489",
+      "rfc3986:L1075-1099"
+    ],
+    "used_ids": [
+      "rfc3986:L678-708"
+    ],
+    "timing_ms": {
+      "retrieval": 0.7114170002751052,
+      "decision": 306.20620799891185,
+      "verification": 0,
+      "total": 308.8521669997135
+    }
+  },
+  {
+    "id": "uri_hex_case",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Are uppercase and lowercase hexadecimal digits in percent-encoded triplets equivalent?",
+    "criteria": {
+      "yes": "They are equivalent",
+      "no": "They represent different octets"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "They are equivalent",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.9989067640635291,
+          "no": 0.0010652555306638995,
+          "insufficient_evidence": 2.7980405807112895e-05
+        },
+        "confidence": 0.9989067640635291
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L658-677",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "      pct-encoded = \"%\" HEXDIG HEXDIG\n\n   The uppercase hexadecimal digits 'A' through 'F' are equivalent to\n   the lowercase digits 'a' through 'f', respectively.  If two URIs\n   differ only in the case of hexadecimal digits used in percent-encoded\n   octets, they are equivalent.  For consistency, URI producers and\n   normalizers should use uppercase hexadecimal digits for all percent-\n   encodings.\n\n2.2.  Reserved Characters\n\n   URIs include components and subcomponents that are delimited by\n   characters in the \"reserved\" set.  These characters are called\n   \"reserved\" because they may (or may not) be defined as delimiters by\n   the generic syntax, by each scheme-specific syntax, or by the\n   implementation-specific syntax of a URI's dereferencing algorithm.\n   If data for a URI component would conflict with a reserved\n   character's purpose as a delimiter, then the conflicting data must be\n   percent-encoded before the URI is formed.\n\n",
+        "line_start": 658,
+        "line_end": 677,
+        "retrieval_score": 27.587305118922618
+      },
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 19.976521957687485
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266",
+      "rfc3986:L927-936",
+      "rfc3986:L722-735"
+    ],
+    "used_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266"
+    ],
+    "timing_ms": {
+      "retrieval": 1.404541006195359,
+      "decision": 312.96970800030977,
+      "verification": 0,
+      "total": 315.5691249994561
+    }
+  },
+  {
+    "id": "uri_userinfo",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Which character separates user information from host in URI authority?",
+    "criteria": {
+      "at": "An at-sign",
+      "hash": "A hash character"
+    },
+    "expected": "at",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "at",
+    "answer": "An at-sign",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "at",
+        "probabilities": {
+          "at": 0.9991980301708713,
+          "hash": 0.00043878839943392654,
+          "insufficient_evidence": 0.0003631814296948409
+        },
+        "confidence": 0.9991980301708713
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L982-996",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  Non-\n   validating parsers (those that merely separate a URI reference into\n   its major components) will often ignore the subcomponent structure of\n   authority, treating it as an opaque string from the double-slash to\n   the first terminating delimiter, until such time as the URI is\n   dereferenced.\n\n3.2.1.  User Information\n\n   The userinfo subcomponent may consist of a user name and, optionally,\n   scheme-specific information about how to gain authorization to access\n   the resource.  The user information, if present, is followed by a\n   commercial at-sign (\"@\") that delimits it from the host.\n\n",
+        "line_start": 982,
+        "line_end": 996,
+        "retrieval_score": 14.228087051075146
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.221544421419704
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981",
+      "rfc3986:L81-87",
+      "rfc3986:L947-962"
+    ],
+    "used_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 2.3984160070540383,
+      "decision": 227.21662500407547,
+      "verification": 0,
+      "total": 230.7447079947451
+    }
+  },
+  {
+    "id": "uri_authority",
+    "repeat": 1,
+    "suite": "external",
+    "query": "What precedes the authority component of a hierarchical URI?",
+    "criteria": {
+      "slashes": "A double slash",
+      "dots": "A double dot"
+    },
+    "expected": "slashes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "slashes",
+    "answer": "A double slash",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "slashes",
+        "probabilities": {
+          "slashes": 0.9978924845563641,
+          "dots": 0.001354813927280618,
+          "insufficient_evidence": 0.0007527015163551515
+        },
+        "confidence": 0.9978924845563641
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.00430457066984
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.035615098178283
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981",
+      "rfc3986:L1301-1316",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 3.3129169896710664,
+      "decision": 253.52312499308027,
+      "verification": 0,
+      "total": 259.9796669965144
+    }
+  },
+  {
+    "id": "uri_first",
+    "repeat": 1,
+    "suite": "external",
+    "query": "What type of character must a URI scheme begin with?",
+    "criteria": {
+      "digit": "A digit",
+      "letter": "A letter"
+    },
+    "expected": "letter",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "digit": 0.0007394977158649847,
+          "letter": 0.04324703823709138,
+          "insufficient_evidence": 0.9560134640470437
+        },
+        "confidence": 0.9560134640470437
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1464-1475",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 2.6127080054720864,
+      "decision": 242.86095799470786,
+      "verification": 0,
+      "total": 247.75620800210163
+    }
+  },
+  {
+    "id": "uri_fragment_before",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Is the fragment identifier separated from the rest of the URI prior to dereference?",
+    "criteria": {
+      "yes": "It is separated before dereference",
+      "no": "It is sent as part of the scheme-specific dereference"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "It is separated before dereference",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.9984963636148859,
+          "no": 0.0012765328790950567,
+          "insufficient_evidence": 0.00022710350601900392
+        },
+        "confidence": 0.9984963636148859
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1367-1390",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "\n\nBerners-Lee, et al.         Standards Track                    [Page 24]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   As with any URI, use of a fragment identifier component does not\n   imply that a retrieval action will take place.  A URI with a fragment\n   identifier may be used to refer to the secondary resource without any\n   implication that the primary resource is accessible or will ever be\n   accessed.\n\n   Fragment identifiers have a special role in information retrieval\n   systems as the primary form of client-side indirect referencing,\n   allowing an author to specifically identify aspects of an existing\n   resource that are only indirectly provided by the resource owner.  As\n   such, the fragment identifier is not used in the scheme-specific\n   processing of a URI; instead, the fragment identifier is separated\n   from the rest of the URI prior to a dereference, and thus the\n   identifying information within the fragment itself is dereferenced\n   solely by the user agent, regardless of the URI scheme.  Although\n   this separate handling is often perceived to be a loss of\n",
+        "line_start": 1367,
+        "line_end": 1390,
+        "retrieval_score": 19.87876875364512
+      },
+      {
+        "id": "rfc3986:L1508-1521",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "4.4.  Same-Document Reference\n\n   When a URI reference refers to a URI that is, aside from its fragment\n   component (if any), identical to the base URI (Section 5.1), that\n   reference is called a \"same-document\" reference.  The most frequent\n   examples of same-document references are relative references that are\n   empty or include only the number sign (\"#\") separator followed by a\n   fragment identifier.\n\n   When a same-document reference is dereferenced for a retrieval\n   action, the target of that reference is defined to be within the same\n   entity (representation, document, or message) as the reference;\n   therefore, a dereference should not result in a new retrieval action.\n\n",
+        "line_start": 1508,
+        "line_end": 1521,
+        "retrieval_score": 10.77978254919659
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521",
+      "rfc3986:L2894-2901",
+      "rfc3986:L1342-1353"
+    ],
+    "used_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521"
+    ],
+    "timing_ms": {
+      "retrieval": 1.4219580043572932,
+      "decision": 255.73925000207964,
+      "verification": 0,
+      "total": 258.82983300834894
+    }
+  },
+  {
+    "id": "uri_absent_owner",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Who owns the private Oriole service?",
+    "criteria": {
+      "a": "Alice",
+      "b": "Bob"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0006912716258057059,
+          "b": 0.00047384741458668953,
+          "insufficient_evidence": 0.9988348809596076
+        },
+        "confidence": 0.9988348809596076
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438",
+      "rfc3986:L2490-2504",
+      "rfc3986:L834-848"
+    ],
+    "used_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438"
+    ],
+    "timing_ms": {
+      "retrieval": 1.763583000865765,
+      "decision": 225.043625003309,
+      "verification": 0,
+      "total": 229.19595800340176
+    }
+  },
+  {
+    "id": "uri_absent_port",
+    "repeat": 1,
+    "suite": "external",
+    "query": "Which TCP port is used by our private Oriole gateway?",
+    "criteria": {
+      "a": "443",
+      "b": "8443"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0010304980316852945,
+          "b": 0.0027765896069120387,
+          "insufficient_evidence": 0.9961929123614027
+        },
+        "confidence": 0.9961929123614027
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456",
+      "rfc3986:L2314-2329",
+      "rfc3986:L963-981"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456"
+    ],
+    "timing_ms": {
+      "retrieval": 2.3443330137524754,
+      "decision": 246.23350000183564,
+      "verification": 0,
+      "total": 250.81283300823998
+    }
+  },
+  {
+    "id": "uri_absent_policy",
+    "repeat": 1,
+    "suite": "external",
+    "query": "What is our company log retention policy?",
+    "criteria": {
+      "a": "14 days",
+      "b": "90 days"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.00011994004926033247,
+          "b": 0.0002777518733415604,
+          "insufficient_evidence": 0.9996023080773981
+        },
+        "confidence": 0.9996023080773981
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172",
+      "rfc3986:L81-87",
+      "rfc3986:L503-511"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172"
+    ],
+    "timing_ms": {
+      "retrieval": 1.1693339911289513,
+      "decision": 284.3320410029264,
+      "verification": 0,
+      "total": 287.8259999997681
+    }
+  },
+  {
+    "id": "uri_absent_latency",
+    "repeat": 1,
+    "suite": "external",
+    "query": "What p95 latency does our current model service achieve?",
+    "criteria": {
+      "a": "100 ms",
+      "b": "200 ms"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.00017675783732739472,
+          "b": 0.0007436799781277187,
+          "insufficient_evidence": 0.999079562184545
+        },
+        "confidence": 0.999079562184545
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138",
+      "rfc3986:L223-250",
+      "rfc3986:L2784-2813"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138"
+    ],
+    "timing_ms": {
+      "retrieval": 1.0580829984974116,
+      "decision": 227.31124999700114,
+      "verification": 0,
+      "total": 230.67229099979158
+    }
+  },
+  {
+    "id": "uri_scheme_case",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Are URI scheme names case-sensitive?",
+    "criteria": {
+      "yes": "Scheme names are case-sensitive",
+      "no": "Scheme names are case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "Scheme names are case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.00036650761384419864,
+          "no": 0.9994754891926425,
+          "insufficient_evidence": 0.00015800319351335149
+        },
+        "confidence": 0.9994754891926425
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 10.354959398585954
+      },
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 9.39541397453805
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361",
+      "rfc3986:L927-936",
+      "rfc3986:L937-946"
+    ],
+    "used_ids": [
+      "rfc3986:L2253-2266",
+      "rfc3986:L2352-2361"
+    ],
+    "timing_ms": {
+      "retrieval": 3.0152079998515546,
+      "decision": 250.60745900555048,
+      "verification": 0,
+      "total": 256.1770419997629
+    }
+  },
+  {
+    "id": "uri_host_case",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Is the URI host subcomponent case-sensitive?",
+    "criteria": {
+      "yes": "The host is case-sensitive",
+      "no": "The host is case-insensitive"
+    },
+    "expected": "no",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "no",
+    "answer": "The host is case-insensitive",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "yes": 0.0001705459504803407,
+          "no": 0.999791280250536,
+          "insufficient_evidence": 3.817379898368629e-05
+        },
+        "confidence": 0.999791280250536
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L2352-2361",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Some schemes define additional subcomponents that consist of case-\n   insensitive data, giving an implicit license to normalizers to\n   convert this data to a common case (e.g., all lowercase).  For\n   example, URI schemes that define a subcomponent of path to contain an\n   Internet hostname, such as the \"mailto\" URI scheme, cause that\n   subcomponent to be case-insensitive and thus subject to case\n   normalization (e.g., \"mailto:Joe@Example.COM\" is equivalent to\n   \"mailto:Joe@example.com\", even though the generic syntax considers\n   the path component to be case-sensitive).\n\n",
+        "line_start": 2352,
+        "line_end": 2361,
+        "retrieval_score": 12.898292915509925
+      },
+      {
+        "id": "rfc3986:L1009-1024",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   Applications that render a URI for the sake of user feedback, such as\n   in graphical hypertext browsing, should render userinfo in a way that\n   is distinguished from the rest of a URI, when feasible.  Such\n   rendering will assist the user in cases where the userinfo has been\n   misleadingly crafted to look like a trusted domain name\n   (Section 7.6).\n\n3.2.2.  Host\n\n   The host subcomponent of authority is identified by an IP literal\n   encapsulated within square brackets, an IPv4 address in dotted-\n   decimal form, or a registered name.  The host subcomponent is case-\n   insensitive.  The presence of a host subcomponent within a URI does\n   not imply that the scheme requires access to the given host on the\n   Internet.  In many cases, the host syntax is used only for the sake\n\n",
+        "line_start": 1009,
+        "line_end": 1024,
+        "retrieval_score": 10.885365797701038
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024",
+      "rfc3986:L2253-2266",
+      "rfc3986:L2314-2329"
+    ],
+    "used_ids": [
+      "rfc3986:L2352-2361",
+      "rfc3986:L1009-1024"
+    ],
+    "timing_ms": {
+      "retrieval": 1.1399579962017015,
+      "decision": 297.5418330024695,
+      "verification": 0,
+      "total": 299.76970799907576
+    }
+  },
+  {
+    "id": "uri_port",
+    "repeat": 2,
+    "suite": "external",
+    "query": "What is the syntax of the URI port subcomponent?",
+    "criteria": {
+      "digits": "Zero or more decimal digits",
+      "letters": "One or more alphabetic letters"
+    },
+    "expected": "digits",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "digits",
+    "answer": "Zero or more decimal digits",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "digits",
+        "probabilities": {
+          "digits": 0.9992812147773658,
+          "letters": 0.0005255994448560653,
+          "insufficient_evidence": 0.00019318577777815253
+        },
+        "confidence": 0.9992812147773658
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1191-1219",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   percent-encoding, if they wish to maximize interoperability with\n   legacy URI resolvers.\n\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 21]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n3.2.3.  Port\n\n   The port subcomponent of authority is designated by an optional port\n   number in decimal following the host and delimited from it by a\n   single colon (\":\") character.\n\n      port        = *DIGIT\n\n   A scheme may define a default port.  For example, the \"http\" scheme\n   defines a default port of \"80\", corresponding to its reserved TCP\n   port number.  The type of port designated by the port number (e.g.,\n   TCP, UDP, SCTP) is defined by the URI scheme.  URI producers and\n   normalizers should omit the port component and its \":\" delimiter if\n   port is empty or if its value would be the same as that of the\n   scheme's default.\n\n",
+        "line_start": 1191,
+        "line_end": 1219,
+        "retrieval_score": 9.72184943996025
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L1075-1099",
+      "rfc3986:L2314-2329",
+      "rfc3986:L1155-1172"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219"
+    ],
+    "timing_ms": {
+      "retrieval": 2.0309590036049485,
+      "decision": 260.0315839954419,
+      "verification": 0,
+      "total": 265.6403750006575
+    }
+  },
+  {
+    "id": "uri_ipv6",
+    "repeat": 2,
+    "suite": "external",
+    "query": "How is an IPv6 address literal enclosed in a URI host?",
+    "criteria": {
+      "square": "Square brackets",
+      "round": "Round parentheses"
+    },
+    "expected": "square",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "square",
+    "answer": "Square brackets",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "square",
+        "probabilities": {
+          "square": 0.9996001190437189,
+          "round": 0.0002913201964461583,
+          "insufficient_evidence": 0.00010856075983508642
+        },
+        "confidence": 0.9996001190437189
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1075-1099",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an IPv6 literal address is represented inside\n   the square brackets without a preceding version flag.  The ABNF\n   provided here is a translation of the text definition of an IPv6\n   literal address provided in [RFC3513].  This syntax does not support\n   IPv6 scoped addressing zone identifiers.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 19]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   A 128-bit IPv6 address is divided into eight 16-bit pieces.  Each\n   piece is represented numerically in case-insensitive hexadecimal,\n   using one to four hexadecimal digits (leading zeroes are permitted).\n   The eight encoded pieces are given most-significant first, separated\n   by colon characters.  Optionally, the least-significant two pieces\n   may instead be represented in IPv4 address textual format.  A\n   sequence of one or more consecutive zero-valued 16-bit pieces within\n   the address may be elided, omitting all their digits and leaving\n   exactly two consecutive colons in their place to mark the elision.\n\n",
+        "line_start": 1075,
+        "line_end": 1099,
+        "retrieval_score": 16.482786383788408
+      },
+      {
+        "id": "rfc3986:L1053-1062",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   A host identified by an Internet Protocol literal address, version 6\n   [RFC3513] or later, is distinguished by enclosing the IP literal\n   within square brackets (\"[\" and \"]\").  This is the only place where\n   square bracket characters are allowed in the URI syntax.  In\n   anticipation of future, as-yet-undefined IP literal address formats,\n   an implementation may use an optional version flag to indicate such a\n   format explicitly rather than rely on heuristic determination.\n\n      IP-literal = \"[\" ( IPv6address / IPvFuture  ) \"]\"\n\n",
+        "line_start": 1053,
+        "line_end": 1062,
+        "retrieval_score": 23.15749178712338
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062",
+      "rfc3986:L1063-1074",
+      "rfc3986:L1009-1024"
+    ],
+    "used_ids": [
+      "rfc3986:L1075-1099",
+      "rfc3986:L1053-1062"
+    ],
+    "timing_ms": {
+      "retrieval": 1.029750012094155,
+      "decision": 296.3040419999743,
+      "verification": 0,
+      "total": 298.4378750115866
+    }
+  },
+  {
+    "id": "uri_query",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Which character introduces the query component of a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "q",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "q",
+    "answer": "A question mark",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "q",
+        "probabilities": {
+          "q": 0.9992460726199661,
+          "h": 0.0006339575092319296,
+          "insufficient_evidence": 0.00011996987080195256
+        },
+        "confidence": 0.9992460726199661
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.908385478718342
+      },
+      {
+        "id": "rfc3986:L1301-1316",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.4.  Query\n\n   The query component contains non-hierarchical data that, along with\n   data in the path component (Section 3.3), serves to identify a\n   resource within the scope of the URI's scheme and naming authority\n   (if any).  The query component is indicated by the first question\n   mark (\"?\") character and terminated by a number sign (\"#\") character\n   or by the end of the URI.\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 23]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n",
+        "line_start": 1301,
+        "line_end": 1316,
+        "retrieval_score": 15.35778490890537
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316",
+      "rfc3986:L876-896",
+      "rfc3986:L1317-1330"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L1301-1316"
+    ],
+    "timing_ms": {
+      "retrieval": 1.8333750049350783,
+      "decision": 239.58275000040885,
+      "verification": 0,
+      "total": 242.5456250057323
+    }
+  },
+  {
+    "id": "uri_fragment",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Which character introduces the fragment identifier in a URI?",
+    "criteria": {
+      "q": "A question mark",
+      "h": "A hash character"
+    },
+    "expected": "h",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "h",
+    "answer": "A hash character",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "h",
+        "probabilities": {
+          "q": 0.00023005409086314762,
+          "h": 0.9997559996747962,
+          "insufficient_evidence": 1.394623434073624e-05
+        },
+        "confidence": 0.9997559996747962
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1331-1341",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.5.  Fragment\n\n   The fragment identifier component of a URI allows indirect\n   identification of a secondary resource by reference to a primary\n   resource and additional identifying information.  The identified\n   secondary resource may be some portion or subset of the primary\n   resource, some view on representations of the primary resource, or\n   some other resource defined or described by those representations.  A\n   fragment identifier component is indicated by the presence of a\n   number sign (\"#\") character and terminated by the end of the URI.\n\n",
+        "line_start": 1331,
+        "line_end": 1341,
+        "retrieval_score": 9.158123032710108
+      },
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 10.65626432501976
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1367-1390",
+      "rfc3986:L1391-1404"
+    ],
+    "used_ids": [
+      "rfc3986:L1331-1341",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 0.9618339972803369,
+      "decision": 239.07908299588598,
+      "verification": 0,
+      "total": 241.68591700436082
+    }
+  },
+  {
+    "id": "uri_percent",
+    "repeat": 2,
+    "suite": "external",
+    "query": "How is a percent-encoded octet represented?",
+    "criteria": {
+      "two": "A percent sign followed by two hexadecimal digits",
+      "four": "A percent sign followed by four decimal digits"
+    },
+    "expected": "two",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "two": 0.010976120801428025,
+          "four": 0.0009469694665629449,
+          "insufficient_evidence": 0.988076909732009
+        },
+        "confidence": 0.988076909732009
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L678-708",
+      "rfc3986:L638-657",
+      "rfc3986:L2477-2489",
+      "rfc3986:L1075-1099"
+    ],
+    "used_ids": [
+      "rfc3986:L678-708"
+    ],
+    "timing_ms": {
+      "retrieval": 1.1674160050461069,
+      "decision": 360.1677500118967,
+      "verification": 0,
+      "total": 363.5000000067521
+    }
+  },
+  {
+    "id": "uri_hex_case",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Are uppercase and lowercase hexadecimal digits in percent-encoded triplets equivalent?",
+    "criteria": {
+      "yes": "They are equivalent",
+      "no": "They represent different octets"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "They are equivalent",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.998082553783757,
+          "no": 0.0017729797431271504,
+          "insufficient_evidence": 0.00014446647311572812
+        },
+        "confidence": 0.998082553783757
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L658-677",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "      pct-encoded = \"%\" HEXDIG HEXDIG\n\n   The uppercase hexadecimal digits 'A' through 'F' are equivalent to\n   the lowercase digits 'a' through 'f', respectively.  If two URIs\n   differ only in the case of hexadecimal digits used in percent-encoded\n   octets, they are equivalent.  For consistency, URI producers and\n   normalizers should use uppercase hexadecimal digits for all percent-\n   encodings.\n\n2.2.  Reserved Characters\n\n   URIs include components and subcomponents that are delimited by\n   characters in the \"reserved\" set.  These characters are called\n   \"reserved\" because they may (or may not) be defined as delimiters by\n   the generic syntax, by each scheme-specific syntax, or by the\n   implementation-specific syntax of a URI's dereferencing algorithm.\n   If data for a URI component would conflict with a reserved\n   character's purpose as a delimiter, then the conflicting data must be\n   percent-encoded before the URI is formed.\n\n",
+        "line_start": 658,
+        "line_end": 677,
+        "retrieval_score": 27.587305118922618
+      },
+      {
+        "id": "rfc3986:L2253-2266",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "6.2.2.1.  Case Normalization\n\n   For all URIs, the hexadecimal digits within a percent-encoding\n   triplet (e.g., \"%3a\" versus \"%3A\") are case-insensitive and therefore\n   should be normalized to use uppercase letters for the digits A-F.\n\n   When a URI uses components of the generic syntax, the component\n   syntax equivalence rules always apply; namely, that the scheme and\n   host are case-insensitive and therefore should be normalized to\n   lowercase.  For example, the URI <HTTP://www.EXAMPLE.com/> is\n   equivalent to <http://www.example.com/>.  The other generic syntax\n   components are assumed to be case-sensitive unless specifically\n   defined otherwise by the scheme (see Section 6.2.3).\n\n",
+        "line_start": 2253,
+        "line_end": 2266,
+        "retrieval_score": 19.976521957687485
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266",
+      "rfc3986:L927-936",
+      "rfc3986:L722-735"
+    ],
+    "used_ids": [
+      "rfc3986:L658-677",
+      "rfc3986:L2253-2266"
+    ],
+    "timing_ms": {
+      "retrieval": 2.64920799236279,
+      "decision": 245.82287500379607,
+      "verification": 0,
+      "total": 252.02554099087138
+    }
+  },
+  {
+    "id": "uri_userinfo",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Which character separates user information from host in URI authority?",
+    "criteria": {
+      "at": "An at-sign",
+      "hash": "A hash character"
+    },
+    "expected": "at",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "at",
+    "answer": "An at-sign",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "at",
+        "probabilities": {
+          "at": 0.9993343879275467,
+          "hash": 0.0003064081393843595,
+          "insufficient_evidence": 0.0003592039330689035
+        },
+        "confidence": 0.9993343879275467
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L982-996",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  Non-\n   validating parsers (those that merely separate a URI reference into\n   its major components) will often ignore the subcomponent structure of\n   authority, treating it as an opaque string from the double-slash to\n   the first terminating delimiter, until such time as the URI is\n   dereferenced.\n\n3.2.1.  User Information\n\n   The userinfo subcomponent may consist of a user name and, optionally,\n   scheme-specific information about how to gain authorization to access\n   the resource.  The user information, if present, is followed by a\n   commercial at-sign (\"@\") that delimits it from the host.\n\n",
+        "line_start": 982,
+        "line_end": 996,
+        "retrieval_score": 14.228087051075146
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.221544421419704
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981",
+      "rfc3986:L81-87",
+      "rfc3986:L947-962"
+    ],
+    "used_ids": [
+      "rfc3986:L982-996",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 0.9493749967077747,
+      "decision": 237.78816699632443,
+      "verification": 0,
+      "total": 239.94479200337082
+    }
+  },
+  {
+    "id": "uri_authority",
+    "repeat": 2,
+    "suite": "external",
+    "query": "What precedes the authority component of a hierarchical URI?",
+    "criteria": {
+      "slashes": "A double slash",
+      "dots": "A double dot"
+    },
+    "expected": "slashes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "slashes",
+    "answer": "A double slash",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "slashes",
+        "probabilities": {
+          "slashes": 0.998161617340553,
+          "dots": 0.0011206157213162456,
+          "insufficient_evidence": 0.0007177669381307129
+        },
+        "confidence": 0.998161617340553
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1220-1237",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "3.3.  Path\n\n   The path component contains data, usually organized in hierarchical\n   form, that, along with data in the non-hierarchical query component\n   (Section 3.4), serves to identify a resource within the scope of the\n   URI's scheme and naming authority (if any).  The path is terminated\n   by the first question mark (\"?\") or number sign (\"#\") character, or\n   by the end of the URI.\n\n   If a URI contains an authority component, then the path component\n   must either be empty or begin with a slash (\"/\") character.  If a URI\n   does not contain an authority component, then the path cannot begin\n   with two slash characters (\"//\").  In addition, a URI reference\n   (Section 4.1) may be a relative-path reference, in which case the\n   first path segment cannot contain a colon (\":\") character.  The ABNF\n   requires five separate rules to disambiguate these cases, only one of\n   which will match the path substring within a given URI reference.  We\n   use the generic term \"path component\" to describe the URI substring\n",
+        "line_start": 1220,
+        "line_end": 1237,
+        "retrieval_score": 9.00430457066984
+      },
+      {
+        "id": "rfc3986:L963-981",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "   The authority component is preceded by a double slash (\"//\") and is\n   terminated by the next slash (\"/\"), question mark (\"?\"), or number\n   sign (\"#\") character, or by the end of the URI.\n\n\n\n\nBerners-Lee, et al.         Standards Track                    [Page 17]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n      authority   = [ userinfo \"@\" ] host [ \":\" port ]\n\n   URI producers and normalizers should omit the \":\" delimiter that\n   separates host from port if the port component is empty.  Some\n   schemes do not allow the userinfo and/or port subcomponents.\n\n",
+        "line_start": 963,
+        "line_end": 981,
+        "retrieval_score": 14.035615098178283
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981",
+      "rfc3986:L1301-1316",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L1220-1237",
+      "rfc3986:L963-981"
+    ],
+    "timing_ms": {
+      "retrieval": 1.1542919964995235,
+      "decision": 222.35787501267623,
+      "verification": 0,
+      "total": 225.02258299209643
+    }
+  },
+  {
+    "id": "uri_first",
+    "repeat": 2,
+    "suite": "external",
+    "query": "What type of character must a URI scheme begin with?",
+    "criteria": {
+      "digit": "A digit",
+      "letter": "A letter"
+    },
+    "expected": "letter",
+    "correct": false,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "digit": 0.0008127714886476256,
+          "letter": 0.04900564827466961,
+          "insufficient_evidence": 0.9501815802366826
+        },
+        "confidence": 0.9501815802366826
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237",
+      "rfc3986:L1464-1475",
+      "rfc3986:L982-996"
+    ],
+    "used_ids": [
+      "rfc3986:L876-896",
+      "rfc3986:L1220-1237"
+    ],
+    "timing_ms": {
+      "retrieval": 1.8164579960284755,
+      "decision": 236.2041250016773,
+      "verification": 0,
+      "total": 239.3932919949293
+    }
+  },
+  {
+    "id": "uri_fragment_before",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Is the fragment identifier separated from the rest of the URI prior to dereference?",
+    "criteria": {
+      "yes": "It is separated before dereference",
+      "no": "It is sent as part of the scheme-specific dereference"
+    },
+    "expected": "yes",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "yes",
+    "answer": "It is separated before dereference",
+    "abstained": false,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "yes": 0.9986258095685265,
+          "no": 0.0009778211294624573,
+          "insufficient_evidence": 0.0003963693020109985
+        },
+        "confidence": 0.9986258095685265
+      }
+    },
+    "verification": null,
+    "citations": [
+      {
+        "id": "rfc3986:L1367-1390",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "\n\nBerners-Lee, et al.         Standards Track                    [Page 24]\n\f\nRFC 3986                   URI Generic Syntax               January 2005\n\n\n   As with any URI, use of a fragment identifier component does not\n   imply that a retrieval action will take place.  A URI with a fragment\n   identifier may be used to refer to the secondary resource without any\n   implication that the primary resource is accessible or will ever be\n   accessed.\n\n   Fragment identifiers have a special role in information retrieval\n   systems as the primary form of client-side indirect referencing,\n   allowing an author to specifically identify aspects of an existing\n   resource that are only indirectly provided by the resource owner.  As\n   such, the fragment identifier is not used in the scheme-specific\n   processing of a URI; instead, the fragment identifier is separated\n   from the rest of the URI prior to a dereference, and thus the\n   identifying information within the fragment itself is dereferenced\n   solely by the user agent, regardless of the URI scheme.  Although\n   this separate handling is often perceived to be a loss of\n",
+        "line_start": 1367,
+        "line_end": 1390,
+        "retrieval_score": 19.87876875364512
+      },
+      {
+        "id": "rfc3986:L1508-1521",
+        "url": "https://www.rfc-editor.org/rfc/rfc3986.txt",
+        "sha256": "3102dae4b68cebe40337730312fcb612297b8928547267e8b3d1ee6002b2d683",
+        "text": "4.4.  Same-Document Reference\n\n   When a URI reference refers to a URI that is, aside from its fragment\n   component (if any), identical to the base URI (Section 5.1), that\n   reference is called a \"same-document\" reference.  The most frequent\n   examples of same-document references are relative references that are\n   empty or include only the number sign (\"#\") separator followed by a\n   fragment identifier.\n\n   When a same-document reference is dereferenced for a retrieval\n   action, the target of that reference is defined to be within the same\n   entity (representation, document, or message) as the reference;\n   therefore, a dereference should not result in a new retrieval action.\n\n",
+        "line_start": 1508,
+        "line_end": 1521,
+        "retrieval_score": 10.77978254919659
+      }
+    ],
+    "retrieved_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521",
+      "rfc3986:L2894-2901",
+      "rfc3986:L1342-1353"
+    ],
+    "used_ids": [
+      "rfc3986:L1367-1390",
+      "rfc3986:L1508-1521"
+    ],
+    "timing_ms": {
+      "retrieval": 7.102082992787473,
+      "decision": 355.41679100424517,
+      "verification": 0,
+      "total": 365.7942499994533
+    }
+  },
+  {
+    "id": "uri_absent_owner",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Who owns the private Oriole service?",
+    "criteria": {
+      "a": "Alice",
+      "b": "Bob"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.00030359478404999037,
+          "b": 0.0006020578106555599,
+          "insufficient_evidence": 0.9990943474052945
+        },
+        "confidence": 0.9990943474052945
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438",
+      "rfc3986:L2490-2504",
+      "rfc3986:L834-848"
+    ],
+    "used_ids": [
+      "rfc3986:L1124-1138",
+      "rfc3986:L2424-2438"
+    ],
+    "timing_ms": {
+      "retrieval": 0.5190829979255795,
+      "decision": 321.50083300075494,
+      "verification": 0,
+      "total": 323.17612499173265
+    }
+  },
+  {
+    "id": "uri_absent_port",
+    "repeat": 2,
+    "suite": "external",
+    "query": "Which TCP port is used by our private Oriole gateway?",
+    "criteria": {
+      "a": "443",
+      "b": "8443"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0007846663477208587,
+          "b": 0.0032488462755041452,
+          "insufficient_evidence": 0.995966487376775
+        },
+        "confidence": 0.995966487376775
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456",
+      "rfc3986:L2314-2329",
+      "rfc3986:L963-981"
+    ],
+    "used_ids": [
+      "rfc3986:L1191-1219",
+      "rfc3986:L2439-2456"
+    ],
+    "timing_ms": {
+      "retrieval": 0.705667000147514,
+      "decision": 223.65029199863784,
+      "verification": 0,
+      "total": 225.67712499585468
+    }
+  },
+  {
+    "id": "uri_absent_policy",
+    "repeat": 2,
+    "suite": "external",
+    "query": "What is our company log retention policy?",
+    "criteria": {
+      "a": "14 days",
+      "b": "90 days"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.0001299055906648509,
+          "b": 0.00026822197342245,
+          "insufficient_evidence": 0.9996018724359127
+        },
+        "confidence": 0.9996018724359127
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172",
+      "rfc3986:L81-87",
+      "rfc3986:L503-511"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1155-1172"
+    ],
+    "timing_ms": {
+      "retrieval": 1.165791996754706,
+      "decision": 237.43745899992064,
+      "verification": 0,
+      "total": 241.1295830097515
+    }
+  },
+  {
+    "id": "uri_absent_latency",
+    "repeat": 2,
+    "suite": "external",
+    "query": "What p95 latency does our current model service achieve?",
+    "criteria": {
+      "a": "100 ms",
+      "b": "200 ms"
+    },
+    "expected": "insufficient_evidence",
+    "correct": true,
+    "model": "diffusiongemma",
+    "variant": "diverse",
+    "choice": "insufficient_evidence",
+    "answer": null,
+    "abstained": true,
+    "raw_decision": {
+      "decision": {
+        "type": "choice",
+        "choice": "insufficient_evidence",
+        "probabilities": {
+          "a": 0.00019140188127645148,
+          "b": 0.0005101506313148613,
+          "insufficient_evidence": 0.9992984474874087
+        },
+        "confidence": 0.9992984474874087
+      }
+    },
+    "verification": null,
+    "citations": [],
+    "retrieved_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138",
+      "rfc3986:L223-250",
+      "rfc3986:L2784-2813"
+    ],
+    "used_ids": [
+      "rfc3986:L251-267",
+      "rfc3986:L1124-1138"
+    ],
+    "timing_ms": {
+      "retrieval": 1.0005420044763014,
+      "decision": 239.56825000641402,
+      "verification": 0,
+      "total": 242.91524999716785
+    }
+  }
+]

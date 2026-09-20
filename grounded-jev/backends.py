@@ -27,6 +27,15 @@ class LayaBackend:
         self.agent = laya.load(Path(__file__).with_name('model-path.txt').read_text().strip(),
                                device=os.environ.get('LAYA_DEVICE','mps'))
         self.name = 'laya'
+        if os.environ.get('LAYA_SCORER'):
+            from safetensors.torch import load_file
+            self.agent.model.scorer.load_state_dict(load_file(os.environ['LAYA_SCORER']),strict=True)
+            self.name='laya-grounding-head'
+        if os.environ.get('LAYA_PRECISION')=='float16':
+            import torch
+            self.agent.model.to(dtype=torch.float16)
+            # Upstream pools explicitly to float32 before the auxiliary act head.
+            self.agent.model.act_head.float()
 
     def fits(self, state, questions):
         # SDK truncates silently: reject oversized state before calling it.

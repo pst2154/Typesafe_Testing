@@ -1,0 +1,99 @@
+{
+  "base_revision": "1c5edc17a7acd8701df6fc341c0d179f1c62c982",
+  "trainable": "scorer only; encoder, contextual head, embeddings and act head frozen",
+  "trainable_parameters": 1052673,
+  "examples": {
+    "train": 648,
+    "validation": 216,
+    "test": 216
+  },
+  "baseline": {
+    "train": 0.6712962985038757,
+    "validation": 0.6203703880310059,
+    "test": 0.6388888955116272
+  },
+  "final": {
+    "train": 0.6712962985038757,
+    "validation": 0.6203703880310059,
+    "test": 0.6388888955116272
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.8232745035195056,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 2,
+      "loss": 0.8175312847266962,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 3,
+      "loss": 0.8112105771347329,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 4,
+      "loss": 0.8056996924641692,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 5,
+      "loss": 0.7997835565496374,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 6,
+      "loss": 0.7935357623630099,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 7,
+      "loss": 0.7853068392953755,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 8,
+      "loss": 0.7774399739724619,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 9,
+      "loss": 0.7698704379576223,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 10,
+      "loss": 0.7608658310807781,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 11,
+      "loss": 0.7527108564053053,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 12,
+      "loss": 0.7443978153629067,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 13,
+      "loss": 0.7357826093096792,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 14,
+      "loss": 0.7286014807077101,
+      "validation_accuracy": 0.6203703880310059
+    },
+    {
+      "epoch": 15,
+      "loss": 0.7226194275750054,
+      "validation_accuracy": 0.6203703880310059
+    }
+  ],
+  "seed": 31415,
+  "limitation": "Synthetic templates with disjoint entity names, not unseen template families. Needs external document evaluation."
+}

@@ -1,6 +1,6 @@
 # Grounded typed-decision prototype
 
-Retrieve public technical documentation, answer a caller-defined Choice question, verify evidence support, and return source excerpts or abstain. See [measured results and limitations](REPORT.md).
+Retrieve public technical documentation, answer a caller-defined Choice question, and return source excerpts or abstain. The default `diverse` variant makes one evidence-first inference call; `--variant baseline` retains the original two-pass verification path. See [measured results and limitations](REPORT.md).
 
 Requires Python 3.11. Use a clean virtual environment; do not inherit unrelated system packages.
 
@@ -48,3 +48,21 @@ USE_TF=0 python evaluate.py --backend diffusiongemma --suite heldout --swap-labe
 ```
 
 Each run warms separately, then makes real inference requests. Results are written after each request. The corpus manifest records public source URLs and SHA-256 hashes; original RFC copyright notices remain in the downloaded documents.
+
+Evaluate the optimized variant and the separate URI document:
+
+```bash
+python external_cases.py
+USE_TF=0 python evaluate.py --backend diffusiongemma --variant diverse --suite heldout --repeat 3 --output tuned-regression.json
+USE_TF=0 python evaluate.py --backend diffusiongemma --variant diverse --suite external --repeat 3 --output tuned-uri.json
+```
+
+Reproduce the head-only training experiment:
+
+```bash
+USE_TF=0 python finetune.py
+USE_TF=0 python finetune.py --reuse-features --learning-rate 0.0001 --epochs 100 --output finetuned-head-v2
+LAYA_SCORER=finetuned-head-v2/scorer.safetensors USE_TF=0 python evaluate.py --backend laya --variant plain --suite external --repeat 3 --output tuned-laya-uri.json
+```
+
+The supplied experimental adapter **regressed on real-document evaluation** and is not enabled by default. Synthetic training data, validation-selected weights and results are provided for reproducibility, not as a recommended model release.

@@ -15,12 +15,16 @@ def main():
     parser.add_argument('--backend',choices=['laya','diffusiongemma'],default='laya')
     parser.add_argument('--host',default='127.0.0.1')
     parser.add_argument('--port',type=int,default=8790)
+    parser.add_argument('--variant',choices=['baseline','plain','entailment','expanded','diverse'],default='diverse')
     args=parser.parse_args()
     key=os.environ.get('GROUNDED_API_KEY')
     if args.host not in ('127.0.0.1','localhost','::1') and not key:
         raise ValueError('GROUNDED_API_KEY is required for non-loopback binding')
     backend=LayaBackend() if args.backend=='laya' else DiffusionBackend()
     app=Grounded(Corpus(Path(__file__).with_name('corpus')),backend)
+    if args.variant!='baseline':
+        from variants import OnePass
+        app=OnePass(app.corpus,backend,args.variant)
     gate=threading.BoundedSemaphore(1)
     class Handler(BaseHTTPRequestHandler):
         def send(self,status,value):
@@ -32,7 +36,7 @@ def main():
             self.wfile.write(data)
         def do_GET(self):
             if self.path=='/health':
-                self.send(200,{'ready':True,'model':backend.name,'chunks':len(app.corpus.chunks)})
+                self.send(200,{'ready':True,'model':backend.name,'variant':args.variant,'chunks':len(app.corpus.chunks)})
             else: self.send(404,{'error':'not found'})
         def do_POST(self):
             if self.path!='/v1/grounded/decision':

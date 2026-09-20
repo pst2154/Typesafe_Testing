@@ -7,7 +7,8 @@ class Grounded:
     def __init__(self, corpus, backend):
         self.corpus, self.backend = corpus, backend
 
-    def decide(self, query, criteria, grounded=True):
+    @staticmethod
+    def validate(query, criteria):
         if not isinstance(query,str) or not query.strip() or len(query)>2000:
             raise ValueError('query must be a nonempty string up to 2000 characters')
         if not isinstance(criteria,dict) or not 2<=len(criteria)<=8 or UNKNOWN in criteria:
@@ -15,6 +16,9 @@ class Grounded:
         if any(not isinstance(k,str) or not isinstance(v,str) or len(k)>50 or len(v)>200
                for k,v in criteria.items()):
             raise ValueError('Choice labels/descriptions must be bounded strings')
+
+    def decide(self, query, criteria, grounded=True):
+        self.validate(query,criteria)
         started = perf_counter()
         retrieved = self.corpus.search(query,k=4) if grounded else []
         retrieval_ms = (perf_counter()-started)*1000
