@@ -59,6 +59,7 @@ Routing comparisons:
 - [TypeSafe vs. Needle 3 classification benchmark](NEEDLE_TYPESAFE_REPORT.md)
 - [TypeSafe vs. DiffusionGemma typed-decision and bounded-reasoning benchmark](DIFFUSIONGEMMA_TYPESAFE_REPORT.md)
 - [NanoJev vs. DiffusionGemma matched decision accuracy](NANOJEV_DIFFUSION_ACCURACY_REPORT.md)
+- [SemIf context grounding, Pac-Man tests, and LoRA trial](SEMIF_CONTEXT_REPORT.md)
 
 The repository contains no credentials, endpoint values, internal paths, or raw
 production data.
